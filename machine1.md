@@ -170,6 +170,7 @@ lxc.uts.name = server-container
 
 lxc.net.0.type = veth
 lxc.net.0.flags = up
+lxc.net.0.name = eth0
 lxc.net.0.link = s1
 lxc.net.0.hwaddr = 00:16:3e:01:c3:1b
 ```
@@ -180,6 +181,7 @@ sudo gedit
 ```
 lxc.net.0.type = veth
 lxc.net.0.flags = up
+lxc.net.0.name = eth1
 lxc.net.0.link = s2
 lxc.net.0.hwaddr = 00:16:3e:af:f3:fd
 ```
