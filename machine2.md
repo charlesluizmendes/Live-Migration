@@ -1,33 +1,57 @@
 # Pacotes
 
 ```
-sudo apt-get update
+sudo apt-get update && sudo apt-get install -y \
+    libnet1-dev \
+    libnl-3-dev \
+    libbsd-dev \
+    libnl-route-3-dev \
+    libnftables-dev \
+    libprotobuf-c-dev \
+    autoconf \
+    libtool \
+    protobuf-c-compiler \
+    protobuf-compiler \
+    build-essential \
+    bsdmainutils \
+    git-core \
+    asciidoc \
+    htop \
+    curl \
+    libnl-genl-3-dev \
+    pkg-config \
+    git \
+    supervisor \
+    cgroup-lite \
+    libapparmor-dev \
+    libseccomp-dev \
+    libcap-dev \
+    libaio-dev \
+    apparmor
 
-sudo apt-get install build-essential
-sudo apt-get install libprotobuf-dev protobuf-compiler libnet1-dev libcap-dev libnl-3-dev libbsd-dev libnl-route-3-dev python3-protobuf python3-distutils
-
-sudo apt-get install libnftables-dev
-
-sudo apt-get install libprotobuf-c-dev
-sudo apt-get install autoconf curl g++ libtool
-sudo apt-get install asciidoc xmlto
-
-sudo apt-get install pkg-config
-sudo apt-get install protobuf-c-compiler
-
-sudo apt install --install-recommends linux-generic
+sudo apt --fix-broken install
 
 sudo apt-get install python3-setuptools
-sudo apt install -y python3-pip
+sudo apt-get install -y python3-pip
 
 sudo apt-get install openvswitch-switch
 sudo apt-get install iptables-persistent
 sudo apt-get install net-tools
 
-sudo apt install openssh-server -y
+sudo apt-get install openssh-server -y
 
-sudo apt-get install git
 sudo apt-get install -y lxc-templates debootstrap
+```
+
+# Kernel
+
+```
+mkdir Linux-Kernel && cd Linux-Kernel
+wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.14/linux-headers-4.14.0-041400_4.14.0-041400.201711122031_all.deb
+wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.14/linux-headers-4.14.0-041400-generic_4.14.0-041400.201711122031_amd64.deb
+wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.14/linux-image-4.14.0-041400-generic_4.14.0-041400.201711122031_amd64.deb
+sudo dpkg -i *.deb
+sudo reboot
 ```
 
 # Redes
