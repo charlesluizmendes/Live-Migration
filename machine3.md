@@ -6,8 +6,8 @@ sudo apt-get update
 sudo apt-get install openvswitch-switch 
 sudo apt-get install net-tools
 sudo apt install openjdk-8-jdk
-
 ```
+
 # Redes
 
 ```
@@ -78,9 +78,6 @@ app activate org.onosproject.fwd
     
 onos@root > devices                                                                             
 ```
-
-
-
 
 
 
