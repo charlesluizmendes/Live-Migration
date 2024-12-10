@@ -1,0 +1,161 @@
+(00.000000) CRIU run id = 0xeffffffc000017d5
+(00.000114) Version: 4.0 (gitid v4.0-37-g058572e91)
+(00.000124) Running on machine1-VirtualBox Linux 6.8.0-49-generic #49~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Wed Nov  6 17:42:15 UTC 2 x86_64
+(00.000151) Loaded kdat cache from /run/criu.kdat
+(00.000181) Hugetlb size 2 Mb is supported but cannot get dev's number
+(00.001072) cpu: x86_family 25 x86_vendor_id AuthenticAMD x86_model_id AMD Ryzen 7 5700G with Radeon Graphics         
+(00.001100) cpu: fpu: xfeatures_mask 0x5 xsave_size 832 xsave_size_max 832 xsaves_size 856
+(00.001113) cpu: fpu: x87 floating point registers     xstate_offsets      0 / 0      xstate_sizes    160 / 160   
+(00.001120) cpu: fpu: AVX registers                    xstate_offsets    576 / 576    xstate_sizes    256 / 256   
+(00.001135) ========================================
+(00.001157) Dumping processes (pid: 4849 comm: systemd)
+(00.001164) ========================================
+(00.001177) rlimit: RLIMIT_NOFILE unlimited for self
+(00.001189) Running pre-dump scripts
+(00.001240) irmap: Searching irmap cache in work dir
+(00.001260) No irmap-cache image
+(00.001267) irmap: Searching irmap cache in parent
+(00.001279) No parent images directory provided
+(00.001285) irmap: No irmap cache
+(00.001297) cpu: fpu:1 fxsr:1 xsave:1 xsaveopt:0 xsavec:0 xgetbv1:0 xsaves:0
+(00.001424) cg-prop: Parsing controller "cpu"
+(00.001433) cg-prop: 	Strategy "replace"
+(00.001439) cg-prop: 	Property "cpu.shares"
+(00.001446) cg-prop: 	Property "cpu.cfs_period_us"
+(00.001452) cg-prop: 	Property "cpu.cfs_quota_us"
+(00.001458) cg-prop: 	Property "cpu.rt_period_us"
+(00.001465) cg-prop: 	Property "cpu.rt_runtime_us"
+(00.001475) cg-prop: Parsing controller "memory"
+(00.001482) cg-prop: 	Strategy "replace"
+(00.001488) cg-prop: 	Property "memory.limit_in_bytes"
+(00.001495) cg-prop: 	Property "memory.memsw.limit_in_bytes"
+(00.001501) cg-prop: 	Property "memory.swappiness"
+(00.001508) cg-prop: 	Property "memory.soft_limit_in_bytes"
+(00.001514) cg-prop: 	Property "memory.move_charge_at_immigrate"
+(00.001520) cg-prop: 	Property "memory.oom_control"
+(00.001526) cg-prop: 	Property "memory.use_hierarchy"
+(00.001536) cg-prop: 	Property "memory.kmem.limit_in_bytes"
+(00.001543) cg-prop: 	Property "memory.kmem.tcp.limit_in_bytes"
+(00.001549) cg-prop: Parsing controller "cpuset"
+(00.001555) cg-prop: 	Strategy "replace"
+(00.001561) cg-prop: 	Property "cpuset.cpus"
+(00.001568) cg-prop: 	Property "cpuset.mems"
+(00.001574) cg-prop: 	Property "cpuset.memory_migrate"
+(00.001580) cg-prop: 	Property "cpuset.cpu_exclusive"
+(00.001586) cg-prop: 	Property "cpuset.mem_exclusive"
+(00.001593) cg-prop: 	Property "cpuset.mem_hardwall"
+(00.001603) cg-prop: 	Property "cpuset.memory_spread_page"
+(00.001609) cg-prop: 	Property "cpuset.memory_spread_slab"
+(00.001615) cg-prop: 	Property "cpuset.sched_load_balance"
+(00.001621) cg-prop: 	Property "cpuset.sched_relax_domain_level"
+(00.001628) cg-prop: Parsing controller "blkio"
+(00.001634) cg-prop: 	Strategy "replace"
+(00.001640) cg-prop: 	Property "blkio.weight"
+(00.001647) cg-prop: Parsing controller "freezer"
+(00.001653) cg-prop: 	Strategy "replace"
+(00.001663) cg-prop: Parsing controller "perf_event"
+(00.001669) cg-prop: 	Strategy "replace"
+(00.001675) cg-prop: Parsing controller "net_cls"
+(00.001682) cg-prop: 	Strategy "replace"
+(00.001688) cg-prop: 	Property "net_cls.classid"
+(00.001694) cg-prop: Parsing controller "net_prio"
+(00.001701) cg-prop: 	Strategy "replace"
+(00.001707) cg-prop: 	Property "net_prio.ifpriomap"
+(00.001713) cg-prop: Parsing controller "pids"
+(00.001726) cg-prop: 	Strategy "replace"
+(00.001733) cg-prop: 	Property "pids.max"
+(00.001739) cg-prop: Parsing controller "devices"
+(00.001746) cg-prop: 	Strategy "replace"
+(00.001752) cg-prop: 	Property "devices.list"
+(00.001787) Preparing image inventory (version 1)
+(00.001816) Add pid ns 1 pid 6101
+(00.001830) Add net ns 2 pid 6101
+(00.001851) Add ipc ns 3 pid 6101
+(00.001866) Add uts ns 4 pid 6101
+(00.001881) Add time ns 5 pid 6101
+(00.003946) Add mnt ns 6 pid 6101
+(00.003972) Add user ns 7 pid 6101
+(00.003992) Add cgroup ns 8 pid 6101
+(00.004007) cg: Dumping cgroups for thread 6101
+(00.004040) cg:  `- New css ID 1
+(00.004047) cg:     `- [] -> [/user.slice/user-1000.slice/user@1000.service/app.slice/app-org.gnome.Terminal.slice/vte-spawn-63579669-adf4-488e-abb8-52253273d96f.scope] [0]
+(00.004053) cg: Set 1 is criu one
+(00.004075) Detected cgroup V1 freezer
+(00.004289) Seized task 4849, state 1
+(00.004298) seccomp: Collected tid_real 4849 mode 0
+(00.004337) Collected (4 attempts, 0 in_progress)
+(00.004377) Seized task 4885, state 0
+(00.004437) seccomp: Collected tid_real 4885 mode 0x2
+(00.004457) Collected (4 attempts, 0 in_progress)
+(00.004482) Collected (4 attempts, 0 in_progress)
+(00.004494) Collected 4885 in 1 state
+(00.004500) Seized task 4921, state 0
+(00.004562) seccomp: Collected tid_real 4921 mode 0x2
+(00.004578) Collected (4 attempts, 0 in_progress)
+(00.004601) Collected (4 attempts, 0 in_progress)
+(00.004614) Collected 4921 in 1 state
+(00.004620) Seized task 4925, state 0
+(00.004676) seccomp: Collected tid_real 4925 mode 0x2
+(00.004691) Collected (4 attempts, 0 in_progress)
+(00.004714) Collected (4 attempts, 0 in_progress)
+(00.004772) Collected 4925 in 1 state
+(00.004779) Seized task 4926, state 0
+(00.006018) seccomp: Collected tid_real 4926 mode 0
+(00.006040) Collected (4 attempts, 0 in_progress)
+(00.006063) Collected (4 attempts, 0 in_progress)
+(00.006075) Collected 4926 in 1 state
+(00.006081) Seized task 4927, state 0
+(00.006139) seccomp: Collected tid_real 4927 mode 0
+(00.006155) Collected (4 attempts, 0 in_progress)
+(00.006211) Collected (4 attempts, 0 in_progress)
+(00.006223) Collected 4927 in 1 state
+(00.006229) Seized task 4929, state 0
+(00.006287) seccomp: Collected tid_real 4929 mode 0
+(00.006308) Collected (4 attempts, 0 in_progress)
+(00.006327) Collected (4 attempts, 0 in_progress)
+(00.006337) Collected 4929 in 1 state
+(00.006343) Seized task 4930, state 0
+(00.006405) seccomp: Collected tid_real 4930 mode 0
+(00.006429) 	Seizing 4930's 4932 thread
+(00.006474) seccomp: Collected tid_real 4932 mode 0
+(00.006486) 	Seizing 4930's 4933 thread
+(00.006529) seccomp: Collected tid_real 4933 mode 0
+(00.006535) 	Seizing 4930's 4934 thread
+(00.006581) seccomp: Collected tid_real 4934 mode 0
+(00.006604) Collected (3 attempts, 0 in_progress)
+(00.006640) Collected (4 attempts, 0 in_progress)
+(00.006647) Collected 4930 in 1 state
+(00.006653) Seized task 4931, state 0
+(00.006863) seccomp: Collected tid_real 4931 mode 0x2
+(00.006880) Collected (4 attempts, 0 in_progress)
+(00.006899) Collected (4 attempts, 0 in_progress)
+(00.006929) Collected 4931 in 1 state
+(00.006980) Collected (3 attempts, 0 in_progress)
+(00.006990) Collected 4849 in 1 state
+(00.007877) Will take pid namespace in the image
+(00.007893) Add pid ns 9 pid 4849
+(00.007909) Will take ipc namespace in the image
+(00.007915) Add ipc ns 10 pid 4849
+(00.007988) Will take uts namespace in the image
+(00.008000) Add uts ns 11 pid 4849
+(00.008030) Will take mnt namespace in the image
+(00.008036) Add mnt ns 12 pid 4849
+(00.008516) Will take cgroup namespace in the image
+(00.008526) Add cgroup ns 13 pid 4849
+(00.009022) Add mnt ns 14 pid 4921
+(00.009097) Add mnt ns 15 pid 4925
+(00.009333) Error (criu/namespaces.c:460): Can't dump nested uts namespace for 4931
+(00.009340) Error (criu/namespaces.c:721): Can't make utsns id
+(00.009363) net: Unlock network
+(00.009374) Unfreezing tasks into 1
+(00.009379) 	Unseizing 4849 into 1
+(00.009390) 	Unseizing 4885 into 1
+(00.009400) 	Unseizing 4921 into 1
+(00.009519) 	Unseizing 4925 into 1
+(00.009550) 	Unseizing 4926 into 1
+(00.009567) 	Unseizing 4927 into 1
+(00.009594) 	Unseizing 4929 into 1
+(00.009611) 	Unseizing 4930 into 1
+(00.009740) 	Unseizing 4931 into 1
+(00.009765) Error (criu/cr-dump.c:2111): Dumping FAILED.
+

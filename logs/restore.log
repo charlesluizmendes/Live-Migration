@@ -1,0 +1,15 @@
+(00.000000) CRIU run id = 0xeffffffc0000115f
+(00.000044) Version: 4.0 (gitid v4.0-37-g058572e91)
+(00.000047) Running on machine2-VirtualBox Linux 6.8.0-49-generic #49~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Wed Nov  6 17:42:15 UTC 2 x86_64
+(00.000063) Loaded kdat cache from /run/criu.kdat
+(00.000080) Hugetlb size 2 Mb is supported but cannot get dev's number
+(00.000390) cpu: x86_family 25 x86_vendor_id AuthenticAMD x86_model_id AMD Ryzen 7 5700G with Radeon Graphics         
+(00.000398) cpu: fpu: xfeatures_mask 0x5 xsave_size 832 xsave_size_max 832 xsaves_size 856
+(00.000401) cpu: fpu: x87 floating point registers     xstate_offsets      0 / 0      xstate_sizes    160 / 160   
+(00.000403) cpu: fpu: AVX registers                    xstate_offsets    576 / 576    xstate_sizes    256 / 256   
+(00.000405) Will dump/restore TCP connections
+(00.000406) Will allow link remaps on FS
+(00.000411) rlimit: RLIMIT_NOFILE unlimited for self
+(00.000429) No inventory.img image
+(00.000431) Error (criu/protobuf.c:72): Unexpected EOF on (empty-image)
+
