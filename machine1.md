@@ -118,6 +118,9 @@ sudo lxc-start -n app-container
 sudo lxc-attach -n app-container
 
 sudo apt update
+
+systemctl disable systemd-logind
+systemctl stop systemd-logind
 ```
 
 # App
