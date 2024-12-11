@@ -155,6 +155,9 @@ curl http://10.0.3.172:8080
 sudo -i
 ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
 ssh-copy-id -i ~/.ssh/id_rsa.pub machine2@192.168.0.144
+
+sudo chmod 700 ~/.ssh
+sudo chmod 600 ~/.ssh/id_rsa
 ```
 
 # Migration
