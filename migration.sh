@@ -1,69 +1,42 @@
-#!/bin/bash
-
-# Verificar se está rodando como root
+#!/bin/sh
+ 
+#Apaga conteúdo do diretório checkpoint se ele existir, para evitar erros
+if [ -e /tmp/checkpoint/ ]; then
+  rm -rf /tmp/checkpoint/*
+fi
+usage() {
+  echo $0 container user@host.to.migrate.to
+  exit 1
+}
+ 
+#Verificação de erros e argumentos passados na hora de chamar a execução do script
 if [ "$(id -u)" != "0" ]; then
-    echo "ERROR: Must run as root."
-    exit 1
+  echo "ERROR: Must run as root."
+  usage
 fi
-
-# Verificar número correto de argumentos
 if [ "$#" != "2" ]; then
-    echo "Usage: $0 container user@host.to.migrate.to"
-    exit 1
+  echo "Bad number of args."
+  usage
 fi
-
-# Verificar se CRIU está instalado e funcionando
-if ! command -v criu >/dev/null 2>&1; then
-    echo "ERROR: CRIU not installed"
-    exit 1
-fi
-
-# Testar CRIU
-if ! criu check; then
-    echo "ERROR: CRIU check failed"
-    exit 1
-fi
-
 name=$1
 host=$2
 checkpoint_dir=/tmp/checkpoint
-
-# Limpar diretório de checkpoint se existir
-if [ -e "$checkpoint_dir" ]; then
-    rm -rf "${checkpoint_dir:?}/"*
-fi
-
-# Função para sincronização
+ 
+#Função responsável por sincronizar as pastas onde estão os arquivos dos containers entre os servidores
 do_rsync() {
-    rsync -aAXHltzh --progress --numeric-ids --devices --rsync-path="sudo rsync" "$1" "$host:$1"
+  rsync -aAXHltzh --progress --numeric-ids --devices --rsync-path="sudo rsync" $1 $host:$1
 }
-
-# Obtém o caminho do LXC
+ 
+# we assume the same lxcpath on both hosts, that is bad.
 LXCPATH=$(lxc-config lxc.lxcpath)
-
-# Salvar regras iptables atuais
-iptables-save > /tmp/iptables.rules
-ip6tables-save > /tmp/ip6tables.rules
-
-# Sincronizar regras para máquina destino
-do_rsync "/tmp/iptables.rules"
-do_rsync "/tmp/ip6tables.rules"
-
-# Criar checkpoint com suporte a TCP estabelecido
-lxc-checkpoint -n "$name" -D "$checkpoint_dir" -v -v -v --tcp-established -s
-
-# Sincronizar diretórios
-do_rsync "$LXCPATH/$name/"
-do_rsync "$checkpoint_dir/"
-
-# Restaurar container no destino com as regras de firewall
-ssh "$host" "sudo iptables-restore < /tmp/iptables.rules && \
-             sudo ip6tables-restore < /tmp/ip6tables.rules && \
-             sudo lxc-checkpoint -r -n $name -D $checkpoint_dir -v && \
-             sudo lxc-wait -n $name -s RUNNING"
-
-# Limpar arquivos temporários
-rm -f /tmp/iptables.rules /tmp/ip6tables.rules
-ssh "$host" "sudo rm -f /tmp/iptables.rules /tmp/ip6tables.rules"
-
-echo "Migration completed successfully!"
+ 
+#Ação responsável por criar o checkpoint
+lxc-checkpoint -n $name -D $checkpoint_dir
+ 
+#Ação responsável por fazer a sincronização entre os servidores
+do_rsync $LXCPATH/$name/
+do_rsync $checkpoint_dir/
+ 
+#Executa um comando via ssh para “levantar” o container no servidor para o qual ele foi migrado
+ssh $host "sudo lxc-checkpoint -r -n $name -D $checkpoint_dir"
+ssh $host "sudo lxc-start -n $name"
