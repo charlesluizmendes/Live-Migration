@@ -118,9 +118,11 @@ sudo apt update
 # App
 
 ```
-sudo apt-get install nano
-sudo apt-get install net-tools
-sudo apt install python3 python3-pip -y
+sudo apt-get update && sudo apt-get install -y \
+    nano \
+    net-tools \
+    python3 \
+    python3-pip -y
 
 nano simple_http_server.py
 ```
