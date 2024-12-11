@@ -96,4 +96,15 @@ sudo visudo
 
 # Adicione a linha:
 machine2 ALL=(ALL) NOPASSWD: ALL
+
+sudo nano /etc/ssh/sshd_config
+
+PubkeyAuthentication yes
+PasswordAuthentication yes
+AuthorizedKeysFile .ssh/authorized_keys
+
+sudo chmod 700 ~/.ssh
+sudo chmod 600 ~/.ssh/authorized_keys
+
+sudo systemctl restart sshd
 ```
