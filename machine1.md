@@ -81,7 +81,7 @@ make clean
 sudo make
 sudo make install
 
-criu check --all
+sudo criu check --all
 
 machine1@machine1-VirtualBox:~/criu$ sudo criu check
 Looks good.
