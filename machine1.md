@@ -31,27 +31,18 @@ sudo apt-get update && sudo apt-get install -y \
 
 sudo apt --fix-broken install
 
-sudo apt-get install python3-setuptools
-sudo apt-get install -y python3-pip
+sudo apt-get update && sudo apt-get install -y \
+    python3-setuptools \
+    python3-pip
 
-sudo apt-get install openvswitch-switch
-sudo apt-get install iptables-persistent
-sudo apt-get install net-tools
+sudo apt-get update && sudo apt-get install -y \
+    openvswitch-switch \
+    iptables-persistent \
+    net-tools
 
 sudo apt-get install openssh-server -y
 
-sudo apt-get install -y lxc-templates debootstrap
-```
-
-# Kernel
-
-```
-mkdir Linux-Kernel && cd Linux-Kernel
-wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.14/linux-headers-4.14.0-041400_4.14.0-041400.201711122031_all.deb
-wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.14/linux-headers-4.14.0-041400-generic_4.14.0-041400.201711122031_amd64.deb
-wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.14/linux-image-4.14.0-041400-generic_4.14.0-041400.201711122031_amd64.deb
-sudo dpkg -i *.deb
-sudo reboot
+sudo apt-get install lxc-templates debootstrap
 ```
 
 # Redes
@@ -112,15 +103,16 @@ lxc.tty.max = 0
 lxc.cgroup.devices.deny = c 5:1 rwm
 lxc.seccomp.profile =
 
+sudo lxc-attach -n app-container -- umount /sys/devices/system/cpu
+sudo lxc-attach -n app-container -- systemctl stop systemd-logind
+sudo lxc-attach -n app-container -- systemctl disable systemd-logind
+
 sudo lxc-ls -f
 
 sudo lxc-start -n app-container
 sudo lxc-attach -n app-container
 
 sudo apt update
-
-systemctl disable systemd-logind
-systemctl stop systemd-logind
 ```
 
 # App
