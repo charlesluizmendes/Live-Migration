@@ -45,6 +45,12 @@ sudo apt-get install openssh-server -y
 sudo apt-get install lxc-templates debootstrap
 ```
 
+# Kernel
+
+```
+sudo apt install linux-image-generic
+```
+
 # Redes
 
 ```
@@ -77,35 +83,78 @@ machine1@machine1-VirtualBox:~$ sudo ovs-vsctl show
 ```
 git clone https://github.com/checkpoint-restore/criu.git
 cd criu/
+git checkout master
 make clean
 sudo make
 sudo make install
 
 sudo criu check --all
 
-machine1@machine1-VirtualBox:~/criu$ sudo criu check
+machine1@machine1-VirtualBox:~/criu$ sudo criu check --all
 Looks good.
 ```
 
 # LXC
 
 ```
-sudo lxc-create -n app-container -t download -- --dist ubuntu --release focal --arch amd64
+sudo lxc-create -t ubuntu -n app-container -- -r trusty -a amd64
 
-sudo nano /var/lib/lxc/app-container/config
+sudo su
+cd /var/lib/lxc/app-container
+mv config config.tmp
+cp /usr/share/lxc/config/common.conf config
+exit
 
-# Habilitar suporte a containers aninhados
-lxc.include = /usr/share/lxc/config/nesting.conf
-
-# hax for criu
-lxc.console.path = none
+sudo gedit
+# Procure o arquivo: /var/lib/lxc/app-container/config
+```
+```
 lxc.tty.max = 0
+lxc.console.path = none
 lxc.cgroup.devices.deny = c 5:1 rwm
-lxc.seccomp.profile =
 
-sudo lxc-attach -n app-container -- umount /sys/devices/system/cpu
-sudo lxc-attach -n app-container -- systemctl stop systemd-logind
-sudo lxc-attach -n app-container -- systemctl disable systemd-logind
+lxc.pty.max = 1024
+
+lxc.cap.drop = mac_admin mac_override sys_time sys_module
+
+lxc.hook.clone = /usr/share/lxc/hooks/clonehostname
+
+lxc.cgroup.devices.deny = a
+lxc.cgroup.devices.allow = c *:* m
+lxc.cgroup.devices.allow = b *:* m
+lxc.cgroup.devices.allow = c 1:3 rwm
+lxc.cgroup.devices.allow = c 1:5 rwm
+lxc.cgroup.devices.allow = c 1:7 rwm
+lxc.cgroup.devices.allow = c 5:0 rwm
+lxc.cgroup.devices.allow = c 5:2 rwm
+lxc.cgroup.devices.allow = c 1:8 rwm
+lxc.cgroup.devices.allow = c 1:9 rwm
+lxc.cgroup.devices.allow = c 136:* rwm
+
+lxc.seccomp.profile = /usr/share/lxc/config/common.seccomp
+
+lxc.mount.entry = /sys/devices/system/cpu sys/devices/system/cpu none bind,optional 0 0
+lxc.mount.entry = /proc proc none bind,optional 0 0
+lxc.mount.entry = /sys/fs/pstore sys/fs/pstore none bind,optional 0 0
+lxc.mount.entry = /sys/kernel/ sys/kernel none bind,optional 0 0
+lxc.mount.entry = /sys/fs/fuse/connections sys/fs/fuse/connections none bind,optional 0 0
+
+lxc.cgroup.devices.allow = c 254:0 rm
+lxc.cgroup.devices.allow = c 10:229 rwm
+lxc.cgroup.devices.allow = c 10:200 rwm
+lxc.cgroup.devices.allow = c 10:228 rwm
+lxc.cgroup.devices.allow = c 10:232 rwm
+lxc.arch=x86_64
+
+lxc.rootfs.path = /var/lib/lxc/app-container/rootfs
+lxc.uts.name = app-container
+
+lxc.net.0.type = veth
+lxc.net.0.link = lxcbr0
+lxc.net.0.flags = up
+```
+```
+sudo rm /var/lib/lxc/app-container/rootfs/etc/init/udev.conf
 
 sudo lxc-ls -f
 
@@ -165,17 +214,15 @@ sudo chmod 600 ~/.ssh/id_rsa
 Através de comandos no terminal:
 
 ```
-sudo lxc-checkpoint -n app-container -D /tmp/checkpoint --verbose --checkpoint-dir /tmp/checkpoint -p 42781
+sudo lxc-checkpoint -v -n app-container -s -D /tmp/checkpoint
 
-sudo rsync -aAXHltzh --progress --numeric-ids --devices --rsync-path="sudo rsync" /var/lib/lxc/app-container/ machine2@192.168.0.144:/var/lib/lxc/app-container/
+sudo rsync -aAXHltzh --progress --numeric-ids --devices --rsync-path="sudo rsync" /var/lib/lxc/app-container/ machine2@192.168.0.160:/var/lib/lxc/app-container/
 
-sudo rsync -aAXHltzh --progress --numeric-ids --devices --rsync-path="sudo rsync" /tmp/checkpoint/ machine2@192.168.0.144:/tmp/checkpoint/
+sudo rsync -aAXHltzh --progress --numeric-ids --devices --rsync-path="sudo rsync" /tmp/checkpoint/ machine2@192.168.0.160:/tmp/checkpoint/
 
-ssh machine2@192.168.0.144
+ssh machine2@192.168.0.160
 
-sudo lxc-checkpoint -r -n app-container -D /tmp/checkpoint/ -v
-
-sudo lxc-start -n app-container
+sudo lxc-checkpoint -v -n app-container -r -d -D /tmp/checkpoint
 ```
 
 Através do script de migração:
@@ -183,5 +230,5 @@ Através do script de migração:
 ```
 sudo chmod +x migrate.sh
 
-sudo ./migrate.sh app-container machine2@192.168.0.144
+sudo ./migrate.sh app-container machine2@192.168.0.160
 ```
