@@ -40,7 +40,5 @@ do_rsync $LXCPATH/$name/
 do_rsync $checkpoint_dir/
  
 # Executa um comando via ssh para “levantar” o container no servidor para o qual ele foi migrado
-ssh $host "sudo lxc-checkpoint -v -n $name -r -d -D $checkpoint_dir"
-
-# Printo de resultados
-echo "Migração do container $name para $host concluída com sucesso!"
+ssh $host "sudo lxc-checkpoint -v -n $name -r -d -D $checkpoint_dir &" 
+ssh $host "sudo lxc-checkpoint -v -n $name -r -d -D $checkpoint_dir &" && echo "Migração do container $name para $host concluída com sucesso!"
