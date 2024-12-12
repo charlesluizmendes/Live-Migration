@@ -33,14 +33,14 @@ do_rsync() {
 LXCPATH=$(lxc-config lxc.lxcpath)
  
 # Ação responsável por criar o checkpoint
-lxc-checkpoint -v -n $name -s -D $checkpoint_dir
+sudo lxc-checkpoint -v -n $name -s -D $checkpoint_dir
  
 # Ação responsável por fazer a sincronização entre os servidores
 do_rsync $LXCPATH/$name/
 do_rsync $checkpoint_dir/
  
 # Executa um comando via ssh para “levantar” o container no servidor para o qual ele foi migrado
-ssh $host "nohup lxc-checkpoint -v -n $name -r -d -D $checkpoint_dir > /dev/null 2>&1 &"
+ssh $host "sudo lxc-checkpoint -v -n $name -r -d -D $checkpoint_dir &"
 
 # Finalizando
 echo "Migração concluida com sucesso!"
