@@ -45,6 +45,12 @@ sudo apt-get install openssh-server -y
 sudo apt-get install lxc-templates debootstrap
 ```
 
+# kernel
+
+```
+sudo apt install linux-image-generic
+```
+
 # Redes
 
 ```
@@ -77,13 +83,14 @@ machine2@machine2-VirtualBox:~$ sudo ovs-vsctl show
 ```
 git clone https://github.com/checkpoint-restore/criu.git
 cd criu/
+git checkout master
 make clean
 sudo make
 sudo make install
 
 sudo criu check --all
 
-machine2@machine2-VirtualBox:~/criu$ sudo criu check
+machine1@machine1-VirtualBox:~/criu$ sudo criu check --all
 Looks good.
 ```
 
@@ -93,16 +100,20 @@ Looks good.
 sudo systemctl status ssh
 
 sudo visudo
-
+```
+```
 # Adicione a linha:
 machine2 ALL=(ALL) NOPASSWD: ALL
-
+```
+```
 sudo nano /etc/ssh/sshd_config
-
+```
+```
 PubkeyAuthentication yes
 PasswordAuthentication yes
 AuthorizedKeysFile .ssh/authorized_keys
-
+```
+```
 sudo chmod 700 ~/.ssh
 sudo chmod 600 ~/.ssh/authorized_keys
 
