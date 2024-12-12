@@ -214,7 +214,9 @@ sudo chmod 600 ~/.ssh/id_rsa
 Através de comandos no terminal:
 
 ```
-sudo lxc-checkpoint -v -n app-container -s -D /tmp/checkpoint
+sudo rm -rf /tmp/checkpoint
+
+sudo lxc-checkpoint -v -n app-container -s -D /tmp/checkpoint -o /tmp/checkpoint/dump.log
 
 sudo rsync -aAXHltzh --progress --numeric-ids --devices --rsync-path="sudo rsync" /var/lib/lxc/app-container/ machine2@192.168.0.160:/var/lib/lxc/app-container/
 
@@ -222,13 +224,15 @@ sudo rsync -aAXHltzh --progress --numeric-ids --devices --rsync-path="sudo rsync
 
 ssh machine2@192.168.0.160
 
-sudo lxc-checkpoint -v -n app-container -r -d -D /tmp/checkpoint
+sudo lxc-checkpoint -v -n app-container -r -d -D /tmp/checkpoint -o /tmp/checkpoint/restore.log
 ```
 
 Através do script de migração:
 
 ```
 sudo chmod +x migrate.sh
+
+sudo rm -rf /tmp/checkpoint
 
 sudo ./migrate.sh app-container machine2@192.168.0.160
 ```

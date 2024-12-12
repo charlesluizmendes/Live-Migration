@@ -1,15 +1,2923 @@
-(00.000000) CRIU run id = 0xeffffffc0000115f
-(00.000044) Version: 4.0 (gitid v4.0-37-g058572e91)
-(00.000047) Running on machine2-VirtualBox Linux 6.8.0-49-generic #49~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Wed Nov  6 17:42:15 UTC 2 x86_64
-(00.000063) Loaded kdat cache from /run/criu.kdat
-(00.000080) Hugetlb size 2 Mb is supported but cannot get dev's number
-(00.000390) cpu: x86_family 25 x86_vendor_id AuthenticAMD x86_model_id AMD Ryzen 7 5700G with Radeon Graphics         
-(00.000398) cpu: fpu: xfeatures_mask 0x5 xsave_size 832 xsave_size_max 832 xsaves_size 856
-(00.000401) cpu: fpu: x87 floating point registers     xstate_offsets      0 / 0      xstate_sizes    160 / 160   
-(00.000403) cpu: fpu: AVX registers                    xstate_offsets    576 / 576    xstate_sizes    256 / 256   
-(00.000405) Will dump/restore TCP connections
-(00.000406) Will allow link remaps on FS
-(00.000411) rlimit: RLIMIT_NOFILE unlimited for self
-(00.000429) No inventory.img image
-(00.000431) Error (criu/protobuf.c:72): Unexpected EOF on (empty-image)
+(00.000000) CRIU run id = 0xeffffffc0000783a
+(00.000127) Version: 4.0 (gitid v4.0)
+(00.000143) Running on machine2-VirtualBox Linux 6.8.0-49-generic #49~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Wed Nov  6 17:42:15 UTC 2 x86_64
+(00.000178) Loaded kdat cache from /run/criu.kdat
+(00.000241) Hugetlb size 2 Mb is supported but cannot get dev's number
+(00.002307) cpu: x86_family 6 x86_vendor_id GenuineIntel x86_model_id Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz
+(00.002386) cpu: fpu: xfeatures_mask 0x5 xsave_size 832 xsave_size_max 832 xsaves_size 968
+(00.002407) cpu: fpu: x87 floating point registers     xstate_offsets      0 / 0      xstate_sizes    160 / 160   
+(00.002428) cpu: fpu: AVX registers                    xstate_offsets    576 / 576    xstate_sizes    256 / 256   
+(00.002438) Will dump/restore TCP connections
+(00.002445) Will allow link remaps on FS
+(00.002472) rlimit: RLIMIT_NOFILE unlimited for self
+(00.002898) cpu: fpu:1 fxsr:1 xsave:1 xsaveopt:0 xsavec:0 xgetbv1:0 xsaves:0
+(00.003029) kernel pid_max=4194304
+(00.003042) Reading image tree
+(00.003169) Add mnt ns 13 pid 1
+(00.003186) Add net ns 10 pid 1
+(00.003193) Add pid ns 9 pid 1
+(00.003369) pstree pid_max=314
+(00.003389) Will restore in 6c020000 namespaces
+(00.003425) NS mask to use 6c020000
+(00.003435) Add a helper 313 for restoring SID 313
+(00.003443) Attach 314 to the temporary task 313
+(00.003450) Add a helper 27 for restoring SID 27
+(00.003456) Attach 28 to the temporary task 27
+(00.003463) Add a helper 5 for restoring SID 5
+(00.003469) Attach 18 to the temporary task 5
+(00.003558) Collecting 51/56 (flags 3)
+(00.003611) No memfd.img image
+(00.003742)  `- ... done
+(00.003761) Collecting 40/54 (flags 2)
+(00.003830) Collected [sbin/init] ID 0x1
+(00.003849) Collected [lib/x86_64-linux-gnu/libnss_files-2.19.so] ID 0x2
+(00.003886) Collected [lib/x86_64-linux-gnu/libnss_nis-2.19.so] ID 0x3
+(00.003898) Collected [lib/x86_64-linux-gnu/libnsl-2.19.so] ID 0x4
+(00.003910) Collected [lib/x86_64-linux-gnu/libnss_compat-2.19.so] ID 0x5
+(00.003920) Collected [lib/x86_64-linux-gnu/libdl-2.19.so] ID 0x6
+(00.003946) Collected [lib/x86_64-linux-gnu/libpcre.so.3.13.1] ID 0x7
+(00.003980) Collected [lib/x86_64-linux-gnu/libpthread-2.19.so] ID 0x8
+(00.003993) Collected [lib/x86_64-linux-gnu/libc-2.19.so] ID 0x9
+(00.004003) Collected [lib/x86_64-linux-gnu/librt-2.19.so] ID 0xa
+(00.004014) Collected [lib/x86_64-linux-gnu/libjson-c.so.2.0.0] ID 0xb
+(00.004024) Collected [lib/x86_64-linux-gnu/libselinux.so.1] ID 0xc
+(00.004034) Collected [lib/x86_64-linux-gnu/libdbus-1.so.3.7.6] ID 0xd
+(00.004044) Collected [lib/x86_64-linux-gnu/libnih-dbus.so.1.0.0] ID 0xe
+(00.004077) Collected [lib/x86_64-linux-gnu/libnih.so.1.0.0] ID 0xf
+(00.004089) Collected [lib/x86_64-linux-gnu/ld-2.19.so] ID 0x10
+(00.004100) Collected [dev/null] ID 0x11
+(00.004135) Collected pipe entry ID 0x12 PIPE ID 0x18453
+(00.004151) Collected pipe entry ID 0x13 PIPE ID 0x18453
+(00.004175) fsnotify: Collected id 0x000014 flags 0x000800
+(00.004206) fsnotify: Collected id 0x000015 flags 0x000800
+(00.004230) unix:  `- Got id 0x16 ino 99412 type SOCK_STREAM state TCP_LISTEN peer 0 (name @/com/ubuntu/upstart dir -)
+(00.004248) Collected [var/log/upstart/mountall.log] ID 0x19
+(00.004259) Collected [dev/ptmx] ID 0x1c
+(00.004283) Collected [dev/ptmx] ID 0x1e
+(00.004299) Collected [.] ID 0x1f
+(00.004310) Collected [.] ID 0x20
+(00.004332) Collected [sbin/plymouthd] ID 0x21
+(00.004346) Collected [lib/x86_64-linux-gnu/plymouth/details.so] ID 0x22
+(00.004357) Collected [lib/x86_64-linux-gnu/plymouth/renderers/vga16fb.so] ID 0x23
+(00.004369) Collected [lib/x86_64-linux-gnu/plymouth/renderers/frame-buffer.so] ID 0x24
+(00.004381) Collected [usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0] ID 0x25
+(00.004392) Collected [lib/x86_64-linux-gnu/plymouth/renderers/drm.so] ID 0x26
+(00.004404) Collected [lib/x86_64-linux-gnu/libm-2.19.so] ID 0x27
+(00.004415) Collected [lib/x86_64-linux-gnu/libply-splash-core.so.2.1.0] ID 0x28
+(00.004437) Collected [lib/x86_64-linux-gnu/libply.so.2.1.0] ID 0x29
+(00.004449) Collected [dev/null] ID 0x2a
+(00.004460) Collected [dev/pts/2] ID 0x2c
+(00.004505) epoll: Collected eventpoll: id 0x00002d flags 0x02
+(00.004521) Collected pipe entry ID 0x2e PIPE ID 0x18152
+(00.004533) Collected pipe entry ID 0x2f PIPE ID 0x18152
+(00.004552) unix:  `- Got id 0x30 ino 99476 type SOCK_STREAM state TCP_LISTEN peer 0 (name @/org/freedesktop/plymouthd dir -)
+(00.004577) Collected [dev/console] ID 0x34
+(00.004593) Collected [.] ID 0x35
+(00.004604) Collected [.] ID 0x36
+(00.004705) Collected [bin/plymouth-upstart-bridge] ID 0x37
+(00.004733) Collected [lib/x86_64-linux-gnu/libply-boot-client.so.2.1.0] ID 0x38
+(00.004747) Collected [lib/x86_64-linux-gnu/libtinfo.so.5.9] ID 0x39
+(00.004758) Collected [dev/console] ID 0x3b
+(00.004793) epoll: Collected eventpoll: id 0x00003c flags 0x02
+(00.004807) Collected pipe entry ID 0x3d PIPE ID 0x1815e
+(00.004819) Collected pipe entry ID 0x3e PIPE ID 0x1815e
+(00.004836) unix:  `- Got id 0x3f ino 98655 type SOCK_STREAM state TCP_ESTABLISHED peer 99481 (name @9c4a5 dir -)
+(00.004951) unix:  `- Got id 0x31 ino 99481 type SOCK_STREAM state TCP_ESTABLISHED peer 98655 (name @/org/freedesktop/plymouthd dir -)
+(00.004977) unix:  `- Got id 0x40 ino 98656 type SOCK_STREAM state TCP_ESTABLISHED peer 99480 (name - dir -)
+(00.005006) unix:  `- Got id 0x17 ino 99480 type SOCK_STREAM state TCP_ESTABLISHED peer 98656 (name @/com/ubuntu/upstart dir -)
+(00.005020) eventfd: Collected : id 0x000041 flags 0x802 counter 0000000000000000
+(00.005033) Collected [.] ID 0x42
+(00.005043) Collected [.] ID 0x43
+(00.005054) Collected [sbin/mountall] ID 0x44
+(00.005065) Collected [usr/lib/locale/locale-archive] ID 0x45
+(00.005076) Collected [lib/x86_64-linux-gnu/libcgmanager.so.0.0.0] ID 0x46
+(00.005087) Collected [lib/x86_64-linux-gnu/libudev.so.1.3.5] ID 0x47
+(00.005098) Collected [usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache] ID 0x48
+(00.005121) Collected [usr/share/locale-langpack/pt_BR/LC_MESSAGES/mountall.mo] ID 0x49
+(00.005134) Collected [dev/null] ID 0x4a
+(00.005145) Collected [dev/pts/0] ID 0x4c
+(00.005165) unix:  `- Got id 0x4d ino 98657 type SOCK_STREAM state TCP_ESTABLISHED peer 99485 (name - dir -)
+(00.005182) unix:  `- Got id 0x18 ino 99485 type SOCK_STREAM state TCP_ESTABLISHED peer 98657 (name @/com/ubuntu/upstart dir -)
+(00.005196) Collected pipe entry ID 0x4e PIPE ID 0x18162
+(00.005209) Collected pipe entry ID 0x4f PIPE ID 0x18162
+(00.005249) epoll: Collected eventpoll: id 0x000051 flags 0x02
+(00.005262) Collected pipe entry ID 0x52 PIPE ID 0x18164
+(00.005274) Collected pipe entry ID 0x53 PIPE ID 0x18164
+(00.005291) unix:  `- Got id 0x54 ino 98661 type SOCK_STREAM state TCP_ESTABLISHED peer 99486 (name @7aa6d dir -)
+(00.005307) unix:  `- Got id 0x32 ino 99486 type SOCK_STREAM state TCP_ESTABLISHED peer 98661 (name @/org/freedesktop/plymouthd dir -)
+(00.005322) Collected [proc/22/mountinfo] ID 0x55
+(00.005348) unix:  `- Got id 0x56 ino 99489 type SOCK_STREAM state TCP_LISTEN peer 0 (name @/com/ubuntu/mountall/server/ dir -)
+(00.005361) Collected [.] ID 0x57
+(00.005373) Collected [.] ID 0x58
+(00.005385) Collected [sbin/upstart-socket-bridge] ID 0x59
+(00.005396) Collected [dev/null] ID 0x5a
+(00.005407) epoll: Collected eventpoll: id 0x00005b flags 0x02
+(00.005423) unix:  `- Got id 0x5c ino 98811 type SOCK_STREAM state TCP_ESTABLISHED peer 98814 (name - dir -)
+(00.005439) unix:  `- Got id 0x1a ino 98814 type SOCK_STREAM state TCP_ESTABLISHED peer 98811 (name @/com/ubuntu/upstart dir -)
+(00.005462) Collected pipe entry ID 0x5d PIPE ID 0x181fc
+(00.005475) Collected pipe entry ID 0x5e PIPE ID 0x181fc
+(00.005487) Collected [.] ID 0x5f
+(00.005498) Collected [.] ID 0x60
+(00.005519)  `- ... done
+(00.005527) Collecting 46/68 (flags 0)
+(00.005580) Opening ghost file 0x1 for dev/null
+(00.005835) Added a helper for restoring /proc/22
+(00.005908)  `- ... done
+(00.005956) No apparmor.img image
+(00.006084) cg: Preparing cgroups yard (cgroups restore mode 0x8)
+(00.006377) cg: Opening .criu.cgyard.pTev4r as cg yard
+(00.006418) cg: 	Making controller dir .criu.cgyard.pTev4r/unified (), type cgroup2
+(00.006507) cg: Determined cgroup dir unified/lxc.payload.app-container already exist
+(00.007289) Running pre-restore scripts
+(00.007439) cg: cgroud: Daemon started
+(00.007610) net: Saved netns fd for links restore
+(00.008353) mnt: Reading mountpoint images (id 13 pid 1)
+(00.008411) mnt: 		Will mount 583 from /
+(00.008432) mnt: 		Will mount 583 @ /tmp/.criu.mntns.1DVeJr/mnt-0000000583 /run/user
+(00.008440) mnt: 	Read 583 mp @ /run/user
+(00.008453) mnt: 		Will mount 582 from /
+(00.008461) mnt: 		Will mount 582 @ /tmp/.criu.mntns.1DVeJr/mnt-0000000582 /run/shm
+(00.008467) mnt: 	Read 582 mp @ /run/shm
+(00.008477) mnt: 		Will mount 581 from /
+(00.008485) mnt: 		Will mount 581 @ /tmp/.criu.mntns.1DVeJr/mnt-0000000581 /run/lock
+(00.008491) mnt: 	Read 581 mp @ /run/lock
+(00.008518) mnt: 		Will mount 580 from /
+(00.008527) mnt: 		Will mount 580 @ /tmp/.criu.mntns.1DVeJr/mnt-0000000580 /run
+(00.008534) mnt: 	Read 580 mp @ /run
+(00.008545) mnt: 		Will mount 579 from /
+(00.008552) mnt: 		Will mount 579 @ /tmp/.criu.mntns.1DVeJr/mnt-0000000579 /sys/kernel/security
+(00.008558) mnt: 	Read 579 mp @ /sys/kernel/security
+(00.008568) mnt: 		Will mount 578 from /
+(00.008576) mnt: 		Will mount 578 @ /tmp/.criu.mntns.1DVeJr/mnt-0000000578 /sys/kernel/debug
+(00.008582) mnt: 	Read 578 mp @ /sys/kernel/debug
+(00.008596) mnt: 		Will mount 577 from /sys/fs/fuse/connections (E)
+(00.008605) mnt: 		Will mount 577 @ /tmp/.criu.mntns.1DVeJr/mnt-0000000577 /sys/fs/fuse/connections
+(00.008611) mnt: 	Read 577 mp @ /sys/fs/fuse/connections
+(00.008701) mnt: 		Will mount 576 from /
+(00.008739) mnt: 		Will mount 576 @ /tmp/.criu.mntns.1DVeJr/mnt-0000000576 /sys/fs/cgroup
+(00.008747) mnt: 	Read 576 mp @ /sys/fs/cgroup
+(00.008759) mnt: 		Will mount 575 from /
+(00.008768) mnt: 		Will mount 575 @ /tmp/.criu.mntns.1DVeJr/mnt-0000000575 /proc/sys/fs/binfmt_misc
+(00.008774) mnt: 	Read 575 mp @ /proc/sys/fs/binfmt_misc
+(00.008787) mnt: 		Will mount 574 from /proc (E)
+(00.008795) mnt: 		Will mount 574 @ /tmp/.criu.mntns.1DVeJr/mnt-0000000574 /proc
+(00.008802) mnt: 	Read 574 mp @ /proc
+(00.008812) mnt: 		Will mount 573 from /
+(00.008821) mnt: 		Will mount 573 @ /tmp/.criu.mntns.1DVeJr/mnt-0000000573 /sys
+(00.008827) mnt: 	Read 573 mp @ /sys
+(00.008839) mnt: 		Will mount 618 from /ptmx
+(00.008847) mnt: 		Will mount 618 @ /tmp/.criu.mntns.1DVeJr/mnt-0000000618 /dev/ptmx
+(00.008875) mnt: 	Read 618 mp @ /dev/ptmx
+(00.008899) mnt: 		Will mount 616 from /
+(00.008908) mnt: 		Will mount 616 @ /tmp/.criu.mntns.1DVeJr/mnt-0000000616 /dev/pts
+(00.008914) mnt: 	Read 616 mp @ /dev/pts
+(00.008925) mnt: 		Will mount 615 from /
+(00.008932) mnt: 		Will mount 615 @ /tmp/.criu.mntns.1DVeJr/mnt-0000000615 /dev
+(00.008939) mnt: 	Read 615 mp @ /dev
+(00.008951) mnt: 		Will mount 614 from /var/lib/lxc/app-container/rootfs
+(00.008958) mnt: 		Will mount 614 @ /tmp/.criu.mntns.1DVeJr/mnt-0000000614 /
+(00.008964) mnt: 	Read 614 mp @ /
+(00.008986) mnt: Building mountpoints tree
+(00.008993) mnt: 	Building plain mount tree
+(00.008998) mnt: 		Working on 614->572
+(00.009006) mnt: 		Working on 615->614
+(00.009011) mnt: 		Working on 616->615
+(00.009017) mnt: 		Working on 618->615
+(00.009023) mnt: 		Working on 573->614
+(00.009029) mnt: 		Working on 574->614
+(00.009036) mnt: 		Working on 575->574
+(00.009042) mnt: 		Working on 576->573
+(00.009049) mnt: 		Working on 577->573
+(00.009055) mnt: 		Working on 578->573
+(00.009061) mnt: 		Working on 579->573
+(00.009068) mnt: 		Working on 580->614
+(00.009075) mnt: 		Working on 581->580
+(00.009081) mnt: 		Working on 582->580
+(00.009087) mnt: 		Working on 583->580
+(00.009094) mnt: 	Resorting children of 614 in mount order
+(00.009101) mnt: 	Resorting children of 615 in mount order
+(00.009107) mnt: 	Resorting children of 616 in mount order
+(00.009113) mnt: 	Resorting children of 618 in mount order
+(00.009119) mnt: 	Resorting children of 573 in mount order
+(00.009126) mnt: 	Resorting children of 577 in mount order
+(00.009132) mnt: 	Resorting children of 576 in mount order
+(00.009137) mnt: 	Resorting children of 578 in mount order
+(00.009143) mnt: 	Resorting children of 579 in mount order
+(00.009149) mnt: 	Resorting children of 574 in mount order
+(00.009172) mnt: 	Resorting children of 575 in mount order
+(00.009180) mnt: 	Resorting children of 580 in mount order
+(00.009186) mnt: 	Resorting children of 581 in mount order
+(00.009192) mnt: 	Resorting children of 582 in mount order
+(00.009197) mnt: 	Resorting children of 583 in mount order
+(00.009203) mnt: Done:
+(00.009208) mnt: [/](614->572)
+(00.009217) mnt:  [/dev](615->614)
+(00.009224) mnt:   [/dev/pts](616->615)
+(00.009231) mnt:   <--
+(00.009237) mnt:   [/dev/ptmx](618->615)
+(00.009244) mnt:   <--
+(00.009249) mnt:  <--
+(00.009255) mnt:  [/sys](573->614)
+(00.009262) mnt:   [/sys/fs/fuse/connections](577->573)
+(00.009268) mnt:   <--
+(00.009274) mnt:   [/sys/fs/cgroup](576->573)
+(00.009280) mnt:   <--
+(00.009286) mnt:   [/sys/kernel/debug](578->573)
+(00.009293) mnt:   <--
+(00.009299) mnt:   [/sys/kernel/security](579->573)
+(00.009306) mnt:   <--
+(00.009312) mnt:  <--
+(00.009318) mnt:  [/proc](574->614)
+(00.009325) mnt:   [/proc/sys/fs/binfmt_misc](575->574)
+(00.009331) mnt:   <--
+(00.009337) mnt:  <--
+(00.009343) mnt:  [/run](580->614)
+(00.009350) mnt:   [/run/lock](581->580)
+(00.009357) mnt:   <--
+(00.009363) mnt:   [/run/shm](582->580)
+(00.009370) mnt:   <--
+(00.009376) mnt:   [/run/user](583->580)
+(00.009382) mnt:   <--
+(00.009389) mnt:  <--
+(00.009394) mnt: <--
+(00.009402) mnt: 	The mount 618 is bind for 616 (@/dev/ptmx -> @/dev/pts)
+(00.009410) mnt: Start with 614:/
+(00.009425) mnt-v2: Inspecting sharing on 614 shared_id 0 master_id 1 (@/)
+(00.009438) mnt-v2: Detected external slavery for shared group (0, 1) with source /usr/lib/x86_64-linux-gnu/lxc
+(00.009448) mnt: Mountpoint 614 (@/) moved to the root yard
+(00.009782) No pidns-9.img image
+(00.010088) Warn  (criu/cr-restore.c:1041): Set CLONE_PARENT | CLONE_NEWPID but it might cause restore problem,because not all kernels support such clone flags combinations!
+(00.010108) Forking task with 1 pid (flags 0x6c028000)
+(00.010116) Creating process using clone3()
+(00.011136) PID: real 30781 virt 1
+(00.011434) Wait until namespaces are created
+(00.013785)      1: timens: monotonic -12671 961310302
+(00.013835)      1: timens: boottime -12671 961260034
+(00.014121) Running setup-namespaces scripts
+(00.014261)      1: cg: setting cgns prefix to /lxc.payload.app-container
+(00.022882)      1: cg: Move into 2
+(00.022926)      1: cg:   `-> unified//lxc.payload.app-container/cgroup.procs
+(00.022996)      1: Calling restore_sid() for init
+(00.023031)      1: Restoring 1 to 1 sid
+(00.023147)      1: Collecting 44/37 (flags 2)
+(00.023266)      1: tty: Collected tty ID 0x1b (ptmx)
+(00.023340)      1: tty: Collected tty ID 0x1d (ptmx)
+(00.023378)      1: tty: Collected tty ID 0x2b (pts)
+(00.023396)      1: tty: Collected tty ID 0x33 (console)
+(00.023413)      1: tty: Collected tty ID 0x3a (console)
+(00.023430)      1: tty: Collected tty ID 0x4b (pts)
+(00.023446)      1:  `- ... done
+(00.023450)      1: Collecting 45/51 (flags 0)
+(00.023485)      1: No tty-data.img image
+(00.023512)      1:  `- ... done
+(00.023517)      1: Restoring namespaces 1 flags 0x6c028000
+(00.024792)      1: kernel/hostname nr 13
+(00.025118)      1: kernel/domainname nr 6
+(00.026904)      1: Restoring IPC namespace
+(00.026944)      1: Restoring IPC variables
+(00.027516)      1: Restoring IPC shared memory
+(00.027552)      1: No ipcns-shm-11.img image
+(00.027575)      1: Restoring IPC message queues
+(00.027594)      1: No ipcns-msg-11.img image
+(00.027599)      1: Restoring IPC semaphores sets
+(00.027616)      1: No ipcns-sem-11.img image
+(00.032380)      1: net: Try to restore a link 10:2:eth0
+(00.032405)      1: net: Restoring link eth0 type 2
+(00.032434)      1: net: Restoring netdev eth0 idx 2
+(00.032458)      1: net: Restore ll addr (b6:../6) for device
+(00.034607)      1: net: Skip eth0/accept_local, coincides with default
+(00.034637)      1: net: Skip eth0/accept_redirects, coincides with default
+(00.034642)      1: net: Skip eth0/accept_source_route, coincides with default
+(00.034646)      1: net: Skip eth0/arp_accept, coincides with default
+(00.034650)      1: net: Skip eth0/arp_announce, coincides with default
+(00.034672)      1: net: Skip eth0/arp_filter, coincides with default
+(00.034677)      1: net: Skip eth0/arp_ignore, coincides with default
+(00.034681)      1: net: Skip eth0/arp_notify, coincides with default
+(00.034742)      1: net: Skip eth0/bootp_relay, coincides with default
+(00.034747)      1: net: Skip eth0/disable_policy, coincides with default
+(00.034751)      1: net: Skip eth0/disable_xfrm, coincides with default
+(00.034755)      1: net: Skip eth0/force_igmp_version, coincides with default
+(00.034759)      1: net: Skip eth0/forwarding, coincides with default
+(00.034763)      1: net: Skip eth0/igmpv2_unsolicited_report_interval, coincides with default
+(00.034767)      1: net: Skip eth0/igmpv3_unsolicited_report_interval, coincides with default
+(00.034771)      1: net: Skip eth0/log_martians, coincides with default
+(00.034775)      1: net: Skip eth0/medium_id, coincides with default
+(00.034779)      1: net: Skip eth0/promote_secondaries, coincides with default
+(00.034783)      1: net: Skip eth0/proxy_arp, coincides with default
+(00.034787)      1: net: Skip eth0/proxy_arp_pvlan, coincides with default
+(00.034791)      1: net: Skip eth0/route_localnet, coincides with default
+(00.034795)      1: net: Skip eth0/rp_filter, coincides with default
+(00.034798)      1: net: Skip eth0/secure_redirects, coincides with default
+(00.034802)      1: net: Skip eth0/send_redirects, coincides with default
+(00.034806)      1: net: Skip eth0/shared_media, coincides with default
+(00.034810)      1: net: Skip eth0/src_valid_mark, coincides with default
+(00.034814)      1: net: Skip eth0/tag, coincides with default
+(00.034818)      1: net: Skip eth0/ignore_routes_with_linkdown, coincides with default
+(00.034822)      1: net: Skip eth0/drop_gratuitous_arp, coincides with default
+(00.034826)      1: net: Skip eth0/drop_unicast_in_l2_multicast, coincides with default
+(00.034832)      1: net: Skip eth0/accept_dad, coincides with default
+(00.034836)      1: net: Skip eth0/accept_ra, coincides with default
+(00.034840)      1: net: Skip eth0/accept_ra_defrtr, coincides with default
+(00.034844)      1: net: Skip eth0/accept_ra_from_local, coincides with default
+(00.034848)      1: net: Skip eth0/accept_ra_min_hop_limit, coincides with default
+(00.034872)      1: net: Skip eth0/accept_ra_mtu, coincides with default
+(00.034876)      1: net: Skip eth0/accept_ra_pinfo, coincides with default
+(00.034880)      1: net: Skip eth0/accept_ra_rt_info_max_plen, coincides with default
+(00.034884)      1: net: Skip eth0/accept_ra_rtr_pref, coincides with default
+(00.034888)      1: net: Skip eth0/accept_redirects, coincides with default
+(00.034892)      1: net: Skip eth0/accept_source_route, coincides with default
+(00.034896)      1: net: Skip eth0/autoconf, coincides with default
+(00.034899)      1: net: Skip eth0/dad_transmits, coincides with default
+(00.034903)      1: net: Skip eth0/disable_ipv6, coincides with default
+(00.034907)      1: net: Skip eth0/drop_unicast_in_l2_multicast, coincides with default
+(00.034911)      1: net: Skip eth0/drop_unsolicited_na, coincides with default
+(00.034915)      1: net: Skip eth0/force_mld_version, coincides with default
+(00.034918)      1: net: Skip eth0/force_tllao, coincides with default
+(00.034922)      1: net: Skip eth0/forwarding, coincides with default
+(00.034926)      1: net: Skip eth0/hop_limit, coincides with default
+(00.034930)      1: net: Skip eth0/ignore_routes_with_linkdown, coincides with default
+(00.034934)      1: net: Skip eth0/keep_addr_on_down, coincides with default
+(00.034938)      1: net: Skip eth0/max_addresses, coincides with default
+(00.034941)      1: net: Skip eth0/max_desync_factor, coincides with default
+(00.034945)      1: net: Skip eth0/mldv1_unsolicited_report_interval, coincides with default
+(00.034949)      1: net: Skip eth0/mldv2_unsolicited_report_interval, coincides with default
+(00.034954)      1: net: Skip eth0/ndisc_notify, coincides with default
+(00.034959)      1: net: Skip eth0/proxy_ndp, coincides with default
+(00.034963)      1: net: Skip eth0/regen_max_retry, coincides with default
+(00.034978)      1: net: Skip eth0/router_probe_interval, coincides with default
+(00.034982)      1: net: Skip eth0/router_solicitation_delay, coincides with default
+(00.034986)      1: net: Skip eth0/router_solicitation_interval, coincides with default
+(00.034990)      1: net: Skip eth0/router_solicitations, coincides with default
+(00.034995)      1: net: Skip eth0/suppress_frag_ndisc, coincides with default
+(00.034999)      1: net: Skip eth0/temp_prefered_lft, coincides with default
+(00.035003)      1: net: Skip eth0/temp_valid_lft, coincides with default
+(00.035006)      1: net: Skip eth0/use_oif_addrs_only, coincides with default
+(00.035011)      1: net: Skip eth0/use_tempaddr, coincides with default
+(00.035071)      1: net: Try to restore a link 10:1:lo
+(00.035078)      1: net: Restoring link lo type 1
+(00.040111)      1: net: 	Running ip addr restore  
+Error: ipv4: Address already assigned.
+Error: ipv6: address already assigned.
+(00.058360)      1: net: 	Running ip route restore  
+(00.077196)      1: net: 	Running ip route restore  
+RTNETLINK answers: File exists
+(00.093598)      1: net: 	Running ip rule flush  
+(00.106815)      1: net: 	Running ip rule delete table local
+(00.115878)      1: net: 	Running ip rule restore  
+(00.131845)      1: iptables has nft backend: iptables-restore v1.8.7 (nf_tables)
 
+(00.141562)      1: iptables has nft backend: ip6tables-restore v1.8.7 (nf_tables)
+
+(00.146286)      1: net: 	Running iptables-legacy-restore -w for iptables-legacy-restore -w
+(00.153291)      1: net: 	Running ip6tables-legacy-restore -w for ip6tables-legacy-restore -w
+(00.166011)      1: No netns-ct-10.img image
+(00.166066)      1: No netns-exp-10.img image
+(00.166546)      1: mnt: Restoring mount namespace
+(00.167068)      1: mnt: Move the root to /tmp/.criu.mntns.1DVeJr
+(00.168087)      1: mnt: Start with 0:(null)
+(00.168114)      1: mnt-v2: can_mount_now_v2: true as 614 is global root
+(00.168121)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000614 for 614
+(00.168141)      1: mnt-v2: 	Mounting unsupported @614 (0)
+(00.168244)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000614 for 614
+(00.168323)      1: mnt-v2: Mount 615 is detected as dir-mount
+(00.168331)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000615 for 615
+(00.168353)      1: mnt-v2: 	Mounting tmpfs @615 (0)
+(00.182968)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000615 for 615
+(00.183073)      1: mnt-v2: Mount 616 is detected as dir-mount
+(00.183083)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000616 for 616
+(00.183102)      1: mnt-v2: 	Mounting devpts @616 (0)
+(00.183205)      1: mnt-v2: 		Propagate 616 to 618
+(00.183299)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000616 for 616
+(00.183369)      1: mnt-v2: Mount 618 is detected as file-mount
+(00.183376)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000618 for 618
+(00.183403)      1: mnt-v2: 	Mounting devpts @618 (0)
+(00.183419)      1: mnt-v2: 	Bind /tmp/.criu.mntns.1DVeJr/mnt-0000000616/ptmx to /tmp/.criu.mntns.1DVeJr/mnt-0000000618
+(00.183502)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000618 for 618
+(00.183562)      1: mnt-v2: Mount 573 is detected as dir-mount
+(00.183568)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000573 for 573
+(00.183585)      1: mnt-v2: 	Mounting sysfs @573 (0)
+(00.183840)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000573 for 573
+(00.183955)      1: mnt-v2: can_mount_now_v2: true as 577 is external
+(00.184005)      1: mnt-v2: Mount 577 is detected as dir-mount
+(00.184011)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000577 for 577
+(00.184031)      1: mnt-v2: 	Mounting fusectl @577 (0)
+(00.184037)      1: mnt-v2: 	Bind /sys/fs/fuse/connections to /tmp/.criu.mntns.1DVeJr/mnt-0000000577
+(00.184150)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000577 for 577
+(00.184237)      1: mnt-v2: Mount 576 is detected as dir-mount
+(00.184244)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000576 for 576
+(00.184259)      1: mnt-v2: 	Mounting tmpfs @576 (0)
+(00.195804)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000576 for 576
+(00.195960)      1: mnt-v2: Mount 578 is detected as dir-mount
+(00.195971)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000578 for 578
+(00.195988)      1: mnt-v2: 	Mounting debugfs @578 (0)
+(00.196116)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000578 for 578
+(00.196182)      1: mnt-v2: Mount 579 is detected as dir-mount
+(00.196188)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000579 for 579
+(00.196203)      1: mnt-v2: 	Mounting securityfs @579 (0)
+(00.196288)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000579 for 579
+(00.196350)      1: mnt-v2: can_mount_now_v2: true as 574 is external
+(00.196368)      1: mnt-v2: Mount 574 is detected as dir-mount
+(00.196373)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000574 for 574
+(00.196387)      1: mnt-v2: 	Mounting proc @574 (0)
+(00.196393)      1: mnt-v2: 	Bind /proc to /tmp/.criu.mntns.1DVeJr/mnt-0000000574
+(00.196490)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000574 for 574
+(00.196552)      1: mnt-v2: Mount 575 is detected as dir-mount
+(00.196558)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000575 for 575
+(00.196574)      1: mnt-v2: 	Mounting binfmt_misc @575 (0)
+(00.196796)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000575 for 575
+(00.196920)      1: mnt-v2: Mount 580 is detected as dir-mount
+(00.196931)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000580 for 580
+(00.196954)      1: mnt-v2: 	Mounting tmpfs @580 (0)
+(00.209545)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000580 for 580
+(00.209804)      1: mnt-v2: Mount 581 is detected as dir-mount
+(00.209823)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000581 for 581
+(00.209845)      1: mnt-v2: 	Mounting tmpfs @581 (0)
+(00.221426)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000581 for 581
+(00.221532)      1: mnt-v2: Mount 582 is detected as dir-mount
+(00.221541)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000582 for 582
+(00.221558)      1: mnt-v2: 	Mounting tmpfs @582 (0)
+(00.233331)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000582 for 582
+(00.233450)      1: mnt-v2: Mount 583 is detected as dir-mount
+(00.233459)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000583 for 583
+(00.233482)      1: mnt-v2: 	Mounting tmpfs @583 (0)
+(00.244945)      1: mnt-v2: Create plain mountpoint /tmp/.criu.mntns.1DVeJr/mnt-0000000583 for 583
+(00.245088)      1: mnt: Start with 614:/
+(00.245136)      1: mnt-v2: Move mount 614 from /tmp/.criu.mntns.1DVeJr/mnt-0000000614 to /tmp/.criu.mntns.1DVeJr/13-0000000000/
+(00.245189)      1: mnt-v2: Move mount 615 from /tmp/.criu.mntns.1DVeJr/mnt-0000000615 to /tmp/.criu.mntns.1DVeJr/13-0000000000/dev
+(00.245238)      1: mnt-v2: Move mount 616 from /tmp/.criu.mntns.1DVeJr/mnt-0000000616 to /tmp/.criu.mntns.1DVeJr/13-0000000000/dev/pts
+(00.245294)      1: mnt-v2: Move mount 618 from /tmp/.criu.mntns.1DVeJr/mnt-0000000618 to /tmp/.criu.mntns.1DVeJr/13-0000000000/dev/ptmx
+(00.245343)      1: mnt-v2: Move mount 573 from /tmp/.criu.mntns.1DVeJr/mnt-0000000573 to /tmp/.criu.mntns.1DVeJr/13-0000000000/sys
+(00.245402)      1: mnt-v2: Move mount 577 from /tmp/.criu.mntns.1DVeJr/mnt-0000000577 to /tmp/.criu.mntns.1DVeJr/13-0000000000/sys/fs/fuse/connections
+(00.245457)      1: mnt-v2: Move mount 576 from /tmp/.criu.mntns.1DVeJr/mnt-0000000576 to /tmp/.criu.mntns.1DVeJr/13-0000000000/sys/fs/cgroup
+(00.245510)      1: mnt-v2: Move mount 578 from /tmp/.criu.mntns.1DVeJr/mnt-0000000578 to /tmp/.criu.mntns.1DVeJr/13-0000000000/sys/kernel/debug
+(00.245588)      1: mnt-v2: Move mount 579 from /tmp/.criu.mntns.1DVeJr/mnt-0000000579 to /tmp/.criu.mntns.1DVeJr/13-0000000000/sys/kernel/security
+(00.245780)      1: mnt-v2: Move mount 574 from /tmp/.criu.mntns.1DVeJr/mnt-0000000574 to /tmp/.criu.mntns.1DVeJr/13-0000000000/proc
+(00.245874)      1: mnt-v2: Move mount 575 from /tmp/.criu.mntns.1DVeJr/mnt-0000000575 to /tmp/.criu.mntns.1DVeJr/13-0000000000/proc/sys/fs/binfmt_misc
+(00.245935)      1: mnt-v2: Move mount 580 from /tmp/.criu.mntns.1DVeJr/mnt-0000000580 to /tmp/.criu.mntns.1DVeJr/13-0000000000/run
+(00.245982)      1: mnt-v2: Move mount 581 from /tmp/.criu.mntns.1DVeJr/mnt-0000000581 to /tmp/.criu.mntns.1DVeJr/13-0000000000/run/lock
+(00.246027)      1: mnt-v2: Move mount 582 from /tmp/.criu.mntns.1DVeJr/mnt-0000000582 to /tmp/.criu.mntns.1DVeJr/13-0000000000/run/shm
+(00.246073)      1: mnt-v2: Move mount 583 from /tmp/.criu.mntns.1DVeJr/mnt-0000000583 to /tmp/.criu.mntns.1DVeJr/13-0000000000/run/user
+(00.246104)      1: mnt: Move the root to /tmp/.criu.mntns.1DVeJr/13-0000000000
+(00.247296) Running post-setup-namespaces scripts
+(00.247383)      1: Preparing info about shared resources
+(00.247436)      1: Configuring remap 0x11 -> 0x1
+(00.247545)      1: Trying to create ghost on path /tmp/.criu.mntns.1DVeJr/mnt-0000000615/null.cr.1.ghost
+(00.247763)      1: Remap rpath is dev/null.cr.1.ghost
+(00.247829)      1: Configuring remap 0x2a -> 0x1
+(00.247838)      1: Configuring remap 0x4a -> 0x1
+(00.247843)      1: Configuring remap 0x55 -> 0x16
+(00.247848)      1: Configuring remap 0x5a -> 0x1
+(00.248005)      1: Collecting 48/38 (flags 0)
+(00.248039)      1: No filelocks.img image
+(00.248046)      1:  `- ... done
+(00.248050)      1: Collecting 42/27 (flags 0)
+(00.248087)      1: Collected pipe data for 0x18453 (chain 19)
+(00.248099)      1: Collected pipe data for 0x18152 (chain 18)
+(00.248108)      1: Collected pipe data for 0x1815e (chain 30)
+(00.248117)      1: Collected pipe data for 0x18162 (chain 2)
+(00.248127)      1: Collected pipe data for 0x18164 (chain 4)
+(00.248136)      1: Collected pipe data for 0x181fc (chain 28)
+(00.248146)      1:  `- ... done
+(00.248150)      1: Collecting 43/27 (flags 0)
+(00.248170)      1: No fifo-data.img image
+(00.248175)      1:  `- ... done
+(00.248179)      1: Collecting 41/69 (flags 0)
+(00.248197)      1: No sk-queues.img image
+(00.248202)      1:  `- ... done
+(00.248316)      1: Found 73 VMAs in image
+(00.248325)      1: vma 0x590f9ce00000 0x590f9ce3e000
+(00.248332)      1: vma 0x590f9d03e000 0x590f9d040000
+(00.248336)      1: vma 0x590f9d040000 0x590f9d041000
+(00.248341)      1: vma 0x590f9e575000 0x590f9e619000
+(00.248345)      1: vma 0x71124e800000 0x71124e80a000
+(00.248349)      1: vma 0x71124e80a000 0x71124ea09000
+(00.248354)      1: vma 0x71124ea09000 0x71124ea0a000
+(00.248359)      1: vma 0x71124ea0a000 0x71124ea0b000
+(00.248363)      1: vma 0x71124ec00000 0x71124ec0b000
+(00.248367)      1: vma 0x71124ec0b000 0x71124ee0a000
+(00.248371)      1: vma 0x71124ee0a000 0x71124ee0b000
+(00.248376)      1: vma 0x71124ee0b000 0x71124ee0c000
+(00.248380)      1: vma 0x71124f000000 0x71124f017000
+(00.248385)      1: vma 0x71124f017000 0x71124f216000
+(00.248389)      1: vma 0x71124f216000 0x71124f217000
+(00.248393)      1: vma 0x71124f217000 0x71124f218000
+(00.248397)      1: vma 0x71124f218000 0x71124f21a000
+(00.248401)      1: vma 0x71124f400000 0x71124f409000
+(00.248406)      1: vma 0x71124f409000 0x71124f608000
+(00.248410)      1: vma 0x71124f608000 0x71124f609000
+(00.248414)      1: vma 0x71124f609000 0x71124f60a000
+(00.248419)      1: vma 0x71124f800000 0x71124f803000
+(00.248423)      1: vma 0x71124f803000 0x71124fa02000
+(00.248427)      1: vma 0x71124fa02000 0x71124fa03000
+(00.248431)      1: vma 0x71124fa03000 0x71124fa04000
+(00.248436)      1: vma 0x71124fc00000 0x71124fc3d000
+(00.248440)      1: vma 0x71124fc3d000 0x71124fe3c000
+(00.248444)      1: vma 0x71124fe3c000 0x71124fe3d000
+(00.248449)      1: vma 0x71124fe3d000 0x71124fe3e000
+(00.248471)      1: vma 0x711250000000 0x711250019000
+(00.248476)      1: vma 0x711250019000 0x711250218000
+(00.248480)      1: vma 0x711250218000 0x711250219000
+(00.248484)      1: vma 0x711250219000 0x71125021a000
+(00.248488)      1: vma 0x71125021a000 0x71125021e000
+(00.248492)      1: vma 0x711250400000 0x7112505be000
+(00.248496)      1: vma 0x7112505be000 0x7112507be000
+(00.248500)      1: vma 0x7112507be000 0x7112507c2000
+(00.248504)      1: vma 0x7112507c2000 0x7112507c4000
+(00.248508)      1: vma 0x7112507c4000 0x7112507c9000
+(00.248512)      1: vma 0x711250800000 0x711250807000
+(00.248516)      1: vma 0x711250807000 0x711250a06000
+(00.248520)      1: vma 0x711250a06000 0x711250a07000
+(00.248524)      1: vma 0x711250a07000 0x711250a08000
+(00.248528)      1: vma 0x711250c00000 0x711250c0a000
+(00.248532)      1: vma 0x711250c0a000 0x711250e09000
+(00.248536)      1: vma 0x711250e09000 0x711250e0a000
+(00.248540)      1: vma 0x711250e0a000 0x711250e0b000
+(00.248544)      1: vma 0x711251000000 0x711251020000
+(00.248548)      1: vma 0x711251020000 0x71125121f000
+(00.248552)      1: vma 0x71125121f000 0x711251220000
+(00.248556)      1: vma 0x711251220000 0x711251221000
+(00.248560)      1: vma 0x711251221000 0x711251223000
+(00.248564)      1: vma 0x711251400000 0x711251444000
+(00.248568)      1: vma 0x711251444000 0x711251643000
+(00.248572)      1: vma 0x711251643000 0x711251644000
+(00.248576)      1: vma 0x711251644000 0x711251645000
+(00.248580)      1: vma 0x711251800000 0x711251808000
+(00.248584)      1: vma 0x711251808000 0x711251a08000
+(00.248588)      1: vma 0x711251a08000 0x711251a09000
+(00.248593)      1: vma 0x711251a09000 0x711251a0a000
+(00.248597)      1: vma 0x711251c00000 0x711251c17000
+(00.248601)      1: vma 0x711251c17000 0x711251e16000
+(00.248605)      1: vma 0x711251e16000 0x711251e17000
+(00.248609)      1: vma 0x711251e17000 0x711251e18000
+(00.248612)      1: vma 0x711252000000 0x711252023000
+(00.248617)      1: vma 0x711252222000 0x711252223000
+(00.248620)      1: vma 0x711252223000 0x711252224000
+(00.248625)      1: vma 0x711252224000 0x711252225000
+(00.248629)      1: vma 0x7112522ab000 0x7112522b2000
+(00.248765)      1: vma 0x7ffe554e4000 0x7ffe55505000
+(00.248771)      1: vma 0x7ffe55518000 0x7ffe5551c000
+(00.248775)      1: vma 0x7ffe5551c000 0x7ffe5551e000
+(00.248779)      1: vma 0xffffffffff600000 0xffffffffff601000
+(00.248816)      1: Collect fdinfo pid=1 fd=0 id=0x11
+(00.248825)      1: Collect fdinfo pid=1 fd=1 id=0x11
+(00.248832)      1: Collect fdinfo pid=1 fd=2 id=0x11
+(00.248837)      1: Collect fdinfo pid=1 fd=3 id=0x12
+(00.248842)      1: Collect fdinfo pid=1 fd=4 id=0x13
+(00.248875)      1: Collect fdinfo pid=1 fd=5 id=0x14
+(00.248882)      1: Collect fdinfo pid=1 fd=6 id=0x15
+(00.248891)      1: Collect fdinfo pid=1 fd=7 id=0x16
+(00.248896)      1: Collect fdinfo pid=1 fd=8 id=0x17
+(00.248901)      1: Collect fdinfo pid=1 fd=9 id=0x18
+(00.248906)      1: Collect fdinfo pid=1 fd=10 id=0x19
+(00.248911)      1: Collect fdinfo pid=1 fd=11 id=0x1a
+(00.248917)      1: Collect fdinfo pid=1 fd=12 id=0x1b
+(00.248922)      1: Collect fdinfo pid=1 fd=16 id=0x1d
+(00.249043)      1: Found 39 VMAs in image
+(00.249051)      1: vma 0x6190c6c00000 0x6190c6c1f000
+(00.249056)      1: vma 0x6190c6e1e000 0x6190c6e20000
+(00.249060)      1: vma 0x6190c6e20000 0x6190c6e21000
+(00.249064)      1: vma 0x6190c6ff9000 0x6190c701a000
+(00.249068)      1: vma 0x70591f600000 0x70591f619000
+(00.249073)      1: vma 0x70591f619000 0x70591f818000
+(00.249077)      1: vma 0x70591f818000 0x70591f819000
+(00.249082)      1: vma 0x70591f819000 0x70591f81a000
+(00.249087)      1: vma 0x70591f81a000 0x70591f81e000
+(00.249091)      1: vma 0x70591fa00000 0x70591fa07000
+(00.249095)      1: vma 0x70591fa07000 0x70591fc06000
+(00.249099)      1: vma 0x70591fc06000 0x70591fc07000
+(00.249104)      1: vma 0x70591fc07000 0x70591fc08000
+(00.249108)      1: vma 0x70591fe00000 0x70591ffbe000
+(00.249112)      1: vma 0x70591ffbe000 0x7059201be000
+(00.249117)      1: vma 0x7059201be000 0x7059201c2000
+(00.249121)      1: vma 0x7059201c2000 0x7059201c4000
+(00.249137)      1: vma 0x7059201c4000 0x7059201c9000
+(00.249142)      1: vma 0x705920200000 0x705920244000
+(00.249146)      1: vma 0x705920244000 0x705920443000
+(00.249151)      1: vma 0x705920443000 0x705920444000
+(00.249155)      1: vma 0x705920444000 0x705920445000
+(00.249166)      1: vma 0x705920600000 0x705920608000
+(00.249170)      1: vma 0x705920608000 0x705920808000
+(00.249175)      1: vma 0x705920808000 0x705920809000
+(00.249179)      1: vma 0x705920809000 0x70592080a000
+(00.249183)      1: vma 0x705920a00000 0x705920a17000
+(00.249187)      1: vma 0x705920a17000 0x705920c16000
+(00.249192)      1: vma 0x705920c16000 0x705920c17000
+(00.249196)      1: vma 0x705920c17000 0x705920c18000
+(00.249200)      1: vma 0x705920e00000 0x705920e23000
+(00.249205)      1: vma 0x705921022000 0x705921023000
+(00.249209)      1: vma 0x705921023000 0x705921024000
+(00.249213)      1: vma 0x705921024000 0x705921025000
+(00.249218)      1: vma 0x705921106000 0x70592110b000
+(00.249222)      1: vma 0x7ffce68c3000 0x7ffce68e4000
+(00.249226)      1: vma 0x7ffce69cc000 0x7ffce69d0000
+(00.249231)      1: vma 0x7ffce69d0000 0x7ffce69d2000
+(00.249235)      1: vma 0xffffffffff600000 0xffffffffff601000
+(00.249261)      1: Collect fdinfo pid=314 fd=0 id=0x5a
+(00.249268)      1: Collect fdinfo pid=314 fd=1 id=0x5a
+(00.249274)      1: Collect fdinfo pid=314 fd=2 id=0x5a
+(00.249279)      1: Collect fdinfo pid=314 fd=3 id=0x5b
+(00.249289)      1: Collect fdinfo pid=314 fd=4 id=0x5c
+(00.249295)      1: Collect fdinfo pid=314 fd=5 id=0x5d
+(00.249303)      1: Collect fdinfo pid=314 fd=6 id=0x5e
+(00.249435)      1: Found 63 VMAs in image
+(00.249442)      1: vma 0x59f43e000000 0x59f43e018000
+(00.249446)      1: vma 0x59f43e218000 0x59f43e219000
+(00.249451)      1: vma 0x59f43e219000 0x59f43e21a000
+(00.249455)      1: vma 0x59f43f794000 0x59f43f7b5000
+(00.249459)      1: vma 0x59f43f7b5000 0x59f43f7db000
+(00.249464)      1: vma 0x709b1f400000 0x709b1f6cb000
+(00.249468)      1: vma 0x709b1f800000 0x709b1f803000
+(00.249472)      1: vma 0x709b1f803000 0x709b1fa02000
+(00.249476)      1: vma 0x709b1fa02000 0x709b1fa03000
+(00.249480)      1: vma 0x709b1fa03000 0x709b1fa04000
+(00.249485)      1: vma 0x709b1fc00000 0x709b1fc19000
+(00.249489)      1: vma 0x709b1fc19000 0x709b1fe18000
+(00.249494)      1: vma 0x709b1fe18000 0x709b1fe1a000
+(00.249498)      1: vma 0x709b1fe1a000 0x709b1fe1b000
+(00.249502)      1: vma 0x709b20000000 0x709b20019000
+(00.249506)      1: vma 0x709b20019000 0x709b20218000
+(00.249511)      1: vma 0x709b20218000 0x709b20219000
+(00.249515)      1: vma 0x709b20219000 0x709b2021a000
+(00.249519)      1: vma 0x709b2021a000 0x709b2021e000
+(00.249523)      1: vma 0x709b20400000 0x709b20407000
+(00.249528)      1: vma 0x709b20407000 0x709b20606000
+(00.249532)      1: vma 0x709b20606000 0x709b20607000
+(00.249536)      1: vma 0x709b20607000 0x709b20608000
+(00.249540)      1: vma 0x709b20800000 0x709b209be000
+(00.249544)      1: vma 0x709b209be000 0x709b20bbe000
+(00.249548)      1: vma 0x709b20bbe000 0x709b20bc2000
+(00.249553)      1: vma 0x709b20bc2000 0x709b20bc4000
+(00.249557)      1: vma 0x709b20bc4000 0x709b20bc9000
+(00.249561)      1: vma 0x709b20c00000 0x709b20c16000
+(00.249565)      1: vma 0x709b20c16000 0x709b20e15000
+(00.249570)      1: vma 0x709b20e15000 0x709b20e16000
+(00.249574)      1: vma 0x709b20e16000 0x709b20e17000
+(00.249578)      1: vma 0x709b21000000 0x709b21005000
+(00.249582)      1: vma 0x709b21005000 0x709b21204000
+(00.249587)      1: vma 0x709b21204000 0x709b21205000
+(00.249591)      1: vma 0x709b21205000 0x709b21206000
+(00.249595)      1: vma 0x709b21400000 0x709b21410000
+(00.249599)      1: vma 0x709b21410000 0x709b2160f000
+(00.249603)      1: vma 0x709b2160f000 0x709b21610000
+(00.249733)      1: vma 0x709b21610000 0x709b21611000
+(00.249750)      1: vma 0x709b21800000 0x709b21844000
+(00.249755)      1: vma 0x709b21844000 0x709b21a43000
+(00.249759)      1: vma 0x709b21a43000 0x709b21a44000
+(00.249763)      1: vma 0x709b21a44000 0x709b21a45000
+(00.249768)      1: vma 0x709b21c00000 0x709b21c08000
+(00.249772)      1: vma 0x709b21c08000 0x709b21e08000
+(00.249789)      1: vma 0x709b21e08000 0x709b21e09000
+(00.249794)      1: vma 0x709b21e09000 0x709b21e0a000
+(00.249798)      1: vma 0x709b22000000 0x709b22017000
+(00.249811)      1: vma 0x709b22017000 0x709b22216000
+(00.249816)      1: vma 0x709b22216000 0x709b22217000
+(00.249820)      1: vma 0x709b22217000 0x709b22218000
+(00.249824)      1: vma 0x709b22400000 0x709b22423000
+(00.249828)      1: vma 0x709b22622000 0x709b22623000
+(00.249832)      1: vma 0x709b22623000 0x709b22624000
+(00.249836)      1: vma 0x709b22624000 0x709b22625000
+(00.249840)      1: vma 0x709b226b4000 0x709b226bb000
+(00.249844)      1: vma 0x709b226bb000 0x709b226c3000
+(00.249848)      1: vma 0x709b226c3000 0x709b226c5000
+(00.249874)      1: vma 0x7ffe2c03f000 0x7ffe2c060000
+(00.249879)      1: vma 0x7ffe2c0c9000 0x7ffe2c0cd000
+(00.249883)      1: vma 0x7ffe2c0cd000 0x7ffe2c0cf000
+(00.249887)      1: vma 0xffffffffff600000 0xffffffffff601000
+(00.249920)      1: Collect fdinfo pid=28 fd=0 id=0x4a
+(00.249927)      1: Collect fdinfo pid=28 fd=1 id=0x4b
+(00.249938)      1: Collect fdinfo pid=28 fd=2 id=0x4b
+(00.249943)      1: Collect fdinfo pid=28 fd=3 id=0x4d
+(00.249948)      1: Collect fdinfo pid=28 fd=4 id=0x4e
+(00.249953)      1: Collect fdinfo pid=28 fd=5 id=0x4f
+(00.249958)      1: Collect fdinfo pid=28 fd=6 id=0x50
+(00.249985)      1: Collect fdinfo pid=28 fd=7 id=0x51
+(00.249995)      1: Collect fdinfo pid=28 fd=8 id=0x52
+(00.250000)      1: Collect fdinfo pid=28 fd=9 id=0x53
+(00.250005)      1: Collect fdinfo pid=28 fd=10 id=0x54
+(00.250010)      1: Collect fdinfo pid=28 fd=11 id=0x55
+(00.250015)      1: Collect fdinfo pid=28 fd=12 id=0x56
+(00.250177)      1: Found 80 VMAs in image
+(00.250184)      1: vma 0x400000 0x413000
+(00.250188)      1: vma 0x612000 0x613000
+(00.250192)      1: vma 0x613000 0x614000
+(00.250197)      1: vma 0xd55000 0xd76000
+(00.250201)      1: vma 0x73ae5fa00000 0x73ae5fa03000
+(00.250205)      1: vma 0x73ae5fa03000 0x73ae5fc02000
+(00.250210)      1: vma 0x73ae5fc02000 0x73ae5fc03000
+(00.250214)      1: vma 0x73ae5fc03000 0x73ae5fc04000
+(00.250218)      1: vma 0x73ae5fe00000 0x73ae5fe04000
+(00.250222)      1: vma 0x73ae5fe04000 0x73ae60003000
+(00.250226)      1: vma 0x73ae60003000 0x73ae60004000
+(00.250231)      1: vma 0x73ae60004000 0x73ae60005000
+(00.250235)      1: vma 0x73ae60200000 0x73ae60204000
+(00.250239)      1: vma 0x73ae60204000 0x73ae60404000
+(00.250244)      1: vma 0x73ae60404000 0x73ae60405000
+(00.250248)      1: vma 0x73ae60405000 0x73ae60406000
+(00.250252)      1: vma 0x73ae60600000 0x73ae6060d000
+(00.250256)      1: vma 0x73ae6060d000 0x73ae6080c000
+(00.250260)      1: vma 0x73ae6080c000 0x73ae6080d000
+(00.250265)      1: vma 0x73ae6080d000 0x73ae6080e000
+(00.250269)      1: vma 0x73ae60a00000 0x73ae60a07000
+(00.250273)      1: vma 0x73ae60a07000 0x73ae60c06000
+(00.250277)      1: vma 0x73ae60c06000 0x73ae60c07000
+(00.250282)      1: vma 0x73ae60c07000 0x73ae60c08000
+(00.250286)      1: vma 0x73ae60e00000 0x73ae60e0a000
+(00.250290)      1: vma 0x73ae60e0a000 0x73ae61009000
+(00.250294)      1: vma 0x73ae61009000 0x73ae6100a000
+(00.250299)      1: vma 0x73ae6100a000 0x73ae6100b000
+(00.250303)      1: vma 0x73ae61200000 0x73ae6120b000
+(00.250307)      1: vma 0x73ae6120b000 0x73ae6140a000
+(00.250311)      1: vma 0x73ae6140a000 0x73ae6140b000
+(00.250316)      1: vma 0x73ae6140b000 0x73ae6140c000
+(00.250320)      1: vma 0x73ae61600000 0x73ae61617000
+(00.250324)      1: vma 0x73ae61617000 0x73ae61816000
+(00.250328)      1: vma 0x73ae61816000 0x73ae61817000
+(00.250333)      1: vma 0x73ae61817000 0x73ae61818000
+(00.250337)      1: vma 0x73ae61818000 0x73ae6181a000
+(00.250341)      1: vma 0x73ae61a00000 0x73ae61a09000
+(00.250345)      1: vma 0x73ae61a09000 0x73ae61c08000
+(00.250349)      1: vma 0x73ae61c08000 0x73ae61c09000
+(00.250353)      1: vma 0x73ae61c09000 0x73ae61c0a000
+(00.250357)      1: vma 0x73ae61e00000 0x73ae61e19000
+(00.250362)      1: vma 0x73ae61e19000 0x73ae62018000
+(00.250366)      1: vma 0x73ae62018000 0x73ae62019000
+(00.250370)      1: vma 0x73ae62019000 0x73ae6201a000
+(00.250385)      1: vma 0x73ae6201a000 0x73ae6201e000
+(00.250389)      1: vma 0x73ae62200000 0x73ae62305000
+(00.250394)      1: vma 0x73ae62305000 0x73ae62504000
+(00.250398)      1: vma 0x73ae62504000 0x73ae62505000
+(00.250402)      1: vma 0x73ae62505000 0x73ae62506000
+(00.250406)      1: vma 0x73ae62600000 0x73ae62603000
+(00.250410)      1: vma 0x73ae62603000 0x73ae62802000
+(00.250414)      1: vma 0x73ae62802000 0x73ae62803000
+(00.250418)      1: vma 0x73ae62803000 0x73ae62804000
+(00.250422)      1: vma 0x73ae62a00000 0x73ae62a07000
+(00.250432)      1: vma 0x73ae62a07000 0x73ae62c06000
+(00.250437)      1: vma 0x73ae62c06000 0x73ae62c07000
+(00.250441)      1: vma 0x73ae62c07000 0x73ae62c08000
+(00.250446)      1: vma 0x73ae62e00000 0x73ae62fbe000
+(00.250450)      1: vma 0x73ae62fbe000 0x73ae631be000
+(00.250454)      1: vma 0x73ae631be000 0x73ae631c2000
+(00.250458)      1: vma 0x73ae631c2000 0x73ae631c4000
+(00.250462)      1: vma 0x73ae631c4000 0x73ae631c9000
+(00.250467)      1: vma 0x73ae63200000 0x73ae63211000
+(00.250471)      1: vma 0x73ae63211000 0x73ae63410000
+(00.250475)      1: vma 0x73ae63410000 0x73ae63411000
+(00.250479)      1: vma 0x73ae63411000 0x73ae63412000
+(00.250484)      1: vma 0x73ae63600000 0x73ae63616000
+(00.250488)      1: vma 0x73ae63616000 0x73ae63815000
+(00.250492)      1: vma 0x73ae63815000 0x73ae63816000
+(00.250496)      1: vma 0x73ae63816000 0x73ae63817000
+(00.250500)      1: vma 0x73ae63a00000 0x73ae63a23000
+(00.250505)      1: vma 0x73ae63c22000 0x73ae63c23000
+(00.250509)      1: vma 0x73ae63c23000 0x73ae63c24000
+(00.250513)      1: vma 0x73ae63c24000 0x73ae63c25000
+(00.250517)      1: vma 0x73ae63d08000 0x73ae63d0e000
+(00.250522)      1: vma 0x7ffe900c1000 0x7ffe900e2000
+(00.250531)      1: vma 0x7ffe901e1000 0x7ffe901e5000
+(00.250536)      1: vma 0x7ffe901e5000 0x7ffe901e7000
+(00.250540)      1: vma 0xffffffffff600000 0xffffffffff601000
+(00.250564)      1: Collect fdinfo pid=18 fd=0 id=0x2a
+(00.250571)      1: Collect fdinfo pid=18 fd=1 id=0x2b
+(00.250582)      1: Collect fdinfo pid=18 fd=2 id=0x2b
+(00.250587)      1: Collect fdinfo pid=18 fd=3 id=0x2d
+(00.250592)      1: Collect fdinfo pid=18 fd=4 id=0x2e
+(00.250597)      1: Collect fdinfo pid=18 fd=5 id=0x2f
+(00.250602)      1: Collect fdinfo pid=18 fd=6 id=0x30
+(00.250729)      1: Collect fdinfo pid=18 fd=7 id=0x31
+(00.250748)      1: Collect fdinfo pid=18 fd=9 id=0x32
+(00.250754)      1: Collect fdinfo pid=18 fd=11 id=0x33
+(00.250903)      1: Found 48 VMAs in image
+(00.250912)      1: vma 0x400000 0x407000
+(00.250917)      1: vma 0x606000 0x607000
+(00.250921)      1: vma 0x607000 0x608000
+(00.250925)      1: vma 0x631000 0x673000
+(00.250929)      1: vma 0x764f80e00000 0x764f80e03000
+(00.250933)      1: vma 0x764f80e03000 0x764f81002000
+(00.250937)      1: vma 0x764f81002000 0x764f81003000
+(00.250941)      1: vma 0x764f81003000 0x764f81004000
+(00.250946)      1: vma 0x764f81200000 0x764f81207000
+(00.250950)      1: vma 0x764f81207000 0x764f81406000
+(00.250954)      1: vma 0x764f81406000 0x764f81407000
+(00.250958)      1: vma 0x764f81407000 0x764f81408000
+(00.250962)      1: vma 0x764f81600000 0x764f81619000
+(00.250966)      1: vma 0x764f81619000 0x764f81818000
+(00.250970)      1: vma 0x764f81818000 0x764f81819000
+(00.250974)      1: vma 0x764f81819000 0x764f8181a000
+(00.250978)      1: vma 0x764f8181a000 0x764f8181e000
+(00.250982)      1: vma 0x764f81a00000 0x764f81bbe000
+(00.250986)      1: vma 0x764f81bbe000 0x764f81dbe000
+(00.250990)      1: vma 0x764f81dbe000 0x764f81dc2000
+(00.250994)      1: vma 0x764f81dc2000 0x764f81dc4000
+(00.250998)      1: vma 0x764f81dc4000 0x764f81dc9000
+(00.251002)      1: vma 0x764f81e00000 0x764f81e05000
+(00.251006)      1: vma 0x764f81e05000 0x764f82004000
+(00.251017)      1: vma 0x764f82004000 0x764f82005000
+(00.251021)      1: vma 0x764f82005000 0x764f82006000
+(00.251026)      1: vma 0x764f82200000 0x764f82216000
+(00.251030)      1: vma 0x764f82216000 0x764f82415000
+(00.251034)      1: vma 0x764f82415000 0x764f82416000
+(00.251038)      1: vma 0x764f82416000 0x764f82417000
+(00.251042)      1: vma 0x764f82600000 0x764f82625000
+(00.251056)      1: vma 0x764f82625000 0x764f82824000
+(00.251061)      1: vma 0x764f82824000 0x764f82828000
+(00.251065)      1: vma 0x764f82828000 0x764f82829000
+(00.251069)      1: vma 0x764f82a00000 0x764f82a44000
+(00.251073)      1: vma 0x764f82a44000 0x764f82c43000
+(00.251077)      1: vma 0x764f82c43000 0x764f82c44000
+(00.251081)      1: vma 0x764f82c44000 0x764f82c45000
+(00.251085)      1: vma 0x764f82e00000 0x764f82e23000
+(00.251090)      1: vma 0x764f83022000 0x764f83023000
+(00.251094)      1: vma 0x764f83023000 0x764f83024000
+(00.251097)      1: vma 0x764f83024000 0x764f83025000
+(00.251101)      1: vma 0x764f831e5000 0x764f831eb000
+(00.251105)      1: vma 0x764f831ed000 0x764f831ee000
+(00.251109)      1: vma 0x7ffcc14fd000 0x7ffcc151e000
+(00.251119)      1: vma 0x7ffcc15e1000 0x7ffcc15e5000
+(00.251124)      1: vma 0x7ffcc15e5000 0x7ffcc15e7000
+(00.251128)      1: vma 0xffffffffff600000 0xffffffffff601000
+(00.251155)      1: Collect fdinfo pid=24 fd=0 id=0x3a
+(00.251161)      1: Collect fdinfo pid=24 fd=1 id=0x3a
+(00.251166)      1: Collect fdinfo pid=24 fd=2 id=0x3a
+(00.251172)      1: Collect fdinfo pid=24 fd=3 id=0x3c
+(00.251192)      1: Collect fdinfo pid=24 fd=4 id=0x3d
+(00.251203)      1: Collect fdinfo pid=24 fd=5 id=0x3e
+(00.251207)      1: Collect fdinfo pid=24 fd=6 id=0x3f
+(00.251212)      1: Collect fdinfo pid=24 fd=7 id=0x40
+(00.251217)      1: Collect fdinfo pid=24 fd=8 id=0x41
+(00.251399)      1: skqueue: Preparing SCMs
+(00.251411)      1: tty: Link PTYs (0x1b)
+(00.251416)      1: tty: Link PTYs (0x1d)
+(00.251426)      1: tty: head driver ptmx id 0x1b index 2 (master 1 sid 0 pgrp 0 inherit 0)
+(00.251434)      1: tty:     `- sibling driver pts id 0x2b index 2 (master 0 sid 0 pgrp 0 inherit 0)
+(00.251439)      1: tty: head driver ptmx id 0x1d index 0 (master 1 sid 0 pgrp 0 inherit 0)
+(00.251444)      1: tty:     `- sibling driver pts id 0x4b index 0 (master 0 sid 0 pgrp 0 inherit 0)
+(00.251449)      1: tty: head driver console id 0x33 index 1002 (master 1 sid 0 pgrp 0 inherit 0)
+(00.251454)      1: tty: head driver console id 0x3a index 1002 (master 1 sid 0 pgrp 0 inherit 0)
+(00.251460)      1: unix: Connected 98814 -> 98811 (98811) flags 0
+(00.251466)      1: unix: `- will add fake 17 fd
+(00.251471)      1: unix: Connected 99486 -> 98661 (98661) flags 0
+(00.251476)      1: unix: `- will add fake 12 fd
+(00.251496)      1: unix: Connected 99485 -> 98657 (98657) flags 0
+(00.251502)      1: unix: `- will add fake 18 fd
+(00.251506)      1: unix: Connected 99480 -> 98656 (98656) flags 0
+(00.251511)      1: unix: `- will add fake 19 fd
+(00.251515)      1: unix: Connected 99481 -> 98655 (98655) flags 0
+(00.251519)      1: unix: `- will add fake 13 fd
+(00.251524)      1: Pipes:
+(00.251528)      1:  `- PIPE ID 0x18453
+(00.251532)      1:   `- ID 0x5e34a5257eb0 0x12
+(00.251537)      1:    `- FD 3 pid 1
+(00.251541)      1:   `- ID 0x5e34a525b660 0x13
+(00.251545)      1:    `- FD 4 pid 1
+(00.251549)      1:     by 0x12
+(00.251553)      1:  `- PIPE ID 0x18152
+(00.251557)      1:   `- ID 0x5e34a525ea90 0x2e
+(00.251561)      1:    `- FD 4 pid 18
+(00.251565)      1:   `- ID 0x5e34a525ec50 0x2f
+(00.251569)      1:    `- FD 5 pid 18
+(00.251572)      1:     by 0x2e
+(00.251576)      1:  `- PIPE ID 0x1815e
+(00.251580)      1:   `- ID 0x5e34a5260450 0x3d
+(00.251584)      1:    `- FD 4 pid 24
+(00.251587)      1:   `- ID 0x5e34a5260610 0x3e
+(00.251591)      1:    `- FD 5 pid 24
+(00.251595)      1:     by 0x3d
+(00.251598)      1:  `- PIPE ID 0x18162
+(00.251602)      1:   `- ID 0x5e34a5262cb0 0x4e
+(00.251606)      1:    `- FD 4 pid 28
+(00.251739)      1:   `- ID 0x5e34a5262e70 0x4f
+(00.251745)      1:    `- FD 5 pid 28
+(00.251748)      1:     by 0x4e
+(00.251752)      1:  `- PIPE ID 0x18164
+(00.251756)      1:   `- ID 0x5e34a52635c0 0x52
+(00.251760)      1:    `- FD 8 pid 28
+(00.251763)      1:   `- ID 0x5e34a5263780 0x53
+(00.251767)      1:    `- FD 9 pid 28
+(00.251771)      1:     by 0x52
+(00.251775)      1:  `- PIPE ID 0x181fc
+(00.251778)      1:   `- ID 0x5e34a5265090 0x5d
+(00.251782)      1:    `- FD 5 pid 314
+(00.251799)      1:   `- ID 0x5e34a5265250 0x5e
+(00.251803)      1:    `- FD 6 pid 314
+(00.251807)      1:     by 0x5d
+(00.251835)      1: unix: ghost: Resolving addresses
+(00.251844)      1: File descs:
+(00.251848)      1:  `- type 5 ID 0x40
+(00.251874)      1:    `- FD 19 pid 1
+(00.251879)      1:    `- FD 7 pid 24
+(00.251883)      1:  `- type 6 ID 0x41
+(00.251887)      1:    `- FD 8 pid 24
+(00.251891)      1:  `- type 1 ID 0x1
+(00.251895)      1:  `- type 1 ID 0x42
+(00.251898)      1:  `- type 1 ID 0x2
+(00.251902)      1:  `- type 1 ID 0x43
+(00.251906)      1:  `- type 1 ID 0x3
+(00.251910)      1:  `- type 1 ID 0x44
+(00.251914)      1:  `- type 1 ID 0x4
+(00.251917)      1:  `- type 1 ID 0x45
+(00.251921)      1:  `- type 1 ID 0x5
+(00.251925)      1:  `- type 1 ID 0x46
+(00.251928)      1:  `- type 1 ID 0x6
+(00.251932)      1:  `- type 1 ID 0x47
+(00.251936)      1:  `- type 1 ID 0x7
+(00.251940)      1:  `- type 1 ID 0x48
+(00.251944)      1:  `- type 1 ID 0x8
+(00.251947)      1:  `- type 1 ID 0x49
+(00.251951)      1:  `- type 1 ID 0x9
+(00.251955)      1:  `- type 1 ID 0x4a
+(00.251959)      1:    `- FD 0 pid 28
+(00.251962)      1:  `- type 1 ID 0xa
+(00.251966)      1:  `- type 11 ID 0x4b
+(00.251970)      1:    `- FD 1 pid 28
+(00.251974)      1:    `- FD 2 pid 28
+(00.251978)      1:  `- type 1 ID 0xb
+(00.251981)      1:  `- type 1 ID 0x4c
+(00.251985)      1:  `- type 1 ID 0xc
+(00.251989)      1:  `- type 5 ID 0x4d
+(00.251992)      1:    `- FD 18 pid 1
+(00.251997)      1:    `- FD 3 pid 28
+(00.252000)      1:  `- type 1 ID 0xd
+(00.252004)      1:  `- type 2 ID 0x4e
+(00.252008)      1:    `- FD 4 pid 28
+(00.252011)      1:  `- type 1 ID 0xe
+(00.252015)      1:  `- type 2 ID 0x4f
+(00.252019)      1:    `- FD 5 pid 28
+(00.252022)      1:  `- type 1 ID 0xf
+(00.252026)      1:  `- type 13 ID 0x50
+(00.252030)      1:    `- FD 6 pid 28
+(00.252034)      1:  `- type 1 ID 0x10
+(00.252038)      1:  `- type 7 ID 0x51
+(00.252041)      1:    `- FD 7 pid 28
+(00.252045)      1:  `- type 1 ID 0x11
+(00.252049)      1:    `- FD 0 pid 1
+(00.252053)      1:    `- FD 1 pid 1
+(00.252057)      1:    `- FD 2 pid 1
+(00.252060)      1:  `- type 2 ID 0x52
+(00.252064)      1:    `- FD 8 pid 28
+(00.252068)      1:  `- type 2 ID 0x12
+(00.252071)      1:    `- FD 3 pid 1
+(00.252075)      1:  `- type 2 ID 0x53
+(00.252079)      1:    `- FD 9 pid 28
+(00.252083)      1:  `- type 2 ID 0x13
+(00.252087)      1:    `- FD 4 pid 1
+(00.252090)      1:  `- type 5 ID 0x54
+(00.252094)      1:    `- FD 12 pid 18
+(00.252098)      1:    `- FD 10 pid 28
+(00.252101)      1:  `- type 8 ID 0x14
+(00.252105)      1:    `- FD 5 pid 1
+(00.252109)      1:  `- type 1 ID 0x55
+(00.252113)      1:    `- FD 11 pid 28
+(00.252117)      1:  `- type 8 ID 0x15
+(00.252120)      1:    `- FD 6 pid 1
+(00.252124)      1:  `- type 5 ID 0x56
+(00.252128)      1:    `- FD 12 pid 28
+(00.252131)      1:  `- type 5 ID 0x16
+(00.252135)      1:    `- FD 7 pid 1
+(00.252139)      1:  `- type 1 ID 0x57
+(00.252142)      1:  `- type 5 ID 0x17
+(00.252146)      1:    `- FD 8 pid 1
+(00.252150)      1:  `- type 1 ID 0x58
+(00.252154)      1:  `- type 5 ID 0x18
+(00.252157)      1:    `- FD 9 pid 1
+(00.252161)      1:  `- type 1 ID 0x59
+(00.252165)      1:  `- type 1 ID 0x19
+(00.252169)      1:    `- FD 10 pid 1
+(00.252172)      1:  `- type 5 ID 0x1a
+(00.252176)      1:    `- FD 11 pid 1
+(00.252180)      1:  `- type 1 ID 0x5a
+(00.252183)      1:    `- FD 0 pid 314
+(00.252187)      1:    `- FD 1 pid 314
+(00.252191)      1:    `- FD 2 pid 314
+(00.252195)      1:  `- type 11 ID 0x1b
+(00.252199)      1:    `- FD 12 pid 1
+(00.252203)      1:  `- type 7 ID 0x5b
+(00.252207)      1:    `- FD 3 pid 314
+(00.252210)      1:  `- type 5 ID 0x5c
+(00.252214)      1:    `- FD 17 pid 1
+(00.252218)      1:    `- FD 4 pid 314
+(00.252222)      1:  `- type 1 ID 0x1c
+(00.252225)      1:  `- type 11 ID 0x1d
+(00.252229)      1:    `- FD 16 pid 1
+(00.252233)      1:  `- type 2 ID 0x5d
+(00.252237)      1:    `- FD 5 pid 314
+(00.252240)      1:  `- type 2 ID 0x5e
+(00.252244)      1:    `- FD 6 pid 314
+(00.252248)      1:  `- type 1 ID 0x1e
+(00.252262)      1:  `- type 1 ID 0x5f
+(00.252267)      1:  `- type 1 ID 0x1f
+(00.252270)      1:  `- type 1 ID 0x60
+(00.252274)      1:  `- type 1 ID 0x20
+(00.252278)      1:  `- type 1 ID 0x21
+(00.252282)      1:  `- type 1 ID 0x22
+(00.252285)      1:  `- type 1 ID 0x23
+(00.252289)      1:  `- type 1 ID 0x24
+(00.252293)      1:  `- type 1 ID 0x25
+(00.252296)      1:  `- type 1 ID 0x26
+(00.252300)      1:  `- type 1 ID 0x27
+(00.252304)      1:  `- type 1 ID 0x28
+(00.252307)      1:  `- type 1 ID 0x29
+(00.252311)      1:  `- type 1 ID 0x2a
+(00.252315)      1:    `- FD 0 pid 18
+(00.252319)      1:  `- type 11 ID 0x2b
+(00.252322)      1:    `- FD 1 pid 18
+(00.252326)      1:    `- FD 2 pid 18
+(00.252330)      1:  `- type 1 ID 0x2c
+(00.252334)      1:  `- type 7 ID 0x2d
+(00.252337)      1:    `- FD 3 pid 18
+(00.252341)      1:  `- type 2 ID 0x2e
+(00.252345)      1:    `- FD 4 pid 18
+(00.252349)      1:  `- type 2 ID 0x2f
+(00.252352)      1:    `- FD 5 pid 18
+(00.252356)      1:  `- type 5 ID 0x30
+(00.252360)      1:    `- FD 6 pid 18
+(00.252363)      1:  `- type 5 ID 0x31
+(00.252367)      1:    `- FD 7 pid 18
+(00.252371)      1:  `- type 5 ID 0x32
+(00.252375)      1:    `- FD 9 pid 18
+(00.252378)      1:  `- type 11 ID 0x33
+(00.252382)      1:    `- FD 11 pid 18
+(00.252386)      1:  `- type 1 ID 0x34
+(00.252390)      1:  `- type 1 ID 0x35
+(00.252393)      1:  `- type 1 ID 0x36
+(00.252397)      1:  `- type 1 ID 0x37
+(00.252401)      1:  `- type 1 ID 0x38
+(00.252404)      1:  `- type 1 ID 0x39
+(00.252408)      1:  `- type 11 ID 0x3a
+(00.252412)      1:    `- FD 0 pid 24
+(00.252416)      1:    `- FD 1 pid 24
+(00.252419)      1:    `- FD 2 pid 24
+(00.252423)      1:  `- type 1 ID 0x3b
+(00.252427)      1:  `- type 7 ID 0x3c
+(00.252431)      1:    `- FD 3 pid 24
+(00.252434)      1:  `- type 2 ID 0x3d
+(00.252438)      1:    `- FD 4 pid 24
+(00.252442)      1:  `- type 2 ID 0x3e
+(00.252445)      1:    `- FD 5 pid 24
+(00.252449)      1:  `- type 5 ID 0x3f
+(00.252453)      1:    `- FD 13 pid 18
+(00.252457)      1:    `- FD 6 pid 24
+(00.252953)      1: No parent images directory provided
+(00.253006)      1: Opened local page read 1 (parent 0)
+(00.253034)      1: nr_restored_pages: 223
+(00.253038)      1: nr_shared_pages:   0
+(00.253042)      1: nr_dropped_pages:  0
+(00.253046)      1: nr_enqueued:       42
+(00.253050)      1: nr_lazy:           0
+(00.253072)      1: Shrunk premap area to 0x7b409ac00000(0)
+(00.253079)      1: Restore on-core sigactions for 1
+(00.253215)      1: Restoring children in alien sessions:
+(00.253221)      1: Restoring children in our session:
+(00.253226)      1: Forking task with 313 pid (flags 0x600)
+(00.253231)      1: Creating process using clone3()
+(00.253822)      1: Forking task with 27 pid (flags 0x600)
+(00.253915)      1: Creating process using clone3()
+(00.254022)      1: PID: real 30822 virt 313
+(00.254143)    313: cg: Cgroups 2 inherited from parent
+(00.254289)    313: Restoring children in alien sessions:
+(00.254309)    313: Restoring 313 to 313 sid
+(00.254331)    313: Restoring children in our session:
+(00.254389)      1: Forking task with 5 pid (flags 0x600)
+(00.254441)      1: Creating process using clone3()
+(00.255018)    313: Forking task with 314 pid (flags 0x0)
+(00.255017)      1: PID: real 30823 virt 27
+(00.255134)     27: cg: Cgroups 2 inherited from parent
+(00.255287)     27: Restoring children in alien sessions:
+(00.255308)     27: Restoring 27 to 27 sid
+(00.255327)     27: Restoring children in our session:
+(00.256363)      1: PID: real 30824 virt 5
+(00.256498)      5: cg: Cgroups 2 inherited from parent
+(00.256648)      5: Restoring children in alien sessions:
+(00.256742)      5: Restoring 5 to 5 sid
+(00.256763)      5: Restoring children in our session:
+(00.257093)     27: Forking task with 28 pid (flags 0x0)
+(00.257118)     27: Creating process using clone3()
+(00.257127)      5: Forking task with 18 pid (flags 0x0)
+(00.257613)      1: Forking task with 24 pid (flags 0x0)
+(00.258012)     27: PID: real 30825 virt 28
+(00.258151)     28: cg: Move into 5
+(00.258181)     28: cg:   `-> unified//lxc.payload.app-container/cgroup.procs
+(00.258186)     27: Restoring 27 to 27 pgid
+(00.258286)      5: Creating process using clone3()
+(00.259260)      5: PID: real 30826 virt 18
+(00.259379)      5: Restoring 5 to 5 pgid
+(00.259398)     18: cg: Move into 3
+(00.259457)     18: cg:   `-> unified//lxc.payload.app-container/cgroup.procs
+(00.259548)    313: Creating process using clone3()
+(00.260144)      1: Creating process using clone3()
+(00.260448)    313: Restoring 313 to 313 pgid
+(00.260799)    313: PID: real 30827 virt 314
+(00.260947)    314: cg: Move into 6
+(00.260978)    314: cg:   `-> unified//lxc.payload.app-container/cgroup.procs
+(00.261163)      1: Forking task with 22 pid (flags 0x600)
+(00.261207)      1: Creating process using clone3()
+(00.261908)      1: Restoring 1 to 1 pgid
+(00.262084)      1: PID: real 30829 virt 22
+(00.262213)     22: cg: Cgroups 2 inherited from parent
+(00.262174)      1: PID: real 30828 virt 24
+(00.262289)     24: cg: Move into 4
+(00.262319)     24: cg:   `-> unified//lxc.payload.app-container/cgroup.procs
+(00.262374)     22: Restoring children in alien sessions:
+(00.262403)     22: Restoring children in our session:
+(00.262513)     22: Restoring 22 to 1 pgid
+(00.263505)     28: No parent images directory provided
+(00.263721)     28: Opened local page read 2 (parent 0)
+(00.263996)     28: nr_restored_pages: 104
+(00.264013)     28: nr_shared_pages:   0
+(00.264020)     28: nr_dropped_pages:  0
+(00.264031)     28: nr_enqueued:       38
+(00.264037)     28: nr_lazy:           0
+(00.264074)     28: Shrunk premap area to 0x7b409b000000(0)
+(00.264086)     28: Restore on-core sigactions for 28
+(00.264248)     28: Restoring children in alien sessions:
+(00.264262)     28: Restoring children in our session:
+(00.265431)     18: No parent images directory provided
+(00.265578)     18: Opened local page read 2 (parent 0)
+(00.265733)     28: Restoring 28 to 27 pgid
+(00.265793)     18: nr_restored_pages: 73
+(00.265848)     18: nr_shared_pages:   0
+(00.265872)     18: nr_dropped_pages:  0
+(00.265879)     18: nr_enqueued:       45
+(00.265884)     18: nr_lazy:           0
+(00.265919)     18: Shrunk premap area to 0x7b409a800000(0)
+(00.265931)     18: Restore on-core sigactions for 18
+(00.266077)     18: Restoring children in alien sessions:
+(00.266091)     18: Restoring children in our session:
+(00.266139)     18: Restoring 18 to 5 pgid
+(00.266592)    314: No parent images directory provided
+(00.266842)    314: Opened local page read 2 (parent 0)
+(00.266978)    314: nr_restored_pages: 53
+(00.266987)    314: nr_shared_pages:   0
+(00.266991)    314: nr_dropped_pages:  0
+(00.266995)    314: nr_enqueued:       25
+(00.266998)    314: nr_lazy:           0
+(00.267023)    314: Shrunk premap area to 0x7b409be00000(0)
+(00.267031)    314: Restore on-core sigactions for 314
+(00.267135)    314: Restoring children in alien sessions:
+(00.267144)    314: Restoring children in our session:
+(00.267177)    314: Restoring 314 to 313 pgid
+(00.267332)     24: No parent images directory provided
+(00.267470)     24: Opened local page read 2 (parent 0)
+(00.267603)     24: nr_restored_pages: 106
+(00.267616)     24: nr_shared_pages:   0
+(00.267714)     24: nr_dropped_pages:  0
+(00.267722)     24: nr_enqueued:       30
+(00.267729)     24: nr_lazy:           0
+(00.267760)     24: Shrunk premap area to 0x7b409b800000(0)
+(00.267770)     24: Restore on-core sigactions for 24
+(00.267927)     24: Restoring children in alien sessions:
+(00.267938)     24: Restoring 24 to 24 sid
+(00.267970)     24: Restoring children in our session:
+(00.268025)     24: Restoring 24 to 24 pgid
+(00.268180)      1: Restoring resources
+(00.268250)      1: Opening fdinfo-s
+(00.268262)     22: Opening fdinfo-s
+(00.268291)     27: Opening fdinfo-s
+(00.268347)     18: Restoring resources
+(00.268355)      5: Opening fdinfo-s
+(00.268409)     28: Restoring resources
+(00.268458)     28: Opening fdinfo-s
+(00.268463)     24: Restoring resources
+(00.268511)     28: 615: Link dev/null.cr.1.ghost -> dev/null
+(00.268547)     24: Opening fdinfo-s
+(00.268567)     24: tty: open driver console id 0x3a index 1002 (master 1 sid 0 pgrp 0 inherit 0)
+(00.268577)     28: Warn  (criu/files-reg.c:1881): Can't link dev/null.cr.1.ghost -> dev/null
+(00.268624)     28: Fake dev/null.cr.1.ghost -> dev/null.cr_link link
+(00.268782)     24: 		Create fd for 0
+(00.268804)     24: 			Going to dup 0 into 1
+(00.268816)     24: 			Going to dup 0 into 2
+(00.268826)     24: 	Receive fd for 1
+(00.268833)     24: 	Receive fd for 2
+(00.268834)     28: 615: Link dev/null.cr.1.ghost -> dev/null.cr_link
+(00.268842)     24: epoll: Restore eventpoll: id 0x00003c flags 0x02
+(00.268899)     24: 		Create fd for 3
+(00.268910)     24: 		Creating pipe pipe_id=0x1815e id=0x3d
+(00.268944)     24: Restoring size 0x10000 for 0x1815e
+(00.268961)     24: 		Send fd 5 to /crtools-fd-24-effffffc0000783a
+(00.268967)     28: Unlink: 615:dev/null.cr_link
+(00.269008)     28: 		Create fd for 0
+(00.269021)     24: 		Create fd for 4
+(00.269020)     28: tty: open driver pts id 0x4b index 0 (master 0 sid 0 pgrp 0 inherit 0)
+(00.269030)     24: 		Creating pipe pipe_id=0x1815e id=0x3e
+(00.269044)     28: 	Receive fd for 2
+(00.269055)     24: Further fle=0x7b409d186e30, pid=24
+(00.269057)     28: 	Receive fd for 3
+(00.269071)     24: 		Create fd for 5
+(00.269071)     28: 		Creating pipe pipe_id=0x18162 id=0x4e
+(00.269078)     24: 	Receive fd for 6
+(00.269104)     24: 	Receive fd for 7
+(00.269108)     28: Restoring size 0x10000 for 0x18162
+(00.269125)     28: 		Send fd 2 to /crtools-fd-28-effffffc0000783a
+(00.269141)     24: 		Create fd for 8
+(00.269150)     24: 	Receive fd for 6
+(00.269160)     24: 	Receive fd for 7
+(00.269180)     28: 		Create fd for 4
+(00.269189)     28: 		Creating pipe pipe_id=0x18162 id=0x4f
+(00.269211)     28: Further fle=0x7b409d186870, pid=28
+(00.269230)     28: 		Create fd for 5
+(00.269240)     28: netlink: Opening netlink socket id 0x50
+(00.269248)     18: Opening fdinfo-s
+(00.269323)     18: 615: Link dev/null.cr.1.ghost -> dev/null
+(00.269344)     28: sockets: 1 restore sndbuf 212992 rcv buf 268435456
+(00.269364)     28: sockets: 	restore buf_lock 2 for socket
+(00.269372)     28: sockets: 	restore priority 0 for socket
+(00.269378)     28: sockets: 	restore rcvlowat 1 for socket
+(00.269378)     18: Warn  (criu/files-reg.c:1881): Can't link dev/null.cr.1.ghost -> dev/null
+(00.269384)     28: sockets: 	set passcred for socket
+(00.269397)     28: sockets: Restoring socket filter
+(00.269404)     18: Fake dev/null.cr.1.ghost -> dev/null.cr_link link
+(00.269413)     18: 615: Link dev/null.cr.1.ghost -> dev/null.cr_link
+(00.269463)     18: Unlink: 615:dev/null.cr_link
+(00.269488)     18: 		Create fd for 0
+(00.269497)     18: tty: open driver pts id 0x2b index 2 (master 0 sid 0 pgrp 0 inherit 0)
+(00.269510)     18: 	Receive fd for 2
+(00.269513)     28: 		Create fd for 6
+(00.269517)     18: epoll: Restore eventpoll: id 0x00002d flags 0x02
+(00.269524)     28: epoll: Restore eventpoll: id 0x000051 flags 0x02
+(00.269541)     18: 		Create fd for 3
+(00.269547)     18: 		Creating pipe pipe_id=0x18152 id=0x2e
+(00.269554)     28: 		Create fd for 7
+(00.269561)     28: 		Creating pipe pipe_id=0x18164 id=0x52
+(00.269569)     18: Restoring size 0x10000 for 0x18152
+(00.269580)     18: 		Send fd 2 to /crtools-fd-18-effffffc0000783a
+(00.269589)     28: Restoring size 0x10000 for 0x18164
+(00.269605)     28: 		Send fd 2 to /crtools-fd-28-effffffc0000783a
+(00.269624)     18: 		Create fd for 4
+(00.269633)     18: 		Creating pipe pipe_id=0x18152 id=0x2f
+(00.269709)     18: Further fle=0x7b409d186bb0, pid=18
+(00.269738)     18: 		Create fd for 5
+(00.269744)     18: unix: Opening standalone (stage 0 id 0x30 ino 99476 peer 0)
+(00.269782)     28: 		Create fd for 8
+(00.269792)     28: 		Creating pipe pipe_id=0x18164 id=0x53
+(00.269806)     28: Further fle=0x7b409d186970, pid=28
+(00.269821)     28: 		Create fd for 9
+(00.269825)     28: 	Receive fd for 10
+(00.269828)     18: unix: bind id 0x30 ino 99476 addr 
+(00.269880)     18: unix: 	Putting 99476 into listen state
+(00.269900)     18: sockets: 1 restore sndbuf 212992 rcv buf 212992
+(00.269920)     18: sockets: 	restore buf_lock 0 for socket
+(00.269952)     18: sockets: 	restore priority 0 for socket
+(00.269962)     18: sockets: 	restore rcvlowat 1 for socket
+(00.269971)     18: sockets: 	set passcred for socket
+(00.269991)     18: 		Create fd for 6
+(00.269996)     28: File proc/22/mountinfo could only be validated with file size
+(00.269999)     18: unix: Opening master (stage 0 id 0x31 ino 99481 peer 98655)
+(00.270012)     28: 		Create fd for 11
+(00.270019)     28: unix: Opening standalone (stage 0 id 0x56 ino 99489 peer 0)
+(00.270043)     28: unix: bind id 0x56 ino 99489 addr 
+(00.270046)     18: 		Create fd for 13
+(00.270057)     18: 		Send fd 13 to /crtools-fd-24-effffffc0000783a
+(00.270059)     28: unix: 	Putting 99489 into listen state
+(00.270073)     28: sockets: 1 restore sndbuf 212992 rcv buf 212992
+(00.270086)     28: sockets: 	restore buf_lock 0 for socket
+(00.270093)     28: sockets: 	restore priority 0 for socket
+(00.270099)     28: sockets: 	restore rcvlowat 1 for socket
+(00.270105)     18: 		Create fd for 7
+(00.270114)     28: 		Create fd for 12
+(00.270114)     18: unix: Opening master (stage 0 id 0x32 ino 99486 peer 98661)
+(00.270120)     28: tty: open driver pts id 0x4b index 0 (master 0 sid 0 pgrp 0 inherit 0)
+(00.270131)     28: 	Receive fd for 2
+(00.270137)     28: 	Receive fd for 3
+(00.270145)     28: 	Receive fd for 10
+(00.270146)     18: 		Create fd for 12
+(00.270153)     18: 		Send fd 12 to /crtools-fd-28-effffffc0000783a
+(00.270192)     18: 		Create fd for 9
+(00.270200)     18: tty: open driver console id 0x33 index 1002 (master 1 sid 0 pgrp 0 inherit 0)
+(00.270225)    314: Restoring resources
+(00.270274)     18: 		Create fd for 11
+(00.270281)     18: unix: Opening slave (stage 1 id 0x54 ino 98661 peer 99486)
+(00.270287)     18: unix: Opening slave (stage 1 id 0x3f ino 98655 peer 99481)
+(00.270289)    314: Opening fdinfo-s
+(00.270292)     18: tty: open driver pts id 0x2b index 2 (master 0 sid 0 pgrp 0 inherit 0)
+(00.270305)     18: 	Receive fd for 2
+(00.270313)     18: unix: Opening master (stage 1 id 0x31 ino 99481 peer 98655)
+(00.270319)     18: skqueue: Trying to restore recv queue for 63
+(00.270338)     18: skqueue: Trying to restore recv queue for 49
+(00.270339)    314: 615: Link dev/null.cr.1.ghost -> dev/null
+(00.270356)     18: sockets: 7 restore sndbuf 212992 rcv buf 212992
+(00.270367)     18: sockets: 	restore buf_lock 0 for socket
+(00.270373)     18: sockets: 	restore priority 0 for socket
+(00.270379)     18: sockets: 	restore rcvlowat 1 for socket
+(00.270385)     18: sockets: 	set passcred for socket
+(00.270386)    314: Warn  (criu/files-reg.c:1881): Can't link dev/null.cr.1.ghost -> dev/null
+(00.270398)     18: sockets: 13 restore sndbuf 212992 rcv buf 212992
+(00.270409)     18: sockets: 	restore buf_lock 0 for socket
+(00.270415)     18: sockets: 	restore priority 0 for socket
+(00.270417)    314: Fake dev/null.cr.1.ghost -> dev/null.cr_link link
+(00.270420)     18: sockets: 	restore rcvlowat 1 for socket
+(00.270426)    314: 615: Link dev/null.cr.1.ghost -> dev/null.cr_link
+(00.270429)     18: sockets: 	set passcred for socket
+(00.270440)     18: unix: Opening master (stage 1 id 0x32 ino 99486 peer 98661)
+(00.270444)     18: skqueue: Trying to restore recv queue for 84
+(00.270457)     18: skqueue: Trying to restore recv queue for 50
+(00.270474)     18: sockets: 9 restore sndbuf 212992 rcv buf 212992
+(00.270474)    314: Unlink: 615:dev/null.cr_link
+(00.270484)     18: sockets: 	restore buf_lock 0 for socket
+(00.270490)     18: sockets: 	restore priority 0 for socket
+(00.270496)     18: sockets: 	restore rcvlowat 1 for socket
+(00.270499)    314: 		Create fd for 0
+(00.270501)     18: sockets: 	set passcred for socket
+(00.270506)    314: 			Going to dup 0 into 1
+(00.270515)    314: 			Going to dup 0 into 2
+(00.270517)     18: sockets: 12 restore sndbuf 212992 rcv buf 212992
+(00.270521)    314: 	Receive fd for 1
+(00.270528)    314: 	Receive fd for 2
+(00.270527)     18: sockets: 	restore buf_lock 0 for socket
+(00.270533)    314: epoll: Restore eventpoll: id 0x00005b flags 0x02
+(00.270536)     18: sockets: 	restore priority 0 for socket
+(00.270551)    314: 		Create fd for 3
+(00.270557)     18: sockets: 	restore rcvlowat 1 for socket
+(00.270558)    314: 	Receive fd for 4
+(00.270564)     18: sockets: 	set passcred for socket
+(00.270571)    314: 		Creating pipe pipe_id=0x181fc id=0x5d
+(00.270574)     18: unix: Opening slave (stage 2 id 0x54 ino 98661 peer 99486)
+(00.270580)     18: unix: Opening slave (stage 2 id 0x3f ino 98655 peer 99481)
+(00.270585)     18: tty: open driver pts id 0x2b index 2 (master 0 sid 0 pgrp 0 inherit 0)
+(00.270591)    314: Restoring size 0x10000 for 0x181fc
+(00.270593)     18: 	Receive fd for 2
+(00.270603)    314: 		Send fd 5 to /crtools-fd-314-effffffc0000783a
+(00.270602)     18: epoll: Restore eventpoll-tfd: id 0x00002d tfd        7 events 0x000019 data 0x00000000d5c3b0
+(00.270619)     18: epoll: Restore eventpoll-tfd: id 0x00002d tfd        4 events 0x000019 data 0x00000000d55230
+(00.270629)     18: epoll: Restore eventpoll-tfd: id 0x00002d tfd        9 events 0x000019 data 0x00000000d5c5b0
+(00.270637)     18: epoll: Restore eventpoll-tfd: id 0x00002d tfd        6 events 0x000019 data 0x00000000d57b40
+(00.270645)     18: tty: open driver pts id 0x2b index 2 (master 0 sid 0 pgrp 0 inherit 0)
+(00.270652)     18: 	Receive fd for 2
+(00.270729)    313: Opening fdinfo-s
+(00.270800)    314: 		Create fd for 5
+(00.270813)    314: 		Creating pipe pipe_id=0x181fc id=0x5e
+(00.270827)    313: File descriptor table is shared with 1
+(00.270898)     22: File descriptor table is shared with 1
+(00.270918)      1: 615: Link dev/null.cr.1.ghost -> dev/null
+(00.270752)     24: 	Receive fd for 6
+(00.270969)      1: Warn  (criu/files-reg.c:1881): Can't link dev/null.cr.1.ghost -> dev/null
+(00.270972)     24: Further fle=0x7b409d186e70, pid=24
+(00.270987)     24: 	Receive fd for 7
+(00.270993)      1: Fake dev/null.cr.1.ghost -> dev/null.cr_link link
+(00.270999)     24: 	Receive fd for 7
+(00.271002)      1: 615: Link dev/null.cr.1.ghost -> dev/null.cr_link
+(00.271050)      1: Unlink: 615:dev/null.cr_link
+(00.271073)      1: 		Create fd for 0
+(00.271078)      1: 			Going to dup 0 into 1
+(00.271085)      1: 			Going to dup 0 into 2
+(00.271093)      1: 	Receive fd for 1
+(00.271098)      1: 	Receive fd for 2
+(00.271104)      1: 		Creating pipe pipe_id=0x18453 id=0x12
+(00.271126)      1: Restoring size 0x10000 for 0x18453
+(00.271137)      1: 		Send fd 4 to /crtools-fd-1-effffffc0000783a
+(00.271173)      1: 		Create fd for 3
+(00.271178)      1: 		Creating pipe pipe_id=0x18453 id=0x13
+(00.271192)      1: Further fle=0x7b409d1862f0, pid=1
+(00.271204)      1: 		Create fd for 4
+(00.271216)      1: fsnotify: 	Restore 0x1 wd for 00000000
+(00.271223)      1: fsnotify: 		Restore with path hint 614:etc
+(00.271268)      1: fsnotify: 		Restore inotify watch for 0x800002:0x0000000010f8b2 (via /proc/self/fd/6 -> /etc)
+(00.271318)      1: fsnotify: 	 0x1 wd for 00000000 is restored
+(00.271327)      1: 		Create fd for 5
+(00.271346)      1: fsnotify: 	Restore 0x1 wd for 00000000
+(00.271351)      1: fsnotify: 		Restore with path hint 614:etc/init
+(00.271379)      1: fsnotify: 		Restore inotify watch for 0x800002:0x0000000010f960 (via /proc/self/fd/7 -> /etc/init)
+(00.271409)      1: fsnotify: 	 0x1 wd for 00000000 is restored
+(00.271417)      1: 		Create fd for 6
+(00.271423)      1: unix: Opening standalone (stage 0 id 0x16 ino 99412 peer 0)
+(00.271490)      1: unix: bind id 0x16 ino 99412 addr 
+(00.271510)      1: unix: 	Putting 99412 into listen state
+(00.271523)      1: sockets: 7 restore sndbuf 212992 rcv buf 212992
+(00.271537)      1: sockets: 	restore buf_lock 0 for socket
+(00.271543)      1: sockets: 	restore priority 0 for socket
+(00.271549)      1: sockets: 	restore rcvlowat 1 for socket
+(00.271561)      1: 		Create fd for 7
+(00.271566)      1: unix: Opening master (stage 0 id 0x17 ino 99480 peer 98656)
+(00.271597)      1: 		Create fd for 19
+(00.271604)      1: 		Send fd 19 to /crtools-fd-24-effffffc0000783a
+(00.271788)      1: 		Create fd for 8
+(00.271813)      1: unix: Opening master (stage 0 id 0x18 ino 99485 peer 98657)
+(00.271876)     24: 	Receive fd for 7
+(00.271888)      1: 		Create fd for 18
+(00.271910)      1: 		Send fd 18 to /crtools-fd-28-effffffc0000783a
+(00.271933)      1: 		Create fd for 9
+(00.271933)     24: Further fle=0x7b409d186eb0, pid=24
+(00.271949)     24: epoll: Restore eventpoll-tfd: id 0x00003c tfd        7 events 0x000019 data 0x00000000633a10
+(00.271969)      1: 		Create fd for 10
+(00.271972)     24: epoll: Restore eventpoll-tfd: id 0x00003c tfd        4 events 0x000019 data 0x000000006310f0
+(00.271976)      1: unix: Opening master (stage 0 id 0x1a ino 98814 peer 98811)
+(00.271987)     24: epoll: Restore eventpoll-tfd: id 0x00003c tfd        8 events 0x000019 data 0x00000000633ec0
+(00.272002)     24: epoll: Restore eventpoll-tfd: id 0x00003c tfd        6 events 0x000018 data 0x000000006315a0
+(00.272006)      1: 		Create fd for 17
+(00.272013)      1: 		Send fd 17 to /crtools-fd-314-effffffc0000783a
+(00.272018)     24: Opening 0x00000000400000-0x00000000407000 0000000000000000 (41) vma
+(00.272029)      1: 		Create fd for 11
+(00.272036)      1: tty: open driver ptmx id 0x1b index 2 (master 1 sid 0 pgrp 0 inherit 0)
+(00.272170)      1: tty: 		ptmx opened with index 0
+(00.272197)     24: Opening 0x00000000606000-0x00000000607000 0x00000000006000 (41) vma
+(00.272211)     24: Opening 0x00000000607000-0x00000000608000 0x00000000007000 (41) vma
+(00.272216)     24: Opening 0x00764f80e00000-0x00764f80e03000 0000000000000000 (20000041) vma
+(00.272255)      1: tty: 		ptmx opened with index 1
+(00.272301)     24: Opening 0x00764f80e03000-0x00764f81002000 0x00000000003000 (20000041) vma
+(00.272313)     24: Opening 0x00764f81002000-0x00764f81003000 0x00000000002000 (41) vma
+(00.272318)     24: Opening 0x00764f81003000-0x00764f81004000 0x00000000003000 (41) vma
+(00.272322)     24: Opening 0x00764f81200000-0x00764f81207000 0000000000000000 (20000041) vma
+(00.272338)      1: tty: 		ptmx opened with index 2
+(00.272344)      1: tty: ptmx opened with index 2
+(00.272402)     24: Opening 0x00764f81207000-0x00764f81406000 0x00000000007000 (20000041) vma
+(00.272413)     24: Opening 0x00764f81406000-0x00764f81407000 0x00000000006000 (41) vma
+(00.272417)     24: Opening 0x00764f81407000-0x00764f81408000 0x00000000007000 (41) vma
+(00.272422)     24: Opening 0x00764f81600000-0x00764f81619000 0000000000000000 (20000041) vma
+(00.272444)    314: Further fle=0x7b409d1866f0, pid=314
+(00.272466)    314: 		Create fd for 6
+(00.272472)    314: 	Receive fd for 4
+(00.272483)    314: Further fle=0x7b409d186670, pid=314
+(00.272490)    314: Opening 0x006190c6c00000-0x006190c6c1f000 0000000000000000 (41) vma
+(00.272512)     24: Opening 0x00764f81619000-0x00764f81818000 0x00000000019000 (20000041) vma
+(00.272523)     24: Opening 0x00764f81818000-0x00764f81819000 0x00000000018000 (41) vma
+(00.272527)     24: Opening 0x00764f81819000-0x00764f8181a000 0x00000000019000 (41) vma
+(00.272532)     24: Opening 0x00764f81a00000-0x00764f81bbe000 0000000000000000 (20000041) vma
+(00.272702)     24: Opening 0x00764f81bbe000-0x00764f81dbe000 0x000000001be000 (20000041) vma
+(00.272724)     24: Opening 0x00764f81dbe000-0x00764f81dc2000 0x000000001be000 (41) vma
+(00.272729)     24: Opening 0x00764f81dc2000-0x00764f81dc4000 0x000000001c2000 (41) vma
+(00.272734)     24: Opening 0x00764f81e00000-0x00764f81e05000 0000000000000000 (20000041) vma
+(00.272745)     27: File descriptor table is shared with 1
+(00.272813)     24: Opening 0x00764f81e05000-0x00764f82004000 0x00000000005000 (20000041) vma
+(00.272824)     24: Opening 0x00764f82004000-0x00764f82005000 0x00000000004000 (41) vma
+(00.272829)     24: Opening 0x00764f82005000-0x00764f82006000 0x00000000005000 (41) vma
+(00.272833)     24: Opening 0x00764f82200000-0x00764f82216000 0000000000000000 (20000041) vma
+(00.272891)    314: Opening 0x006190c6e1e000-0x006190c6e20000 0x0000000001e000 (41) vma
+(00.272906)    314: Opening 0x006190c6e20000-0x006190c6e21000 0x00000000020000 (41) vma
+(00.272911)    314: Opening 0x0070591f600000-0x0070591f619000 0000000000000000 (20000041) vma
+(00.272940)    314: Opening 0x0070591f619000-0x0070591f818000 0x00000000019000 (20000041) vma
+(00.272960)    314: Opening 0x0070591f818000-0x0070591f819000 0x00000000018000 (41) vma
+(00.272966)    314: Opening 0x0070591f819000-0x0070591f81a000 0x00000000019000 (41) vma
+(00.272970)    314: Opening 0x0070591fa00000-0x0070591fa07000 0000000000000000 (20000041) vma
+(00.272982)    314: Opening 0x0070591fa07000-0x0070591fc06000 0x00000000007000 (20000041) vma
+(00.272988)    314: Opening 0x0070591fc06000-0x0070591fc07000 0x00000000006000 (41) vma
+(00.272987)     24: Opening 0x00764f82216000-0x00764f82415000 0x00000000016000 (20000041) vma
+(00.272993)    314: Opening 0x0070591fc07000-0x0070591fc08000 0x00000000007000 (41) vma
+(00.273007)     24: Opening 0x00764f82415000-0x00764f82416000 0x00000000015000 (41) vma
+(00.273009)    314: Opening 0x0070591fe00000-0x0070591ffbe000 0000000000000000 (20000041) vma
+(00.273015)     24: Opening 0x00764f82416000-0x00764f82417000 0x00000000016000 (41) vma
+(00.273022)     24: Opening 0x00764f82600000-0x00764f82625000 0000000000000000 (20000041) vma
+(00.273024)    314: Opening 0x0070591ffbe000-0x007059201be000 0x000000001be000 (20000041) vma
+(00.273030)    314: Opening 0x007059201be000-0x007059201c2000 0x000000001be000 (41) vma
+(00.273035)    314: Opening 0x007059201c2000-0x007059201c4000 0x000000001c2000 (41) vma
+(00.273039)    314: Opening 0x00705920200000-0x00705920244000 0000000000000000 (20000041) vma
+(00.273139)     24: Opening 0x00764f82625000-0x00764f82824000 0x00000000025000 (20000041) vma
+(00.273142)    314: Opening 0x00705920244000-0x00705920443000 0x00000000044000 (20000041) vma
+(00.273151)     24: Opening 0x00764f82824000-0x00764f82828000 0x00000000024000 (41) vma
+(00.273158)    314: Opening 0x00705920443000-0x00705920444000 0x00000000043000 (41) vma
+(00.273160)     24: Opening 0x00764f82828000-0x00764f82829000 0x00000000028000 (41) vma
+(00.273163)    314: Opening 0x00705920444000-0x00705920445000 0x00000000044000 (41) vma
+(00.273165)     24: Opening 0x00764f82a00000-0x00764f82a44000 0000000000000000 (20000041) vma
+(00.273168)    314: Opening 0x00705920600000-0x00705920608000 0000000000000000 (20000041) vma
+(00.273184)     24: Opening 0x00764f82a44000-0x00764f82c43000 0x00000000044000 (20000041) vma
+(00.273189)     24: Opening 0x00764f82c43000-0x00764f82c44000 0x00000000043000 (41) vma
+(00.273194)     24: Opening 0x00764f82c44000-0x00764f82c45000 0x00000000044000 (41) vma
+(00.273198)     24: Opening 0x00764f82e00000-0x00764f82e23000 0000000000000000 (20000041) vma
+(00.273255)    314: Opening 0x00705920608000-0x00705920808000 0x00000000008000 (20000041) vma
+(00.273266)    314: Opening 0x00705920808000-0x00705920809000 0x00000000008000 (41) vma
+(00.273271)    314: Opening 0x00705920809000-0x0070592080a000 0x00000000009000 (41) vma
+(00.273276)    314: Opening 0x00705920a00000-0x00705920a17000 0000000000000000 (20000041) vma
+(00.273287)     24: Opening 0x00764f83022000-0x00764f83023000 0x00000000022000 (41) vma
+(00.273299)     24: Opening 0x00764f83023000-0x00764f83024000 0x00000000023000 (41) vma
+(00.273362)    314: Opening 0x00705920a17000-0x00705920c16000 0x00000000017000 (20000041) vma
+(00.273373)    314: Opening 0x00705920c16000-0x00705920c17000 0x00000000016000 (41) vma
+(00.273378)    314: Opening 0x00705920c17000-0x00705920c18000 0x00000000017000 (41) vma
+(00.273383)    314: Opening 0x00705920e00000-0x00705920e23000 0000000000000000 (20000041) vma
+(00.273399)    314: Opening 0x00705921022000-0x00705921023000 0x00000000022000 (41) vma
+(00.273404)    314: Opening 0x00705921023000-0x00705921024000 0x00000000023000 (41) vma
+(00.273511)     24: `- render 18 iovs (0x400000:4096...)
+(00.273559)     24: Restore via sigreturn
+(00.273589)    314: `- render 15 iovs (0x6190c6c00000:4096...)
+(00.273764)      5: File descriptor table is shared with 1
+(00.273782)     24: Parsed 5e34a371b000-5e34a375b000 vma
+(00.273798)     24: Parsed 5e34a371b000-5e34a3810000 vma
+(00.273803)     24: Parsed 5e34a371b000-5e34a3885000 vma
+(00.273809)     24: Parsed 5e34a3886000-5e34a38a6000 vma
+(00.273813)     24: Parsed 5e34a3886000-5e34a38ae000 vma
+(00.273818)     24: Parsed 5e34a3886000-5e34a38e0000 vma
+(00.273816)     28: tty: open driver pts id 0x4b index 0 (master 0 sid 0 pgrp 0 inherit 0)
+(00.273840)     24: Parsed 5e34a5257000-5e34a5278000 vma
+(00.273848)     24: Parsed 5e34a5257000-5e34a5299000 vma
+(00.273876)     24: Parsed 5e34a5257000-5e34a52bb000 vma
+(00.273884)     28: Further fle=0x7b409d1869b0, pid=28
+(00.273885)     24: Parsed 7b409cd0d000-7b409cd19000 vma
+(00.273895)     24: Parsed 7b409cd0d000-7b409cd29000 vma
+(00.273902)     24: Parsed 7b409cd0d000-7b409cd33000 vma
+(00.273904)     28: Further fle=0x7b409d1867f0, pid=28
+(00.273909)     24: Parsed 7b409cd0d000-7b409cd92000 vma
+(00.273917)     28: 	Receive fd for 2
+(00.273917)     24: Parsed 7b409cd0d000-7b409cda9000 vma
+(00.273925)     28: 	Receive fd for 3
+(00.273928)     24: Parsed 7b409cd0d000-7b409cdaa000 vma
+(00.273933)     28: 	Receive fd for 10
+(00.273935)     24: Parsed 7b409cd0d000-7b409cdab000 vma
+(00.273939)     28: tty: open driver pts id 0x4b index 0 (master 0 sid 0 pgrp 0 inherit 0)
+(00.273943)     24: Parsed 7b409cd0d000-7b409cdad000 vma
+(00.273947)     28: 	Receive fd for 2
+(00.273950)     24: Parsed 7b409cd0d000-7b409cdb6000 vma
+(00.273955)     28: epoll: Restore eventpoll-tfd: id 0x000051 tfd        8 events 0x000019 data 0x0059f43f798370
+(00.273958)     24: Parsed 7b409cd0d000-7b409cdb9000 vma
+(00.273967)     24: Parsed 7b409cd0d000-7b409cdba000 vma
+(00.273970)     28: epoll: Restore eventpoll-tfd: id 0x000051 tfd       10 events 0x000019 data 0x0059f43f798640
+(00.273973)     24: Parsed 7b409cd0d000-7b409cdbb000 vma
+(00.273980)     28: tty: open driver pts id 0x4b index 0 (master 0 sid 0 pgrp 0 inherit 0)
+(00.273981)     24: Parsed 7b409cd0d000-7b409cdbe000 vma
+(00.273989)     28: 	Receive fd for 2
+(00.273991)     24: Parsed 7b409cd0d000-7b409cdc6000 vma
+(00.273998)     24: Parsed 7b409cd0d000-7b409cdc9000 vma
+(00.274005)     24: Parsed 7b409cd0d000-7b409cdca000 vma
+(00.274013)     24: Parsed 7b409cd0d000-7b409cdcb000 vma
+(00.274019)     24: Parsed 7b409cd0d000-7b409cdcc000 vma
+(00.274025)     24: Parsed 7b409cd0d000-7b409cdce000 vma
+(00.274031)     24: Parsed 7b409cd0d000-7b409cdd7000 vma
+(00.274037)     24: Parsed 7b409cd0d000-7b409cdf1000 vma
+(00.274043)     24: Parsed 7b409cd0d000-7b409cdfb000 vma
+(00.274049)     24: Parsed 7b409cd0d000-7b409cdfe000 vma
+(00.274055)     24: Parsed 7b409cd0d000-7b409ce00000 vma
+(00.274062)     24: Parsed 7b409cd0d000-7b409ce28000 vma
+(00.274067)     24: Parsed 7b409cd0d000-7b409cfbd000 vma
+(00.274074)     24: Parsed 7b409cd0d000-7b409d015000 vma
+(00.274082)     24: Parsed 7b409cd0d000-7b409d016000 vma
+(00.274089)     24: Parsed 7b409cd0d000-7b409d01a000 vma
+(00.274098)     24: Parsed 7b409cd0d000-7b409d01c000 vma
+(00.274169)      1: tty: send slave 0x2b fd 12 connected on dev/pts/2
+(00.274178)     24: Parsed 7b409cd0d000-7b409d029000 vma
+(00.274184)      1: 		Send fd 12 to /crtools-fd-18-effffffc0000783a
+(00.274186)     24: Parsed 7b409d02a000-7b409d02f000 vma
+(00.274193)     24: Parsed 7b409d02a000-7b409d031000 vma
+(00.274197)     24: Parsed 7b409d02a000-7b409d033000 vma
+(00.274202)     24: Parsed 7b409d02a000-7b409d034000 vma
+(00.274207)     24: Parsed 7b409d02a000-7b409d035000 vma
+(00.274211)     24: Parsed 7b409d02a000-7b409d036000 vma
+(00.274216)     24: Parsed 7b409d02a000-7b409d037000 vma
+(00.274221)     24: Parsed 7b409d02a000-7b409d039000 vma
+(00.274242)      1: 		Create fd for 12
+(00.274249)      1: tty: open driver ptmx id 0x1d index 0 (master 1 sid 0 pgrp 0 inherit 0)
+(00.274225)     24: Parsed 7b409d02a000-7b409d040000 vma
+(00.274263)     24: Parsed 7b409d02a000-7b409d042000 vma
+(00.274268)     24: Parsed 7b409d02a000-7b409d043000 vma
+(00.274272)     24: Parsed 7b409d02a000-7b409d044000 vma
+(00.274277)     24: Parsed 7b409d02a000-7b409d046000 vma
+(00.274282)     24: Parsed 7b409d02a000-7b409d04a000 vma
+(00.274287)     24: Parsed 7b409d02a000-7b409d058000 vma
+(00.274291)     24: Parsed 7b409d02a000-7b409d05e000 vma
+(00.274296)     24: Parsed 7b409d02a000-7b409d05f000 vma
+(00.274301)     24: Parsed 7b409d02a000-7b409d060000 vma
+(00.274305)     24: Parsed 7b409d02a000-7b409d062000 vma
+(00.274324)     24: Parsed 7b409d02a000-7b409d06a000 vma
+(00.274329)     24: Parsed 7b409d02a000-7b409d079000 vma
+(00.274334)     24: Parsed 7b409d02a000-7b409d082000 vma
+(00.274339)     24: Parsed 7b409d02a000-7b409d084000 vma
+(00.274343)     24: Parsed 7b409d02a000-7b409d085000 vma
+(00.274348)     24: Parsed 7b409d02a000-7b409d086000 vma
+(00.274353)     24: Parsed 7b409d02a000-7b409d08c000 vma
+(00.274353)      1: tty: 		ptmx opened with index 0
+(00.274357)     24: Parsed 7b409d02a000-7b409d08d000 vma
+(00.274361)      1: tty: ptmx opened with index 0
+(00.274363)     24: Parsed 7b409d02a000-7b409d08e000 vma
+(00.274369)     24: Parsed 7b409d02a000-7b409d08f000 vma
+(00.274373)     24: Parsed 7b409d02a000-7b409d090000 vma
+(00.274378)     24: Parsed 7b409d02a000-7b409d0a8000 vma
+(00.274383)     24: Parsed 7b409d02a000-7b409d11a000 vma
+(00.274387)     24: Parsed 7b409d02a000-7b409d152000 vma
+(00.274392)     24: Parsed 7b409d02a000-7b409d153000 vma
+(00.274397)     24: Parsed 7b409d02a000-7b409d165000 vma
+(00.274401)     24: Parsed 7b409d02a000-7b409d166000 vma
+(00.274417)      1: tty: send slave 0x4b fd 14 connected on dev/pts/0
+(00.274424)      1: 		Send fd 14 to /crtools-fd-28-effffffc0000783a
+(00.274452)     24: Parsed 7b409d02a000-7b409d167000 vma
+(00.274458)     24: Parsed 7b409d02a000-7b409d16b000 vma
+(00.274462)     24: Parsed 7b409d02a000-7b409d178000 vma
+(00.274467)     24: Parsed 7b409d02a000-7b409d17b000 vma
+(00.274464)     28: tty: open driver pts id 0x4b index 0 (master 0 sid 0 pgrp 0 inherit 0)
+(00.274471)     24: Parsed 7b409d02a000-7b409d17c000 vma
+(00.274478)     24: Parsed 7b409d02a000-7b409d17d000 vma
+(00.274483)     24: Parsed 7b409d02a000-7b409d17e000 vma
+(00.274488)     24: Parsed 7b409d02a000-7b409d17f000 vma
+(00.274488)     28: Further fle=0x7b409d186770, pid=28
+(00.274493)     24: Parsed 7b409d184000-7b409d186000 vma
+(00.274498)     24: Parsed 7b409d184000-7b409d188000 vma
+(00.274502)     28: 		Create fd for 1
+(00.274503)     24: Parsed 7b409d184000-7b409d18a000 vma
+(00.274507)     28: 			Going to dup 1 into 2
+(00.274510)     24: Parsed 7b409d184000-7b409d18c000 vma
+(00.274515)     24: Parsed 7b409d184000-7b409d18e000 vma
+(00.274515)     28: 	Receive fd for 2
+(00.274520)     24: Parsed 7b409d184000-7b409d190000 vma
+(00.274525)     24: Parsed 7b409d184000-7b409d192000 vma
+(00.274524)     28: Opening 0x0059f43e000000-0x0059f43e018000 0000000000000000 (41) vma
+(00.274530)     24: Parsed 7b409d184000-7b409d1bc000 vma
+(00.274535)     24: Parsed 7b409d184000-7b409d1c7000 vma
+(00.274539)     24: Parsed 7b409d184000-7b409d1c8000 vma
+(00.274544)     24: Parsed 7b409d184000-7b409d1ca000 vma
+(00.274549)     24: Parsed 7b409d184000-7b409d1cc000 vma
+(00.274554)     24: Parsed 7ffed8b7f000-7ffed8ba0000 vma
+(00.274559)     24: Parsed 7ffed8bdf000-7ffed8be3000 vma
+(00.274564)     24: Parsed 7ffed8bdf000-7ffed8be5000 vma
+(00.274569)     24: Parsed ffffffffff600000-ffffffffff601000 vma
+(00.274587)     24: 1 threads require 120K of memory
+(00.274594)     24: Found bootstrap VMA hint at: 0x10000 (needs ~144K)
+(00.274809)     28: Opening 0x0059f43e218000-0x0059f43e219000 0x00000000018000 (41) vma
+(00.274834)     28: Opening 0x0059f43e219000-0x0059f43e21a000 0x00000000019000 (41) vma
+(00.274839)     28: Opening 0x00709b1f400000-0x00709b1f6cb000 0000000000000000 (20000041) vma
+(00.274895)     28: File usr/lib/locale/locale-archive could only be validated with file size
+(00.274903)     28: Opening 0x00709b1f800000-0x00709b1f803000 0000000000000000 (20000041) vma
+(00.274916)     28: Opening 0x00709b1f803000-0x00709b1fa02000 0x00000000003000 (20000041) vma
+(00.274922)     28: Opening 0x00709b1fa02000-0x00709b1fa03000 0x00000000002000 (41) vma
+(00.274927)     28: Opening 0x00709b1fa03000-0x00709b1fa04000 0x00000000003000 (41) vma
+(00.274931)     28: Opening 0x00709b1fc00000-0x00709b1fc19000 0000000000000000 (20000041) vma
+(00.274931)     24: 	call mremap(0x7b409d184000, 8192, 8192, MAYMOVE | FIXED, 0x2a000)
+(00.274983)     24: 	call mremap(0x7b409d18a000, 8192, 8192, MAYMOVE | FIXED, 0x2c000)
+(00.275019)     28: Opening 0x00709b1fc19000-0x00709b1fe18000 0x00000000019000 (20000041) vma
+(00.275031)     28: Opening 0x00709b1fe18000-0x00709b1fe1a000 0x00000000018000 (41) vma
+(00.275036)     28: Opening 0x00709b1fe1a000-0x00709b1fe1b000 0x0000000001a000 (41) vma
+(00.275040)     28: Opening 0x00709b20000000-0x00709b20019000 0000000000000000 (20000041) vma
+(00.275052)     24: x86: xsave runtime structure
+(00.275059)     28: Opening 0x00709b20019000-0x00709b20218000 0x00000000019000 (20000041) vma
+(00.275062)     24: x86: -----------------------
+(00.275065)     28: Opening 0x00709b20218000-0x00709b20219000 0x00000000018000 (41) vma
+(00.275066)     24: x86: cwd:0x37f swd:0 twd:0 fop:0 mxcsr:0x1fa1 mxcsr_mask:0xffff
+(00.275070)     28: Opening 0x00709b20219000-0x00709b2021a000 0x00000000019000 (41) vma
+(00.275073)     24: x86: magic1:0x46505853 extended_size:580 xstate_bv:0x3 xstate_size:576
+(00.275075)     28: Opening 0x00709b20400000-0x00709b20407000 0000000000000000 (20000041) vma
+(00.275079)     24: x86: xstate_bv: 0x3
+(00.275083)     24: x86: -----------------------
+(00.275087)     28: Opening 0x00709b20407000-0x00709b20606000 0x00000000007000 (20000041) vma
+(00.275088)     24: Thread    0 stack  0x1c080 rt_sigframe  0x24080
+(00.275093)     28: Opening 0x00709b20606000-0x00709b20607000 0x00000000006000 (41) vma
+(00.275098)     28: Opening 0x00709b20607000-0x00709b20608000 0x00000000007000 (41) vma
+(00.275102)     28: Opening 0x00709b20800000-0x00709b209be000 0000000000000000 (20000041) vma
+(00.275114)     28: Opening 0x00709b209be000-0x00709b20bbe000 0x000000001be000 (20000041) vma
+(00.275119)     28: Opening 0x00709b20bbe000-0x00709b20bc2000 0x000000001be000 (41) vma
+(00.275123)     28: Opening 0x00709b20bc2000-0x00709b20bc4000 0x000000001c2000 (41) vma
+(00.275127)     28: Opening 0x00709b20c00000-0x00709b20c16000 0000000000000000 (20000041) vma
+(00.275140)     28: Opening 0x00709b20c16000-0x00709b20e15000 0x00000000016000 (20000041) vma
+(00.275145)     28: Opening 0x00709b20e15000-0x00709b20e16000 0x00000000015000 (41) vma
+(00.275149)     28: Opening 0x00709b20e16000-0x00709b20e17000 0x00000000016000 (41) vma
+(00.275153)     28: Opening 0x00709b21000000-0x00709b21005000 0000000000000000 (20000041) vma
+(00.275167)     28: Opening 0x00709b21005000-0x00709b21204000 0x00000000005000 (20000041) vma
+(00.275172)     28: Opening 0x00709b21204000-0x00709b21205000 0x00000000004000 (41) vma
+(00.275177)     28: Opening 0x00709b21205000-0x00709b21206000 0x00000000005000 (41) vma
+(00.275181)     28: Opening 0x00709b21400000-0x00709b21410000 0000000000000000 (20000041) vma
+(00.275190)     24: Going to chroot into /proc/self/fd/22
+(00.275205)     24: Restoring umask to 22
+(00.275259)     24: task_args: 0x29000
+task_args->pid: 24
+task_args->nr_threads: 1
+task_args->clone_restore_fn: 0x120a0
+task_args->thread_args: 0x295c0
+(00.275267)     28: Opening 0x00709b21410000-0x00709b2160f000 0x00000000010000 (20000041) vma
+(00.275278)     28: Opening 0x00709b2160f000-0x00709b21610000 0x0000000000f000 (41) vma
+(00.275278) pie: 24: Switched to the restorer 24
+(00.275282)     28: Opening 0x00709b21610000-0x00709b21611000 0x00000000010000 (41) vma
+(00.275290)     28: Opening 0x00709b21800000-0x00709b21844000 0000000000000000 (20000041) vma
+(00.275306)     28: Opening 0x00709b21844000-0x00709b21a43000 0x00000000044000 (20000041) vma
+(00.275312)     28: Opening 0x00709b21a43000-0x00709b21a44000 0x00000000043000 (41) vma
+(00.275316)     28: Opening 0x00709b21a44000-0x00709b21a45000 0x00000000044000 (41) vma
+(00.275320)     28: Opening 0x00709b21c00000-0x00709b21c08000 0000000000000000 (20000041) vma
+(00.275332)     28: Opening 0x00709b21c08000-0x00709b21e08000 0x00000000008000 (20000041) vma
+(00.275337)     28: Opening 0x00709b21e08000-0x00709b21e09000 0x00000000008000 (41) vma
+(00.275342)     28: Opening 0x00709b21e09000-0x00709b21e0a000 0x00000000009000 (41) vma
+(00.275346)     28: Opening 0x00709b22000000-0x00709b22017000 0000000000000000 (20000041) vma
+(00.275358)     28: Opening 0x00709b22017000-0x00709b22216000 0x00000000017000 (20000041) vma
+(00.275377)     28: Opening 0x00709b22216000-0x00709b22217000 0x00000000016000 (41) vma
+(00.275382)     28: Opening 0x00709b22217000-0x00709b22218000 0x00000000017000 (41) vma
+(00.275387)     28: Opening 0x00709b22400000-0x00709b22423000 0000000000000000 (20000041) vma
+(00.275399)     28: Opening 0x00709b22622000-0x00709b22623000 0x00000000022000 (41) vma
+(00.275404)     28: Opening 0x00709b22623000-0x00709b22624000 0x00000000023000 (41) vma
+(00.275409)     28: Opening 0x00709b226b4000-0x00709b226bb000 0000000000000000 (81) vma
+(00.275428)     28: File usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache could only be validated with file size
+(00.275434)     28: Opening 0x00709b226c3000-0x00709b226c5000 0000000000000000 (20000041) vma
+(00.275453)     28: File usr/share/locale-langpack/pt_BR/LC_MESSAGES/mountall.mo could only be validated with file size
+(00.275705)     18: tty: open driver pts id 0x2b index 2 (master 0 sid 0 pgrp 0 inherit 0)
+(00.275753)     18: Further fle=0x7b409d186ab0, pid=18
+(00.275758)     28: `- render 22 iovs (0x59f43e000000:4096...)
+(00.275768)     18: 		Create fd for 1
+(00.275773)     18: 			Going to dup 1 into 2
+(00.275781)     18: 	Receive fd for 2
+(00.275793)     18: Opening 0x00000000400000-0x00000000413000 0000000000000000 (41) vma
+(00.275808)      1: 		Create fd for 16
+(00.275820)      1: unix: Opening slave (stage 1 id 0x5c ino 98811 peer 98814)
+(00.275827)      1: unix: Opening slave (stage 1 id 0x4d ino 98657 peer 99485)
+(00.275833)      1: unix: Opening slave (stage 1 id 0x40 ino 98656 peer 99480)
+(00.275838)      1: unix: Opening master (stage 1 id 0x17 ino 99480 peer 98656)
+(00.275843)      1: skqueue: Trying to restore recv queue for 64
+(00.275891)      1: skqueue: Trying to restore recv queue for 23
+(00.275914)      1: sockets: 8 restore sndbuf 212992 rcv buf 212992
+(00.275925)      1: sockets: 	restore buf_lock 0 for socket
+(00.275932)      1: sockets: 	restore priority 0 for socket
+(00.275938)      1: sockets: 	restore rcvlowat 1 for socket
+(00.275953)      1: sockets: 19 restore sndbuf 212992 rcv buf 212992
+(00.275953)     18: Opening 0x00000000612000-0x00000000613000 0x00000000012000 (41) vma
+(00.275963)      1: sockets: 	restore buf_lock 0 for socket
+(00.275973)     18: Opening 0x00000000613000-0x00000000614000 0x00000000013000 (41) vma
+(00.275977)      1: sockets: 	restore priority 0 for socket
+(00.275981)     18: Opening 0x0073ae5fa00000-0x0073ae5fa03000 0000000000000000 (20000041) vma
+(00.275985)      1: sockets: 	restore rcvlowat 1 for socket
+(00.275999)      1: unix: Opening master (stage 1 id 0x18 ino 99485 peer 98657)
+(00.276004)      1: skqueue: Trying to restore recv queue for 77
+(00.276017)      1: skqueue: Trying to restore recv queue for 24
+(00.276035)      1: sockets: 9 restore sndbuf 212992 rcv buf 212992
+(00.276045)      1: sockets: 	restore buf_lock 0 for socket
+(00.276051)      1: sockets: 	restore priority 0 for socket
+(00.276056)      1: sockets: 	restore rcvlowat 1 for socket
+(00.276070)      1: sockets: 18 restore sndbuf 212992 rcv buf 212992
+(00.276080)      1: sockets: 	restore buf_lock 0 for socket
+(00.276086)      1: sockets: 	restore priority 0 for socket
+(00.276092)      1: sockets: 	restore rcvlowat 1 for socket
+(00.276102)      1: unix: Opening master (stage 1 id 0x1a ino 98814 peer 98811)
+(00.276106)      1: skqueue: Trying to restore recv queue for 92
+(00.276110)     18: Opening 0x0073ae5fa03000-0x0073ae5fc02000 0x00000000003000 (20000041) vma
+(00.276119)      1: skqueue: Trying to restore recv queue for 26
+(00.276129)     18: Opening 0x0073ae5fc02000-0x0073ae5fc03000 0x00000000002000 (41) vma
+(00.276138)     18: Opening 0x0073ae5fc03000-0x0073ae5fc04000 0x00000000003000 (41) vma
+(00.276144)      1: sockets: 11 restore sndbuf 212992 rcv buf 212992
+(00.276145)     18: Opening 0x0073ae5fe00000-0x0073ae5fe04000 0000000000000000 (20000041) vma
+(00.276155)      1: sockets: 	restore buf_lock 0 for socket
+(00.276161)      1: sockets: 	restore priority 0 for socket
+(00.276167)      1: sockets: 	restore rcvlowat 1 for socket
+(00.276181)      1: sockets: 17 restore sndbuf 212992 rcv buf 212992
+(00.276207)      1: sockets: 	restore buf_lock 0 for socket
+(00.276213)      1: sockets: 	restore priority 0 for socket
+(00.276218)      1: sockets: 	restore rcvlowat 1 for socket
+(00.276229)      1: unix: Opening slave (stage 2 id 0x5c ino 98811 peer 98814)
+(00.276234)      1: unix: Opening slave (stage 2 id 0x4d ino 98657 peer 99485)
+(00.276239)      1: unix: Opening slave (stage 2 id 0x40 ino 98656 peer 99480)
+(00.276255)     18: Opening 0x0073ae5fe04000-0x0073ae60003000 0x00000000004000 (20000041) vma
+(00.276321)     18: Opening 0x0073ae60003000-0x0073ae60004000 0x00000000003000 (41) vma
+(00.276331)     18: Opening 0x0073ae60004000-0x0073ae60005000 0x00000000004000 (41) vma
+(00.276340)     18: Opening 0x0073ae60200000-0x0073ae60204000 0000000000000000 (20000041) vma
+(00.276386)    314: Restore via sigreturn
+(00.276450)     18: Opening 0x0073ae60204000-0x0073ae60404000 0x00000000004000 (20000041) vma
+(00.276468)     18: Opening 0x0073ae60404000-0x0073ae60405000 0x00000000004000 (41) vma
+(00.276476)     18: Opening 0x0073ae60405000-0x0073ae60406000 0x00000000005000 (41) vma
+(00.276483)     18: Opening 0x0073ae60600000-0x0073ae6060d000 0000000000000000 (20000041) vma
+(00.276574)    314: Parsed 5e34a371b000-5e34a375b000 vma
+(00.276585)    314: Parsed 5e34a371b000-5e34a3810000 vma
+(00.276590)    314: Parsed 5e34a371b000-5e34a3885000 vma
+(00.276592)     18: Opening 0x0073ae6060d000-0x0073ae6080c000 0x0000000000d000 (20000041) vma
+(00.276596)    314: Parsed 5e34a3886000-5e34a38a6000 vma
+(00.276605)     18: Opening 0x0073ae6080c000-0x0073ae6080d000 0x0000000000c000 (41) vma
+(00.276608)    314: Parsed 5e34a3886000-5e34a38ae000 vma
+(00.276610)     18: Opening 0x0073ae6080d000-0x0073ae6080e000 0x0000000000d000 (41) vma
+(00.276613)    314: Parsed 5e34a3886000-5e34a38e0000 vma
+(00.276615)     18: Opening 0x0073ae60a00000-0x0073ae60a07000 0000000000000000 (20000041) vma
+(00.276619)    314: Parsed 5e34a5257000-5e34a5278000 vma
+(00.276751)     18: Opening 0x0073ae60a07000-0x0073ae60c06000 0x00000000007000 (20000041) vma
+(00.276773)     18: Opening 0x0073ae60c06000-0x0073ae60c07000 0x00000000006000 (41) vma
+(00.276782)     18: Opening 0x0073ae60c07000-0x0073ae60c08000 0x00000000007000 (41) vma
+(00.276789)     18: Opening 0x0073ae60e00000-0x0073ae60e0a000 0000000000000000 (20000041) vma
+(00.276811)      1: Opening 0x00590f9ce00000-0x00590f9ce3e000 0000000000000000 (41) vma
+(00.276928)     18: Opening 0x0073ae60e0a000-0x0073ae61009000 0x0000000000a000 (20000041) vma
+(00.276949)     18: Opening 0x0073ae61009000-0x0073ae6100a000 0x00000000009000 (41) vma
+(00.276959)     18: Opening 0x0073ae6100a000-0x0073ae6100b000 0x0000000000a000 (41) vma
+(00.276966)     18: Opening 0x0073ae61200000-0x0073ae6120b000 0000000000000000 (20000041) vma
+(00.277023)      1: Opening 0x00590f9d03e000-0x00590f9d040000 0x0000000003e000 (41) vma
+(00.277037)      1: Opening 0x00590f9d040000-0x00590f9d041000 0x00000000040000 (41) vma
+(00.277042)      1: Opening 0x0071124e800000-0x0071124e80a000 0000000000000000 (20000041) vma
+(00.277062)      1: Opening 0x0071124e80a000-0x0071124ea09000 0x0000000000a000 (20000041) vma
+(00.277068)      1: Opening 0x0071124ea09000-0x0071124ea0a000 0x00000000009000 (41) vma
+(00.277073)      1: Opening 0x0071124ea0a000-0x0071124ea0b000 0x0000000000a000 (41) vma
+(00.277080)     18: Opening 0x0073ae6120b000-0x0073ae6140a000 0x0000000000b000 (20000041) vma
+(00.277090)      1: Opening 0x0071124ec00000-0x0071124ec0b000 0000000000000000 (20000041) vma
+(00.277092)     18: Opening 0x0073ae6140a000-0x0073ae6140b000 0x0000000000a000 (41) vma
+(00.277101)     18: Opening 0x0073ae6140b000-0x0073ae6140c000 0x0000000000b000 (41) vma
+(00.277106)     18: Opening 0x0073ae61600000-0x0073ae61617000 0000000000000000 (20000041) vma
+(00.277122)      1: Opening 0x0071124ec0b000-0x0071124ee0a000 0x0000000000b000 (20000041) vma
+(00.277131)      1: Opening 0x0071124ee0a000-0x0071124ee0b000 0x0000000000a000 (41) vma
+(00.277136)      1: Opening 0x0071124ee0b000-0x0071124ee0c000 0x0000000000b000 (41) vma
+(00.277140)      1: Opening 0x0071124f000000-0x0071124f017000 0000000000000000 (20000041) vma
+(00.277202)     18: Opening 0x0073ae61617000-0x0073ae61816000 0x00000000017000 (20000041) vma
+(00.277214)     18: Opening 0x0073ae61816000-0x0073ae61817000 0x00000000016000 (41) vma
+(00.277219)     18: Opening 0x0073ae61817000-0x0073ae61818000 0x00000000017000 (41) vma
+(00.277223)     18: Opening 0x0073ae61a00000-0x0073ae61a09000 0000000000000000 (20000041) vma
+(00.277242)      1: Opening 0x0071124f017000-0x0071124f216000 0x00000000017000 (20000041) vma
+(00.277266)      1: Opening 0x0071124f216000-0x0071124f217000 0x00000000016000 (41) vma
+(00.277286)      1: Opening 0x0071124f217000-0x0071124f218000 0x00000000017000 (41) vma
+(00.277294)      1: Opening 0x0071124f400000-0x0071124f409000 0000000000000000 (20000041) vma
+(00.277299)     18: Opening 0x0073ae61a09000-0x0073ae61c08000 0x00000000009000 (20000041) vma
+(00.277310)     18: Opening 0x0073ae61c08000-0x0073ae61c09000 0x00000000008000 (41) vma
+(00.277312)      1: Opening 0x0071124f409000-0x0071124f608000 0x00000000009000 (20000041) vma
+(00.277315)     18: Opening 0x0073ae61c09000-0x0073ae61c0a000 0x00000000009000 (41) vma
+(00.277318)      1: Opening 0x0071124f608000-0x0071124f609000 0x00000000008000 (41) vma
+(00.277320)     18: Opening 0x0073ae61e00000-0x0073ae61e19000 0000000000000000 (20000041) vma
+(00.277324)      1: Opening 0x0071124f609000-0x0071124f60a000 0x00000000009000 (41) vma
+(00.277339)     18: Opening 0x0073ae61e19000-0x0073ae62018000 0x00000000019000 (20000041) vma
+(00.277341)      1: Opening 0x0071124f800000-0x0071124f803000 0000000000000000 (20000041) vma
+(00.277344)     18: Opening 0x0073ae62018000-0x0073ae62019000 0x00000000018000 (41) vma
+(00.277352)     18: Opening 0x0073ae62019000-0x0073ae6201a000 0x00000000019000 (41) vma
+(00.277357)     18: Opening 0x0073ae62200000-0x0073ae62305000 0000000000000000 (20000041) vma
+(00.277360)      1: Opening 0x0071124f803000-0x0071124fa02000 0x00000000003000 (20000041) vma
+(00.277366)      1: Opening 0x0071124fa02000-0x0071124fa03000 0x00000000002000 (41) vma
+(00.277370)      1: Opening 0x0071124fa03000-0x0071124fa04000 0x00000000003000 (41) vma
+(00.277387)      1: Opening 0x0071124fc00000-0x0071124fc3d000 0000000000000000 (20000041) vma
+(00.277441)     18: Opening 0x0073ae62305000-0x0073ae62504000 0x00000000105000 (20000041) vma
+(00.277452)     18: Opening 0x0073ae62504000-0x0073ae62505000 0x00000000104000 (41) vma
+(00.277457)     18: Opening 0x0073ae62505000-0x0073ae62506000 0x00000000105000 (41) vma
+(00.277461)     18: Opening 0x0073ae62600000-0x0073ae62603000 0000000000000000 (20000041) vma
+(00.277478)     18: Opening 0x0073ae62603000-0x0073ae62802000 0x00000000003000 (20000041) vma
+(00.277483)     18: Opening 0x0073ae62802000-0x0073ae62803000 0x00000000002000 (41) vma
+(00.277484)      1: Opening 0x0071124fc3d000-0x0071124fe3c000 0x0000000003d000 (20000041) vma
+(00.277488)     18: Opening 0x0073ae62803000-0x0073ae62804000 0x00000000003000 (41) vma
+(00.277494)      1: Opening 0x0071124fe3c000-0x0071124fe3d000 0x0000000003c000 (41) vma
+(00.277497)     18: Opening 0x0073ae62a00000-0x0073ae62a07000 0000000000000000 (20000041) vma
+(00.277500)      1: Opening 0x0071124fe3d000-0x0071124fe3e000 0x0000000003d000 (41) vma
+(00.277510)     18: Opening 0x0073ae62a07000-0x0073ae62c06000 0x00000000007000 (20000041) vma
+(00.277516)     18: Opening 0x0073ae62c06000-0x0073ae62c07000 0x00000000006000 (41) vma
+(00.277518)      1: Opening 0x00711250000000-0x00711250019000 0000000000000000 (20000041) vma
+(00.277520)     18: Opening 0x0073ae62c07000-0x0073ae62c08000 0x00000000007000 (41) vma
+(00.277529)     18: Opening 0x0073ae62e00000-0x0073ae62fbe000 0000000000000000 (20000041) vma
+(00.277540)     18: Opening 0x0073ae62fbe000-0x0073ae631be000 0x000000001be000 (20000041) vma
+(00.277541)      1: Opening 0x00711250019000-0x00711250218000 0x00000000019000 (20000041) vma
+(00.277545)     18: Opening 0x0073ae631be000-0x0073ae631c2000 0x000000001be000 (41) vma
+(00.277547)      1: Opening 0x00711250218000-0x00711250219000 0x00000000018000 (41) vma
+(00.277550)     18: Opening 0x0073ae631c2000-0x0073ae631c4000 0x000000001c2000 (41) vma
+(00.277552)      1: Opening 0x00711250219000-0x0071125021a000 0x00000000019000 (41) vma
+(00.277570)     18: Opening 0x0073ae63200000-0x0073ae63211000 0000000000000000 (20000041) vma
+(00.277572)      1: Opening 0x00711250400000-0x007112505be000 0000000000000000 (20000041) vma
+(00.277598)      1: Opening 0x007112505be000-0x007112507be000 0x000000001be000 (20000041) vma
+(00.277829)    314: Parsed 5e34a5257000-5e34a5299000 vma
+(00.277881)    314: Parsed 5e34a5257000-5e34a52bb000 vma
+(00.277890)    314: Parsed 7b409cd0d000-7b409cd19000 vma
+(00.277895)    314: Parsed 7b409cd0d000-7b409cd29000 vma
+(00.277900)    314: Parsed 7b409cd0d000-7b409cd33000 vma
+(00.277904)    314: Parsed 7b409cd0d000-7b409cd92000 vma
+(00.277909)    314: Parsed 7b409cd0d000-7b409cda9000 vma
+(00.277914)    314: Parsed 7b409cd0d000-7b409cdaa000 vma
+(00.277919)    314: Parsed 7b409cd0d000-7b409cdab000 vma
+(00.277924)    314: Parsed 7b409cd0d000-7b409cdad000 vma
+(00.277928)    314: Parsed 7b409cd0d000-7b409cdb6000 vma
+(00.277933)    314: Parsed 7b409cd0d000-7b409cdb9000 vma
+(00.277938)    314: Parsed 7b409cd0d000-7b409cdba000 vma
+(00.277942)    314: Parsed 7b409cd0d000-7b409cdbb000 vma
+(00.277947)    314: Parsed 7b409cd0d000-7b409cdbe000 vma
+(00.277952)    314: Parsed 7b409cd0d000-7b409cdc6000 vma
+(00.277957)    314: Parsed 7b409cd0d000-7b409cdc9000 vma
+(00.277961)    314: Parsed 7b409cd0d000-7b409cdca000 vma
+(00.277966)    314: Parsed 7b409cd0d000-7b409cdcb000 vma
+(00.277971)    314: Parsed 7b409cd0d000-7b409cdcc000 vma
+(00.277975)    314: Parsed 7b409cd0d000-7b409cdce000 vma
+(00.277980)    314: Parsed 7b409cd0d000-7b409cdd7000 vma
+(00.277985)    314: Parsed 7b409cd0d000-7b409cdf1000 vma
+(00.277990)    314: Parsed 7b409cd0d000-7b409cdfb000 vma
+(00.277994)    314: Parsed 7b409cd0d000-7b409cdfe000 vma
+(00.277999)    314: Parsed 7b409cd0d000-7b409ce00000 vma
+(00.278004)    314: Parsed 7b409cd0d000-7b409ce28000 vma
+(00.278008)    314: Parsed 7b409cd0d000-7b409cfbd000 vma
+(00.278013)    314: Parsed 7b409cd0d000-7b409d015000 vma
+(00.278018)    314: Parsed 7b409cd0d000-7b409d016000 vma
+(00.278023)    314: Parsed 7b409cd0d000-7b409d01a000 vma
+(00.278028)    314: Parsed 7b409cd0d000-7b409d01c000 vma
+(00.278108)    314: Parsed 7b409cd0d000-7b409d029000 vma
+(00.278114)    314: Parsed 7b409d02a000-7b409d02f000 vma
+(00.278119)    314: Parsed 7b409d02a000-7b409d031000 vma
+(00.278124)    314: Parsed 7b409d02a000-7b409d033000 vma
+(00.278128)    314: Parsed 7b409d02a000-7b409d034000 vma
+(00.278133)    314: Parsed 7b409d02a000-7b409d035000 vma
+(00.278138)    314: Parsed 7b409d02a000-7b409d036000 vma
+(00.278142)    314: Parsed 7b409d02a000-7b409d037000 vma
+(00.278147)    314: Parsed 7b409d02a000-7b409d039000 vma
+(00.278151)    314: Parsed 7b409d02a000-7b409d040000 vma
+(00.278156)    314: Parsed 7b409d02a000-7b409d042000 vma
+(00.278153) pie: 24: Mapping native vDSO at 0x2e000
+(00.278160)    314: Parsed 7b409d02a000-7b409d043000 vma
+(00.278173)    314: Parsed 7b409d02a000-7b409d044000 vma
+(00.278177)    314: Parsed 7b409d02a000-7b409d046000 vma
+(00.278182)    314: Parsed 7b409d02a000-7b409d04a000 vma
+(00.278187)    314: Parsed 7b409d02a000-7b409d058000 vma
+(00.278184) pie: 24: vdso: Using gettimeofday() on vdso at 0x32e00
+(00.278192)    314: Parsed 7b409d02a000-7b409d05e000 vma
+(00.278197)    314: Parsed 7b409d02a000-7b409d05f000 vma
+(00.278201)    314: Parsed 7b409d02a000-7b409d060000 vma
+(00.278206)    314: Parsed 7b409d02a000-7b409d062000 vma
+(00.278211)    314: Parsed 7b409d02a000-7b409d06a000 vma
+(00.278215)    314: Parsed 7b409d02a000-7b409d079000 vma
+(00.278220)    314: Parsed 7b409d02a000-7b409d082000 vma
+(00.278219) pie: 24: 	mmap(0x400000 -> 0x407000, 0x7 0x12 9)
+(00.278225)    314: Parsed 7b409d02a000-7b409d084000 vma
+(00.278230)    314: Parsed 7b409d02a000-7b409d085000 vma
+(00.278234)    314: Parsed 7b409d02a000-7b409d086000 vma
+(00.278239)    314: Parsed 7b409d02a000-7b409d08c000 vma
+(00.278239) pie: 24: 	mmap(0x606000 -> 0x607000, 0x3 0x12 9)
+(00.278244)    314: Parsed 7b409d02a000-7b409d08d000 vma
+(00.278250) pie: 24: 	mmap(0x607000 -> 0x608000, 0x3 0x12 9)
+(00.278265)    314: Parsed 7b409d02a000-7b409d08e000 vma
+(00.278271)    314: Parsed 7b409d02a000-7b409d08f000 vma
+(00.278276)    314: Parsed 7b409d02a000-7b409d090000 vma
+(00.278276) pie: 24: 	mmap(0x631000 -> 0x673000, 0x3 0x32 -1)
+(00.278281)    314: Parsed 7b409d02a000-7b409d0a8000 vma
+(00.278286)    314: Parsed 7b409d02a000-7b409d11a000 vma
+(00.278287) pie: 24: 	mmap(0x764f80e00000 -> 0x764f80e03000, 0x5 0x12 10)
+(00.278291)    314: Parsed 7b409d02a000-7b409d152000 vma
+(00.278297)    314: Parsed 7b409d02a000-7b409d153000 vma
+(00.278302)    314: Parsed 7b409d02a000-7b409d165000 vma
+(00.278306)    314: Parsed 7b409d02a000-7b409d166000 vma
+(00.278307) pie: 24: 	mmap(0x764f80e03000 -> 0x764f81002000, 0x0 0x12 10)
+(00.278324) pie: 24: 	mmap(0x764f81002000 -> 0x764f81003000, 0x3 0x12 10)
+(00.278335) pie: 24: 	mmap(0x764f81003000 -> 0x764f81004000, 0x3 0x12 10)
+(00.278348) pie: 24: 	mmap(0x764f81200000 -> 0x764f81207000, 0x5 0x12 11)
+(00.278355)    314: Parsed 7b409d02a000-7b409d167000 vma
+(00.278360)    314: Parsed 7b409d02a000-7b409d16b000 vma
+(00.278359) pie: 24: 	mmap(0x764f81207000 -> 0x764f81406000, 0x0 0x12 11)
+(00.278365)    314: Parsed 7b409d02a000-7b409d178000 vma
+(00.278370)    314: Parsed 7b409d02a000-7b409d17b000 vma
+(00.278372) pie: 24: 	mmap(0x764f81406000 -> 0x764f81407000, 0x3 0x12 11)
+(00.278375)    314: Parsed 7b409d02a000-7b409d17c000 vma
+(00.278381)    314: Parsed 7b409d02a000-7b409d17d000 vma
+(00.278384) pie: 24: 	mmap(0x764f81407000 -> 0x764f81408000, 0x3 0x12 11)
+(00.278386)    314: Parsed 7b409d02a000-7b409d17e000 vma
+(00.278393)    314: Parsed 7b409d02a000-7b409d17f000 vma
+(00.278396) pie: 24: 	mmap(0x764f81600000 -> 0x764f81619000, 0x5 0x12 12)
+(00.278398)    314: Parsed 7b409d184000-7b409d186000 vma
+(00.278405)    314: Parsed 7b409d184000-7b409d188000 vma
+(00.278408) pie: 24: 	mmap(0x764f81619000 -> 0x764f81818000, 0x0 0x12 12)
+(00.278409)    314: Parsed 7b409d184000-7b409d18a000 vma
+(00.278416)    314: Parsed 7b409d184000-7b409d18c000 vma
+(00.278421)    314: Parsed 7b409d184000-7b409d18e000 vma
+(00.278421) pie: 24: 	mmap(0x764f81818000 -> 0x764f81819000, 0x3 0x12 12)
+(00.278425)    314: Parsed 7b409d184000-7b409d190000 vma
+(00.278430)    314: Parsed 7b409d184000-7b409d192000 vma
+(00.278435)    314: Parsed 7b409d184000-7b409d1bc000 vma
+(00.278440)    314: Parsed 7b409d184000-7b409d1c7000 vma
+(00.278440) pie: 24: 	mmap(0x764f81819000 -> 0x764f8181a000, 0x3 0x12 12)
+(00.278445)    314: Parsed 7b409d184000-7b409d1c8000 vma
+(00.278450)    314: Parsed 7b409d184000-7b409d1ca000 vma
+(00.278452) pie: 24: 	mmap(0x764f8181a000 -> 0x764f8181e000, 0x3 0x32 -1)
+(00.278455)    314: Parsed 7b409d184000-7b409d1cc000 vma
+(00.278461)    314: Parsed 7ffed8b7f000-7ffed8ba0000 vma
+(00.278466)    314: Parsed 7ffed8bdf000-7ffed8be3000 vma
+(00.278468) pie: 24: 	mmap(0x764f81a00000 -> 0x764f81bbe000, 0x5 0x12 13)
+(00.278470)    314: Parsed 7ffed8bdf000-7ffed8be5000 vma
+(00.278479)    314: Parsed ffffffffff600000-ffffffffff601000 vma
+(00.278480) pie: 24: 	mmap(0x764f81bbe000 -> 0x764f81dbe000, 0x0 0x12 13)
+(00.278492) pie: 24: 	mmap(0x764f81dbe000 -> 0x764f81dc2000, 0x3 0x12 13)
+(00.278498)    314: 1 threads require 120K of memory
+(00.278503) pie: 24: 	mmap(0x764f81dc2000 -> 0x764f81dc4000, 0x3 0x12 13)
+(00.278505)    314: Found bootstrap VMA hint at: 0x10000 (needs ~144K)
+(00.278514) pie: 24: 	mmap(0x764f81dc4000 -> 0x764f81dc9000, 0x3 0x32 -1)
+(00.278532) pie: 24: 	mmap(0x764f81e00000 -> 0x764f81e05000, 0x5 0x12 14)
+(00.278543) pie: 24: 	mmap(0x764f81e05000 -> 0x764f82004000, 0x0 0x12 14)
+(00.278554) pie: 24: 	mmap(0x764f82004000 -> 0x764f82005000, 0x3 0x12 14)
+(00.278564) pie: 24: 	mmap(0x764f82005000 -> 0x764f82006000, 0x3 0x12 14)
+(00.278576) pie: 24: 	mmap(0x764f82200000 -> 0x764f82216000, 0x5 0x12 15)
+(00.278586) pie: 24: 	mmap(0x764f82216000 -> 0x764f82415000, 0x0 0x12 15)
+(00.278597) pie: 24: 	mmap(0x764f82415000 -> 0x764f82416000, 0x3 0x12 15)
+(00.278608) pie: 24: 	mmap(0x764f82416000 -> 0x764f82417000, 0x3 0x12 15)
+(00.278619) pie: 24: 	mmap(0x764f82600000 -> 0x764f82625000, 0x5 0x12 16)
+(00.278652) pie: 24: 	mmap(0x764f82625000 -> 0x764f82824000, 0x0 0x12 16)
+(00.278663) pie: 24: 	mmap(0x764f82824000 -> 0x764f82828000, 0x3 0x12 16)
+(00.278771) pie: 24: 	mmap(0x764f82828000 -> 0x764f82829000, 0x3 0x12 16)
+(00.278804) pie: 24: 	mmap(0x764f82a00000 -> 0x764f82a44000, 0x5 0x12 17)
+(00.278823) pie: 24: 	mmap(0x764f82a44000 -> 0x764f82c43000, 0x0 0x12 17)
+(00.278847) pie: 24: 	mmap(0x764f82c43000 -> 0x764f82c44000, 0x3 0x12 17)
+(00.278888) pie: 24: 	mmap(0x764f82c44000 -> 0x764f82c45000, 0x3 0x12 17)
+(00.278905) pie: 24: 	mmap(0x764f82e00000 -> 0x764f82e23000, 0x5 0x12 18)
+(00.278910)    314: 	call mremap(0x7b409d184000, 8192, 8192, MAYMOVE | FIXED, 0x2a000)
+(00.278924) pie: 24: 	mmap(0x764f83022000 -> 0x764f83023000, 0x3 0x12 18)
+(00.278940) pie: 24: 	mmap(0x764f83023000 -> 0x764f83024000, 0x3 0x12 18)
+(00.278950)    314: 	call mremap(0x7b409d18a000, 8192, 8192, MAYMOVE | FIXED, 0x2c000)
+(00.278955) pie: 24: 	mmap(0x764f83024000 -> 0x764f83025000, 0x3 0x32 -1)
+(00.278970) pie: 24: 	mmap(0x764f831e5000 -> 0x764f831eb000, 0x3 0x32 -1)
+(00.278982) pie: 24: 	mmap(0x764f831ed000 -> 0x764f831ee000, 0x3 0x32 -1)
+(00.278990)    314: x86: xsave runtime structure
+(00.278999)    314: x86: -----------------------
+(00.279003)    314: x86: cwd:0x37f swd:0 twd:0 fop:0 mxcsr:0x1f80 mxcsr_mask:0xffff
+(00.279005) pie: 24: 	mmap(0x7ffcc14fd000 -> 0x7ffcc151e000, 0x3 0x132 -1)
+(00.279009)    314: x86: magic1:0x46505853 extended_size:580 xstate_bv:0x3 xstate_size:576
+(00.279016)    314: x86: xstate_bv: 0x3
+(00.279020)    314: x86: -----------------------
+(00.279021) pie: 24: 	mmap(0x7ffcc15e1000 -> 0x7ffcc15e5000, 0x1 0x32 -1)
+(00.279025)    314: Thread    0 stack  0x1c080 rt_sigframe  0x24080
+(00.279033) pie: 24: 	mmap(0x7ffcc15e5000 -> 0x7ffcc15e7000, 0x7 0x32 -1)
+(00.279051) pie: 24: Preadv 0x400000:4096... (18 iovs)
+(00.279123)    314: Going to chroot into /proc/self/fd/18
+(00.279139)    314: Restoring umask to 0
+(00.279191)    314: task_args: 0x29000
+task_args->pid: 314
+task_args->nr_threads: 1
+task_args->clone_restore_fn: 0x120a0
+task_args->thread_args: 0x295c0
+(00.279209) pie: 314: Switched to the restorer 314
+(00.279724)     18: Opening 0x0073ae63211000-0x0073ae63410000 0x00000000011000 (20000041) vma
+(00.279751)     18: Opening 0x0073ae63410000-0x0073ae63411000 0x00000000010000 (41) vma
+(00.279756)     18: Opening 0x0073ae63411000-0x0073ae63412000 0x00000000011000 (41) vma
+(00.279761)     18: Opening 0x0073ae63600000-0x0073ae63616000 0000000000000000 (20000041) vma
+(00.279785)     18: Opening 0x0073ae63616000-0x0073ae63815000 0x00000000016000 (20000041) vma
+(00.279791)     18: Opening 0x0073ae63815000-0x0073ae63816000 0x00000000015000 (41) vma
+(00.279795)     18: Opening 0x0073ae63816000-0x0073ae63817000 0x00000000016000 (41) vma
+(00.279800)     18: Opening 0x0073ae63a00000-0x0073ae63a23000 0000000000000000 (20000041) vma
+(00.279812)     18: Opening 0x0073ae63c22000-0x0073ae63c23000 0x00000000022000 (41) vma
+(00.279817)     18: Opening 0x0073ae63c23000-0x0073ae63c24000 0x00000000023000 (41) vma
+(00.279816)     28: Restore via sigreturn
+(00.280029)     28: Parsed 5e34a371b000-5e34a375b000 vma
+(00.280042)     28: Parsed 5e34a371b000-5e34a3810000 vma
+(00.280047)     28: Parsed 5e34a371b000-5e34a3885000 vma
+(00.280052)     28: Parsed 5e34a3886000-5e34a38a6000 vma
+(00.280057)     28: Parsed 5e34a3886000-5e34a38ae000 vma
+(00.280062)     28: Parsed 5e34a3886000-5e34a38e0000 vma
+(00.280067)     28: Parsed 5e34a5257000-5e34a5278000 vma
+(00.280071)     28: Parsed 5e34a5257000-5e34a5299000 vma
+(00.280076)     28: Parsed 5e34a5257000-5e34a52bb000 vma
+(00.280081)     28: Parsed 7b409cd0d000-7b409cd19000 vma
+(00.280086)     28: Parsed 7b409cd0d000-7b409cd29000 vma
+(00.280091)     28: Parsed 7b409cd0d000-7b409cd33000 vma
+(00.280095)     28: Parsed 7b409cd0d000-7b409cd92000 vma
+(00.280100)     28: Parsed 7b409cd0d000-7b409cda9000 vma
+(00.280105)     28: Parsed 7b409cd0d000-7b409cdaa000 vma
+(00.280110)     28: Parsed 7b409cd0d000-7b409cdab000 vma
+(00.280114)     28: Parsed 7b409cd0d000-7b409cdad000 vma
+(00.280117)     18: `- render 25 iovs (0x400000:4096...)
+(00.280135)     28: Parsed 7b409cd0d000-7b409cdb6000 vma
+(00.280144)     28: Parsed 7b409cd0d000-7b409cdb9000 vma
+(00.280149)     28: Parsed 7b409cd0d000-7b409cdba000 vma
+(00.280154)     28: Parsed 7b409cd0d000-7b409cdbb000 vma
+(00.280158)     28: Parsed 7b409cd0d000-7b409cdbe000 vma
+(00.280163)     28: Parsed 7b409cd0d000-7b409cdc6000 vma
+(00.280168)     28: Parsed 7b409cd0d000-7b409cdc9000 vma
+(00.280173)     28: Parsed 7b409cd0d000-7b409cdca000 vma
+(00.280177)     28: Parsed 7b409cd0d000-7b409cdcb000 vma
+(00.280176)     18: Restore via sigreturn
+(00.280182)     28: Parsed 7b409cd0d000-7b409cdcc000 vma
+(00.280188)     28: Parsed 7b409cd0d000-7b409cdce000 vma
+(00.280192)     28: Parsed 7b409cd0d000-7b409cdd7000 vma
+(00.280197)     28: Parsed 7b409cd0d000-7b409cdf1000 vma
+(00.280202)     28: Parsed 7b409cd0d000-7b409cdfb000 vma
+(00.280207)     28: Parsed 7b409cd0d000-7b409cdfe000 vma
+(00.280211)     28: Parsed 7b409cd0d000-7b409ce00000 vma
+(00.280216)     28: Parsed 7b409cd0d000-7b409ce28000 vma
+(00.280221)     28: Parsed 7b409cd0d000-7b409cfbd000 vma
+(00.280226)     28: Parsed 7b409cd0d000-7b409d015000 vma
+(00.280230)     28: Parsed 7b409cd0d000-7b409d016000 vma
+(00.280235)     28: Parsed 7b409cd0d000-7b409d01a000 vma
+(00.280240)     28: Parsed 7b409cd0d000-7b409d01c000 vma
+(00.280312)     28: Parsed 7b409cd0d000-7b409d029000 vma
+(00.280318)     28: Parsed 7b409d02a000-7b409d02f000 vma
+(00.280323)     28: Parsed 7b409d02a000-7b409d031000 vma
+(00.280327)     28: Parsed 7b409d02a000-7b409d033000 vma
+(00.280332)     28: Parsed 7b409d02a000-7b409d034000 vma
+(00.280337)     28: Parsed 7b409d02a000-7b409d035000 vma
+(00.280341)     28: Parsed 7b409d02a000-7b409d036000 vma
+(00.280343)     18: Parsed 5e34a371b000-5e34a375b000 vma
+(00.280346)     28: Parsed 7b409d02a000-7b409d037000 vma
+(00.280354)     18: Parsed 5e34a371b000-5e34a3810000 vma
+(00.280356)     28: Parsed 7b409d02a000-7b409d039000 vma
+(00.280360)     18: Parsed 5e34a371b000-5e34a3885000 vma
+(00.280362)     28: Parsed 7b409d02a000-7b409d040000 vma
+(00.280366)     18: Parsed 5e34a3886000-5e34a38a6000 vma
+(00.280367)     28: Parsed 7b409d02a000-7b409d042000 vma
+(00.280372)     18: Parsed 5e34a3886000-5e34a38ae000 vma
+(00.280374)     28: Parsed 7b409d02a000-7b409d043000 vma
+(00.280377)     18: Parsed 5e34a3886000-5e34a38e0000 vma
+(00.280379)     28: Parsed 7b409d02a000-7b409d044000 vma
+(00.280383)     18: Parsed 5e34a5257000-5e34a5278000 vma
+(00.280384)     28: Parsed 7b409d02a000-7b409d046000 vma
+(00.280388)     18: Parsed 5e34a5257000-5e34a5299000 vma
+(00.280390)     28: Parsed 7b409d02a000-7b409d04a000 vma
+(00.280393)     18: Parsed 5e34a5257000-5e34a52bb000 vma
+(00.280395)     28: Parsed 7b409d02a000-7b409d058000 vma
+(00.280398)     18: Parsed 7b409cd0d000-7b409cd19000 vma
+(00.280400)     28: Parsed 7b409d02a000-7b409d05e000 vma
+(00.280404)     18: Parsed 7b409cd0d000-7b409cd29000 vma
+(00.280406)     28: Parsed 7b409d02a000-7b409d05f000 vma
+(00.280409)     18: Parsed 7b409cd0d000-7b409cd33000 vma
+(00.280411)     28: Parsed 7b409d02a000-7b409d060000 vma
+(00.280414)     18: Parsed 7b409cd0d000-7b409cd92000 vma
+(00.280416)     28: Parsed 7b409d02a000-7b409d062000 vma
+(00.280420)     18: Parsed 7b409cd0d000-7b409cda9000 vma
+(00.280422)     28: Parsed 7b409d02a000-7b409d06a000 vma
+(00.280425)     18: Parsed 7b409cd0d000-7b409cdaa000 vma
+(00.280427)     28: Parsed 7b409d02a000-7b409d079000 vma
+(00.280431)     18: Parsed 7b409cd0d000-7b409cdab000 vma
+(00.280432)     28: Parsed 7b409d02a000-7b409d082000 vma
+(00.280436)     18: Parsed 7b409cd0d000-7b409cdad000 vma
+(00.280438)     28: Parsed 7b409d02a000-7b409d084000 vma
+(00.280441)     18: Parsed 7b409cd0d000-7b409cdb6000 vma
+(00.280443)     28: Parsed 7b409d02a000-7b409d085000 vma
+(00.280446)     18: Parsed 7b409cd0d000-7b409cdb9000 vma
+(00.280448)     28: Parsed 7b409d02a000-7b409d086000 vma
+(00.280452)     18: Parsed 7b409cd0d000-7b409cdba000 vma
+(00.280454)     28: Parsed 7b409d02a000-7b409d08c000 vma
+(00.280457)     18: Parsed 7b409cd0d000-7b409cdbb000 vma
+(00.280459)     28: Parsed 7b409d02a000-7b409d08d000 vma
+(00.280476)     18: Parsed 7b409cd0d000-7b409cdbe000 vma
+(00.280479)     28: Parsed 7b409d02a000-7b409d08e000 vma
+(00.280482)     18: Parsed 7b409cd0d000-7b409cdc6000 vma
+(00.280484)     28: Parsed 7b409d02a000-7b409d08f000 vma
+(00.280487)     18: Parsed 7b409cd0d000-7b409cdc9000 vma
+(00.280489)     28: Parsed 7b409d02a000-7b409d090000 vma
+(00.280492)     18: Parsed 7b409cd0d000-7b409cdca000 vma
+(00.280494)     28: Parsed 7b409d02a000-7b409d0a8000 vma
+(00.280498)     18: Parsed 7b409cd0d000-7b409cdcb000 vma
+(00.280500)     28: Parsed 7b409d02a000-7b409d11a000 vma
+(00.280503)     18: Parsed 7b409cd0d000-7b409cdcc000 vma
+(00.280505)     28: Parsed 7b409d02a000-7b409d152000 vma
+(00.280508)     18: Parsed 7b409cd0d000-7b409cdce000 vma
+(00.280510)     28: Parsed 7b409d02a000-7b409d153000 vma
+(00.280513)     18: Parsed 7b409cd0d000-7b409cdd7000 vma
+(00.280515)     28: Parsed 7b409d02a000-7b409d165000 vma
+(00.280518)     18: Parsed 7b409cd0d000-7b409cdf1000 vma
+(00.280521)     28: Parsed 7b409d02a000-7b409d166000 vma
+(00.280523)     18: Parsed 7b409cd0d000-7b409cdfb000 vma
+(00.280528)     18: Parsed 7b409cd0d000-7b409cdfe000 vma
+(00.280533)     18: Parsed 7b409cd0d000-7b409ce00000 vma
+(00.280538)     18: Parsed 7b409cd0d000-7b409ce28000 vma
+(00.280542)     18: Parsed 7b409cd0d000-7b409cfbd000 vma
+(00.280547)     18: Parsed 7b409cd0d000-7b409d015000 vma
+(00.280552)     18: Parsed 7b409cd0d000-7b409d016000 vma
+(00.280557)     18: Parsed 7b409cd0d000-7b409d01a000 vma
+(00.280561)     18: Parsed 7b409cd0d000-7b409d01c000 vma
+(00.280566)     28: Parsed 7b409d02a000-7b409d167000 vma
+(00.280572)     28: Parsed 7b409d02a000-7b409d16b000 vma
+(00.280576)     28: Parsed 7b409d02a000-7b409d178000 vma
+(00.280581)     28: Parsed 7b409d02a000-7b409d17b000 vma
+(00.280586)     28: Parsed 7b409d02a000-7b409d17c000 vma
+(00.280591)     28: Parsed 7b409d02a000-7b409d17d000 vma
+(00.280595)     28: Parsed 7b409d02a000-7b409d17e000 vma
+(00.280600)     28: Parsed 7b409d02a000-7b409d17f000 vma
+(00.280605)     28: Parsed 7b409d184000-7b409d186000 vma
+(00.280633)     18: Parsed 7b409cd0d000-7b409d029000 vma
+(00.280704)     18: Parsed 7b409d02a000-7b409d02f000 vma
+(00.280720)     18: Parsed 7b409d02a000-7b409d031000 vma
+(00.280725)     18: Parsed 7b409d02a000-7b409d033000 vma
+(00.280730)     18: Parsed 7b409d02a000-7b409d034000 vma
+(00.280734)     18: Parsed 7b409d02a000-7b409d035000 vma
+(00.280739)     18: Parsed 7b409d02a000-7b409d036000 vma
+(00.280744)     18: Parsed 7b409d02a000-7b409d037000 vma
+(00.280748)     18: Parsed 7b409d02a000-7b409d039000 vma
+(00.280747)     28: Parsed 7b409d184000-7b409d188000 vma
+(00.280753)     18: Parsed 7b409d02a000-7b409d040000 vma
+(00.280759)     28: Parsed 7b409d184000-7b409d18a000 vma
+(00.280760)     18: Parsed 7b409d02a000-7b409d042000 vma
+(00.280764)     28: Parsed 7b409d184000-7b409d18c000 vma
+(00.280766)     18: Parsed 7b409d02a000-7b409d043000 vma
+(00.280769)     28: Parsed 7b409d184000-7b409d18e000 vma
+(00.280771)     18: Parsed 7b409d02a000-7b409d044000 vma
+(00.280774)     28: Parsed 7b409d184000-7b409d190000 vma
+(00.280776)     18: Parsed 7b409d02a000-7b409d046000 vma
+(00.280779)     28: Parsed 7b409d184000-7b409d192000 vma
+(00.280781)     18: Parsed 7b409d02a000-7b409d04a000 vma
+(00.280784)     28: Parsed 7b409d184000-7b409d1bc000 vma
+(00.280786)     18: Parsed 7b409d02a000-7b409d058000 vma
+(00.280789)     28: Parsed 7b409d184000-7b409d1c7000 vma
+(00.280791)     18: Parsed 7b409d02a000-7b409d05e000 vma
+(00.280795)     28: Parsed 7b409d184000-7b409d1c8000 vma
+(00.280797)     18: Parsed 7b409d02a000-7b409d05f000 vma
+(00.280800)     28: Parsed 7b409d184000-7b409d1ca000 vma
+(00.280802)     18: Parsed 7b409d02a000-7b409d060000 vma
+(00.280805)     28: Parsed 7b409d184000-7b409d1cc000 vma
+(00.280807)     18: Parsed 7b409d02a000-7b409d062000 vma
+(00.280811)     28: Parsed 7ffed8b7f000-7ffed8ba0000 vma
+(00.280812)     18: Parsed 7b409d02a000-7b409d06a000 vma
+(00.280816)     28: Parsed 7ffed8bdf000-7ffed8be3000 vma
+(00.280818)     18: Parsed 7b409d02a000-7b409d079000 vma
+(00.280822)     28: Parsed 7ffed8bdf000-7ffed8be5000 vma
+(00.280833)     18: Parsed 7b409d02a000-7b409d082000 vma
+(00.280837)     28: Parsed ffffffffff600000-ffffffffff601000 vma
+(00.280839)     18: Parsed 7b409d02a000-7b409d084000 vma
+(00.280845)     18: Parsed 7b409d02a000-7b409d085000 vma
+(00.280850)     18: Parsed 7b409d02a000-7b409d086000 vma
+(00.280874)     18: Parsed 7b409d02a000-7b409d08c000 vma
+(00.280876)     28: 1 threads require 120K of memory
+(00.280879)     18: Parsed 7b409d02a000-7b409d08d000 vma
+(00.280883)     28: Found bootstrap VMA hint at: 0x10000 (needs ~144K)
+(00.280885)     18: Parsed 7b409d02a000-7b409d08e000 vma
+(00.280892)     18: Parsed 7b409d02a000-7b409d08f000 vma
+(00.280896)     18: Parsed 7b409d02a000-7b409d090000 vma
+(00.280901)     18: Parsed 7b409d02a000-7b409d0a8000 vma
+(00.280906)     18: Parsed 7b409d02a000-7b409d11a000 vma
+(00.280910)     18: Parsed 7b409d02a000-7b409d152000 vma
+(00.280915)     18: Parsed 7b409d02a000-7b409d153000 vma
+(00.280920)     18: Parsed 7b409d02a000-7b409d165000 vma
+(00.280924)     18: Parsed 7b409d02a000-7b409d166000 vma
+(00.280973)     18: Parsed 7b409d02a000-7b409d167000 vma
+(00.280979)     18: Parsed 7b409d02a000-7b409d16b000 vma
+(00.280983)     18: Parsed 7b409d02a000-7b409d178000 vma
+(00.280988)     18: Parsed 7b409d02a000-7b409d17b000 vma
+(00.280993)     18: Parsed 7b409d02a000-7b409d17c000 vma
+(00.280997)     18: Parsed 7b409d02a000-7b409d17d000 vma
+(00.281002)     18: Parsed 7b409d02a000-7b409d17e000 vma
+(00.281006)     18: Parsed 7b409d02a000-7b409d17f000 vma
+(00.281012)     18: Parsed 7b409d180000-7b409d184000 vma
+(00.281017)     18: Parsed 7b409d186000-7b409d188000 vma
+(00.281022)     18: Parsed 7b409d186000-7b409d18a000 vma
+(00.281026)     18: Parsed 7b409d186000-7b409d18c000 vma
+(00.281031)     18: Parsed 7b409d186000-7b409d18e000 vma
+(00.281035)     18: Parsed 7b409d186000-7b409d190000 vma
+(00.281040)     18: Parsed 7b409d186000-7b409d192000 vma
+(00.281045)     18: Parsed 7b409d186000-7b409d1bc000 vma
+(00.281049)     18: Parsed 7b409d186000-7b409d1c7000 vma
+(00.281054)     18: Parsed 7b409d186000-7b409d1c8000 vma
+(00.281059)     18: Parsed 7b409d186000-7b409d1ca000 vma
+(00.281064)     18: Parsed 7b409d186000-7b409d1cc000 vma
+(00.281069)     18: Parsed 7ffed8b7f000-7ffed8ba0000 vma
+(00.281073)     18: Parsed 7ffed8bdf000-7ffed8be3000 vma
+(00.281078)     18: Parsed 7ffed8bdf000-7ffed8be5000 vma
+(00.281083)     18: Parsed ffffffffff600000-ffffffffff601000 vma
+(00.281100)     18: 1 threads require 128K of memory
+(00.281106)     18: Found bootstrap VMA hint at: 0x10000 (needs ~152K)
+(00.281104)     28: 	call mremap(0x7b409d184000, 8192, 8192, MAYMOVE | FIXED, 0x2a000)
+(00.281137)     28: 	call mremap(0x7b409d18a000, 8192, 8192, MAYMOVE | FIXED, 0x2c000)
+(00.281177)     28: x86: xsave runtime structure
+(00.281185)     28: x86: -----------------------
+(00.281189)     28: x86: cwd:0x37f swd:0 twd:0 fop:0 mxcsr:0x1fa0 mxcsr_mask:0xffff
+(00.281194)     28: x86: magic1:0x46505853 extended_size:580 xstate_bv:0x3 xstate_size:576
+(00.281199)     28: x86: xstate_bv: 0x3
+(00.281203)     28: x86: -----------------------
+(00.281208)     28: Thread    0 stack  0x1c080 rt_sigframe  0x24080
+(00.281305)     28: Going to chroot into /proc/self/fd/32
+(00.281319)     28: Restoring umask to 0
+(00.281329)     18: 	call mremap(0x7b409d180000, 16384, 16384, MAYMOVE | FIXED, 0x2a000)
+(00.281367)     18: 	call mremap(0x7b409d18a000, 8192, 8192, MAYMOVE | FIXED, 0x2e000)
+(00.281368)     28: task_args: 0x29000
+task_args->pid: 28
+task_args->nr_threads: 1
+task_args->clone_restore_fn: 0x120a0
+task_args->thread_args: 0x295c0
+(00.281391) pie: 28: Switched to the restorer 28
+(00.281407)     18: x86: xsave runtime structure
+(00.281415)     18: x86: -----------------------
+(00.281419)     18: x86: cwd:0x37f swd:0 twd:0 fop:0 mxcsr:0x1fa0 mxcsr_mask:0xffff
+(00.281425)     18: x86: magic1:0x46505853 extended_size:580 xstate_bv:0x3 xstate_size:576
+(00.281430)     18: x86: xstate_bv: 0x3
+(00.281434)     18: x86: -----------------------
+(00.281438)     18: Thread    0 stack  0x1c080 rt_sigframe  0x24080
+(00.281546)     18: Going to chroot into /proc/self/fd/31
+(00.281560)     18: Restoring umask to 22
+(00.281610)     18: task_args: 0x29000
+task_args->pid: 18
+task_args->nr_threads: 1
+task_args->clone_restore_fn: 0x120a0
+task_args->thread_args: 0x295c0
+(00.281628) pie: 18: Switched to the restorer 18
+(00.281780)      1: Opening 0x007112507be000-0x007112507c2000 0x000000001be000 (41) vma
+(00.281787) pie: 24: `- returned 434176
+(00.281811)      1: Opening 0x007112507c2000-0x007112507c4000 0x000000001c2000 (41) vma
+(00.281816) pie: 24:    `- skip pagemap
+(00.281818)      1: Opening 0x00711250800000-0x00711250807000 0000000000000000 (20000041) vma
+(00.281821) pie: 24:    `- skip pagemap
+(00.281826) pie: 24:    `- skip pagemap
+(00.281831) pie: 24:    `- skip pagemap
+(00.281835) pie: 24:    `- skip pagemap
+(00.281840) pie: 24:    `- skip pagemap
+(00.281845) pie: 24:    `- skip pagemap
+(00.281845)      1: Opening 0x00711250807000-0x00711250a06000 0x00000000007000 (20000041) vma
+(00.281876)      1: Opening 0x00711250a06000-0x00711250a07000 0x00000000006000 (41) vma
+(00.281904)      1: Opening 0x00711250a07000-0x00711250a08000 0x00000000007000 (41) vma
+(00.281914)      1: Opening 0x00711250c00000-0x00711250c0a000 0000000000000000 (20000041) vma
+(00.281850) pie: 24:    `- skip pagemap
+(00.281933) pie: 24:    `- skip pagemap
+(00.281938) pie: 24:    `- skip pagemap
+(00.281943) pie: 24:    `- skip pagemap
+(00.281947) pie: 24:    `- skip pagemap
+(00.281952) pie: 24:    `- skip pagemap
+(00.281956) pie: 24:    `- skip pagemap
+(00.281961) pie: 24:    `- skip pagemap
+(00.281966) pie: 24:    `- skip pagemap
+(00.281970) pie: 24:    `- skip pagemap
+(00.281975) pie: 24:    `- skip pagemap
+(00.281990) pie: 24: vdso: Parsing at 0x7ffcc15e5000 0x7ffcc15e7000
+(00.281997) pie: 24: vdso: PT_LOAD p_vaddr: 0x0
+(00.282002) pie: 24: vdso: DT_HASH: 0x120
+(00.282007) pie: 24: vdso: DT_STRTAB: 0x300
+(00.282012) pie: 24: vdso: DT_SYMTAB: 0x1c8
+(00.282017) pie: 24: vdso: DT_STRSZ: 0x8b
+(00.282018)      1: Opening 0x00711250c0a000-0x00711250e09000 0x0000000000a000 (20000041) vma
+(00.282022) pie: 24: vdso: DT_SYMENT: 0x18
+(00.282030)      1: Opening 0x00711250e09000-0x00711250e0a000 0x00000000009000 (41) vma
+(00.282032) pie: 24: vdso: nbucket 0x3 nchain 0xd bucket 0x7ffcc15e5128 chain 0x7ffcc15e5134
+(00.282035)      1: Opening 0x00711250e0a000-0x00711250e0b000 0x0000000000a000 (41) vma
+(00.282041)      1: Opening 0x00711251000000-0x00711251020000 0000000000000000 (20000041) vma
+(00.282042) pie: 24: vdso: image [vdso] 0x7ffcc15e5000-0x7ffcc15e7000 [vvar] 0x7ffcc15e1000-0x7ffcc15e5000
+(00.282049) pie: 24: vdso: Runtime vdso/vvar matches dumpee, remap inplace
+(00.282104) pie: 24: vdso: Remap rt-vdso 0x32000 -> 0x7ffcc15e5000
+(00.282131)      1: Opening 0x00711251020000-0x0071125121f000 0x00000000020000 (20000041) vma
+(00.282141)      1: Opening 0x0071125121f000-0x00711251220000 0x0000000001f000 (41) vma
+(00.282141) pie: 24: vdso: Remap rt-vvar 0x2e000 -> 0x7ffcc15e1000
+(00.282146)      1: Opening 0x00711251220000-0x00711251221000 0x00000000020000 (41) vma
+(00.282154)      1: Opening 0x00711251400000-0x00711251444000 0000000000000000 (20000041) vma
+(00.282171)      1: Opening 0x00711251444000-0x00711251643000 0x00000000044000 (20000041) vma
+(00.282176)      1: Opening 0x00711251643000-0x00711251644000 0x00000000043000 (41) vma
+(00.282181)      1: Opening 0x00711251644000-0x00711251645000 0x00000000044000 (41) vma
+(00.282179) pie: 24: vdso: Using gettimeofday() on vdso at 0x7ffcc15e5e00
+(00.282185)      1: Opening 0x00711251800000-0x00711251808000 0000000000000000 (20000041) vma
+(00.282199)      1: Opening 0x00711251808000-0x00711251a08000 0x00000000008000 (20000041) vma
+(00.282205)      1: Opening 0x00711251a08000-0x00711251a09000 0x00000000008000 (41) vma
+(00.282209)      1: Opening 0x00711251a09000-0x00711251a0a000 0x00000000009000 (41) vma
+(00.282229)      1: Opening 0x00711251c00000-0x00711251c17000 0000000000000000 (20000041) vma
+(00.282249)      1: Opening 0x00711251c17000-0x00711251e16000 0x00000000017000 (20000041) vma
+(00.282255)      1: Opening 0x00711251e16000-0x00711251e17000 0x00000000016000 (41) vma
+(00.282273)      1: Opening 0x00711251e17000-0x00711251e18000 0x00000000017000 (41) vma
+(00.282279)      1: Opening 0x00711252000000-0x00711252023000 0000000000000000 (20000041) vma
+(00.282291)      1: Opening 0x00711252222000-0x00711252223000 0x00000000022000 (41) vma
+(00.282296)      1: Opening 0x00711252223000-0x00711252224000 0x00000000023000 (41) vma
+(00.282356)      1: Collect inotify fd 6 to cleanup later
+(00.282367)      1: Collect inotify fd 5 to cleanup later
+(00.282379) pie: 24: Restoring scheduler params 0.0.0
+(00.282401) pie: 24: rseq: nothing to restore
+(00.282436) pie: 24: 24: Restored
+(00.282531)      1: `- render 23 iovs (0x590f9ce00000:4096...)
+(00.282780)      1: Restore via sigreturn
+(00.283100) pie: 314: Mapping native vDSO at 0x2e000
+(00.283129) pie: 314: vdso: Using gettimeofday() on vdso at 0x32e00
+(00.283160) pie: 314: 	mmap(0x6190c6c00000 -> 0x6190c6c1f000, 0x7 0x12 7)
+(00.283179) pie: 314: 	mmap(0x6190c6e1e000 -> 0x6190c6e20000, 0x3 0x12 7)
+(00.283190) pie: 314: 	mmap(0x6190c6e20000 -> 0x6190c6e21000, 0x3 0x12 7)
+(00.283204) pie: 314: 	mmap(0x6190c6ff9000 -> 0x6190c701a000, 0x3 0x32 -1)
+(00.283215) pie: 314: 	mmap(0x70591f600000 -> 0x70591f619000, 0x5 0x12 8)
+(00.283237) pie: 314: 	mmap(0x70591f619000 -> 0x70591f818000, 0x0 0x12 8)
+(00.283255) pie: 314: 	mmap(0x70591f818000 -> 0x70591f819000, 0x3 0x12 8)
+(00.283266) pie: 314: 	mmap(0x70591f819000 -> 0x70591f81a000, 0x3 0x12 8)
+(00.283278) pie: 314: 	mmap(0x70591f81a000 -> 0x70591f81e000, 0x3 0x32 -1)
+(00.283289) pie: 314: 	mmap(0x70591fa00000 -> 0x70591fa07000, 0x5 0x12 9)
+(00.283302) pie: 314: 	mmap(0x70591fa07000 -> 0x70591fc06000, 0x0 0x12 9)
+(00.283303) pie: 18: Mapping native vDSO at 0x30000
+(00.283314) pie: 314: 	mmap(0x70591fc06000 -> 0x70591fc07000, 0x3 0x12 9)
+(00.283327) pie: 314: 	mmap(0x70591fc07000 -> 0x70591fc08000, 0x3 0x12 9)
+(00.283332) pie: 18: vdso: Using gettimeofday() on vdso at 0x34e00
+(00.283338) pie: 314: 	mmap(0x70591fe00000 -> 0x70591ffbe000, 0x5 0x12 10)
+(00.283350) pie: 314: 	mmap(0x70591ffbe000 -> 0x7059201be000, 0x0 0x12 10)
+(00.283364) pie: 18: 	mmap(0x400000 -> 0x413000, 0x7 0x12 8)
+(00.283371) pie: 314: 	mmap(0x7059201be000 -> 0x7059201c2000, 0x3 0x12 10)
+(00.283383) pie: 18: 	mmap(0x612000 -> 0x613000, 0x3 0x12 8)
+(00.283384) pie: 314: 	mmap(0x7059201c2000 -> 0x7059201c4000, 0x3 0x12 10)
+(00.283395) pie: 18: 	mmap(0x613000 -> 0x614000, 0x3 0x12 8)
+(00.283397) pie: 314: 	mmap(0x7059201c4000 -> 0x7059201c9000, 0x3 0x32 -1)
+(00.283408) pie: 314: 	mmap(0x705920200000 -> 0x705920244000, 0x5 0x12 11)
+(00.283409) pie: 18: 	mmap(0xd55000 -> 0xd76000, 0x3 0x32 -1)
+(00.283421) pie: 314: 	mmap(0x705920244000 -> 0x705920443000, 0x0 0x12 11)
+(00.283421) pie: 18: 	mmap(0x73ae5fa00000 -> 0x73ae5fa03000, 0x5 0x12 10)
+(00.283433) pie: 314: 	mmap(0x705920443000 -> 0x705920444000, 0x3 0x12 11)
+(00.283440) pie: 18: 	mmap(0x73ae5fa03000 -> 0x73ae5fc02000, 0x0 0x12 10)
+(00.283451) pie: 314: 	mmap(0x705920444000 -> 0x705920445000, 0x3 0x12 11)
+(00.283455) pie: 18: 	mmap(0x73ae5fc02000 -> 0x73ae5fc03000, 0x3 0x12 10)
+(00.283462) pie: 314: 	mmap(0x705920600000 -> 0x705920608000, 0x5 0x12 12)
+(00.283468) pie: 18: 	mmap(0x73ae5fc03000 -> 0x73ae5fc04000, 0x3 0x12 10)
+(00.283474) pie: 314: 	mmap(0x705920608000 -> 0x705920808000, 0x0 0x12 12)
+(00.283480) pie: 18: 	mmap(0x73ae5fe00000 -> 0x73ae5fe04000, 0x5 0x12 12)
+(00.283484) pie: 314: 	mmap(0x705920808000 -> 0x705920809000, 0x3 0x12 12)
+(00.283492) pie: 18: 	mmap(0x73ae5fe04000 -> 0x73ae60003000, 0x0 0x12 12)
+(00.283496) pie: 314: 	mmap(0x705920809000 -> 0x70592080a000, 0x3 0x12 12)
+(00.283502) pie: 18: 	mmap(0x73ae60003000 -> 0x73ae60004000, 0x3 0x12 12)
+(00.283507) pie: 314: 	mmap(0x705920a00000 -> 0x705920a17000, 0x5 0x12 13)
+(00.283513) pie: 18: 	mmap(0x73ae60004000 -> 0x73ae60005000, 0x3 0x12 12)
+(00.283518) pie: 314: 	mmap(0x705920a17000 -> 0x705920c16000, 0x0 0x12 13)
+(00.283525) pie: 18: 	mmap(0x73ae60200000 -> 0x73ae60204000, 0x5 0x12 13)
+(00.283536) pie: 18: 	mmap(0x73ae60204000 -> 0x73ae60404000, 0x0 0x12 13)
+(00.283537) pie: 314: 	mmap(0x705920c16000 -> 0x705920c17000, 0x3 0x12 13)
+(00.283562) pie: 18: 	mmap(0x73ae60404000 -> 0x73ae60405000, 0x3 0x12 13)
+(00.283565) pie: 314: 	mmap(0x705920c17000 -> 0x705920c18000, 0x3 0x12 13)
+(00.283577) pie: 314: 	mmap(0x705920e00000 -> 0x705920e23000, 0x5 0x12 14)
+(00.283581) pie: 18: 	mmap(0x73ae60405000 -> 0x73ae60406000, 0x3 0x12 13)
+(00.283592) pie: 18: 	mmap(0x73ae60600000 -> 0x73ae6060d000, 0x5 0x12 14)
+(00.283594) pie: 314: 	mmap(0x705921022000 -> 0x705921023000, 0x3 0x12 14)
+(00.283604) pie: 18: 	mmap(0x73ae6060d000 -> 0x73ae6080c000, 0x0 0x12 14)
+(00.283606) pie: 314: 	mmap(0x705921023000 -> 0x705921024000, 0x3 0x12 14)
+(00.283614) pie: 18: 	mmap(0x73ae6080c000 -> 0x73ae6080d000, 0x3 0x12 14)
+(00.283625) pie: 18: 	mmap(0x73ae6080d000 -> 0x73ae6080e000, 0x3 0x12 14)
+(00.283637) pie: 18: 	mmap(0x73ae60a00000 -> 0x73ae60a07000, 0x5 0x12 15)
+(00.283726) pie: 18: 	mmap(0x73ae60a07000 -> 0x73ae60c06000, 0x0 0x12 15)
+(00.283753) pie: 18: 	mmap(0x73ae60c06000 -> 0x73ae60c07000, 0x3 0x12 15)
+(00.283769) pie: 18: 	mmap(0x73ae60c07000 -> 0x73ae60c08000, 0x3 0x12 15)
+(00.283781) pie: 314: 	mmap(0x705921024000 -> 0x705921025000, 0x3 0x32 -1)
+(00.283786) pie: 18: 	mmap(0x73ae60e00000 -> 0x73ae60e0a000, 0x5 0x12 16)
+(00.283797) pie: 314: 	mmap(0x705921106000 -> 0x70592110b000, 0x3 0x32 -1)
+(00.283803) pie: 18: 	mmap(0x73ae60e0a000 -> 0x73ae61009000, 0x0 0x12 16)
+(00.283815) pie: 314: 	mmap(0x7ffce68c3000 -> 0x7ffce68e4000, 0x3 0x132 -1)
+(00.283819) pie: 18: 	mmap(0x73ae61009000 -> 0x73ae6100a000, 0x3 0x12 16)
+(00.283826) pie: 314: 	mmap(0x7ffce69cc000 -> 0x7ffce69d0000, 0x1 0x32 -1)
+(00.283836) pie: 314: 	mmap(0x7ffce69d0000 -> 0x7ffce69d2000, 0x7 0x32 -1)
+(00.283835) pie: 18: 	mmap(0x73ae6100a000 -> 0x73ae6100b000, 0x3 0x12 16)
+(00.283847) pie: 314: Preadv 0x6190c6c00000:4096... (15 iovs)
+(00.283874) pie: 18: 	mmap(0x73ae61200000 -> 0x73ae6120b000, 0x5 0x12 17)
+(00.283895) pie: 18: 	mmap(0x73ae6120b000 -> 0x73ae6140a000, 0x0 0x12 17)
+(00.283922) pie: 18: 	mmap(0x73ae6140a000 -> 0x73ae6140b000, 0x3 0x12 17)
+(00.283939) pie: 18: 	mmap(0x73ae6140b000 -> 0x73ae6140c000, 0x3 0x12 17)
+(00.283956) pie: 18: 	mmap(0x73ae61600000 -> 0x73ae61617000, 0x5 0x12 18)
+(00.283973) pie: 18: 	mmap(0x73ae61617000 -> 0x73ae61816000, 0x0 0x12 18)
+(00.283990) pie: 18: 	mmap(0x73ae61816000 -> 0x73ae61817000, 0x3 0x12 18)
+(00.284006) pie: 18: 	mmap(0x73ae61817000 -> 0x73ae61818000, 0x3 0x12 18)
+(00.284020) pie: 18: 	mmap(0x73ae61818000 -> 0x73ae6181a000, 0x3 0x32 -1)
+(00.284034) pie: 18: 	mmap(0x73ae61a00000 -> 0x73ae61a09000, 0x5 0x12 19)
+(00.284056) pie: 18: 	mmap(0x73ae61a09000 -> 0x73ae61c08000, 0x0 0x12 19)
+(00.284073) pie: 18: 	mmap(0x73ae61c08000 -> 0x73ae61c09000, 0x3 0x12 19)
+(00.284088) pie: 18: 	mmap(0x73ae61c09000 -> 0x73ae61c0a000, 0x3 0x12 19)
+(00.284100) pie: 18: 	mmap(0x73ae61e00000 -> 0x73ae61e19000, 0x5 0x12 20)
+(00.284112) pie: 18: 	mmap(0x73ae61e19000 -> 0x73ae62018000, 0x0 0x12 20)
+(00.284124) pie: 18: 	mmap(0x73ae62018000 -> 0x73ae62019000, 0x3 0x12 20)
+(00.284135) pie: 18: 	mmap(0x73ae62019000 -> 0x73ae6201a000, 0x3 0x12 20)
+(00.284146) pie: 18: 	mmap(0x73ae6201a000 -> 0x73ae6201e000, 0x3 0x32 -1)
+(00.284156) pie: 18: 	mmap(0x73ae62200000 -> 0x73ae62305000, 0x5 0x12 21)
+(00.284172) pie: 18: 	mmap(0x73ae62305000 -> 0x73ae62504000, 0x0 0x12 21)
+(00.284183) pie: 18: 	mmap(0x73ae62504000 -> 0x73ae62505000, 0x3 0x12 21)
+(00.284193) pie: 18: 	mmap(0x73ae62505000 -> 0x73ae62506000, 0x3 0x12 21)
+(00.284204) pie: 18: 	mmap(0x73ae62600000 -> 0x73ae62603000, 0x5 0x12 22)
+(00.284219) pie: 18: 	mmap(0x73ae62603000 -> 0x73ae62802000, 0x0 0x12 22)
+(00.284236) pie: 18: 	mmap(0x73ae62802000 -> 0x73ae62803000, 0x3 0x12 22)
+(00.284242) pie: 314: `- returned 217088
+(00.284246) pie: 18: 	mmap(0x73ae62803000 -> 0x73ae62804000, 0x3 0x12 22)
+(00.284251) pie: 314:    `- skip pagemap
+(00.284256) pie: 314:    `- skip pagemap
+(00.284259) pie: 18: 	mmap(0x73ae62a00000 -> 0x73ae62a07000, 0x5 0x12 23)
+(00.284261) pie: 314:    `- skip pagemap
+(00.284266) pie: 314:    `- skip pagemap
+(00.284271) pie: 314:    `- skip pagemap
+(00.284271) pie: 18: 	mmap(0x73ae62a07000 -> 0x73ae62c06000, 0x0 0x12 23)
+(00.284290) pie: 314:    `- skip pagemap
+(00.284295) pie: 314:    `- skip pagemap
+(00.284298) pie: 18: 	mmap(0x73ae62c06000 -> 0x73ae62c07000, 0x3 0x12 23)
+(00.284300) pie: 314:    `- skip pagemap
+(00.284305) pie: 314:    `- skip pagemap
+(00.284309) pie: 18: 	mmap(0x73ae62c07000 -> 0x73ae62c08000, 0x3 0x12 23)
+(00.284310) pie: 314:    `- skip pagemap
+(00.284316) pie: 314:    `- skip pagemap
+(00.284320) pie: 18: 	mmap(0x73ae62e00000 -> 0x73ae62fbe000, 0x5 0x12 24)
+(00.284321) pie: 314:    `- skip pagemap
+(00.284328) pie: 314:    `- skip pagemap
+(00.284332) pie: 18: 	mmap(0x73ae62fbe000 -> 0x73ae631be000, 0x0 0x12 24)
+(00.284332) pie: 314:    `- skip pagemap
+(00.284340) pie: 314:    `- skip pagemap
+(00.284344) pie: 18: 	mmap(0x73ae631be000 -> 0x73ae631c2000, 0x3 0x12 24)
+(00.284353) pie: 314: vdso: Parsing at 0x7ffce69d0000 0x7ffce69d2000
+(00.284360) pie: 314: vdso: PT_LOAD p_vaddr: 0x0
+(00.284361) pie: 18: 	mmap(0x73ae631c2000 -> 0x73ae631c4000, 0x3 0x12 24)
+(00.284365) pie: 314: vdso: DT_HASH: 0x120
+(00.284371) pie: 314: vdso: DT_STRTAB: 0x300
+(00.284373) pie: 18: 	mmap(0x73ae631c4000 -> 0x73ae631c9000, 0x3 0x32 -1)
+(00.284376) pie: 314: vdso: DT_SYMTAB: 0x1c8
+(00.284381) pie: 314: vdso: DT_STRSZ: 0x8b
+(00.284385) pie: 18: 	mmap(0x73ae63200000 -> 0x73ae63211000, 0x5 0x12 25)
+(00.284386) pie: 314: vdso: DT_SYMENT: 0x18
+(00.284393) pie: 314: vdso: nbucket 0x3 nchain 0xd bucket 0x7ffce69d0128 chain 0x7ffce69d0134
+(00.284397) pie: 18: 	mmap(0x73ae63211000 -> 0x73ae63410000, 0x0 0x12 25)
+(00.284403) pie: 314: vdso: image [vdso] 0x7ffce69d0000-0x7ffce69d2000 [vvar] 0x7ffce69cc000-0x7ffce69d0000
+(00.284408) pie: 18: 	mmap(0x73ae63410000 -> 0x73ae63411000, 0x3 0x12 25)
+(00.284409) pie: 314: vdso: Runtime vdso/vvar matches dumpee, remap inplace
+(00.284421) pie: 18: 	mmap(0x73ae63411000 -> 0x73ae63412000, 0x3 0x12 25)
+(00.284432) pie: 18: 	mmap(0x73ae63600000 -> 0x73ae63616000, 0x5 0x12 26)
+(00.284448) pie: 18: 	mmap(0x73ae63616000 -> 0x73ae63815000, 0x0 0x12 26)
+(00.284454) pie: 314: vdso: Remap rt-vdso 0x32000 -> 0x7ffce69d0000
+(00.284458) pie: 18: 	mmap(0x73ae63815000 -> 0x73ae63816000, 0x3 0x12 26)
+(00.284473) pie: 18: 	mmap(0x73ae63816000 -> 0x73ae63817000, 0x3 0x12 26)
+(00.284484) pie: 18: 	mmap(0x73ae63a00000 -> 0x73ae63a23000, 0x5 0x12 27)
+(00.284491) pie: 314: vdso: Remap rt-vvar 0x2e000 -> 0x7ffce69cc000
+(00.284495) pie: 18: 	mmap(0x73ae63c22000 -> 0x73ae63c23000, 0x3 0x12 27)
+(00.284511) pie: 18: 	mmap(0x73ae63c23000 -> 0x73ae63c24000, 0x3 0x12 27)
+(00.284522) pie: 18: 	mmap(0x73ae63c24000 -> 0x73ae63c25000, 0x3 0x32 -1)
+(00.284522) pie: 314: vdso: Using gettimeofday() on vdso at 0x7ffce69d0e00
+(00.284532) pie: 18: 	mmap(0x73ae63d08000 -> 0x73ae63d0e000, 0x3 0x32 -1)
+(00.284548) pie: 18: 	mmap(0x7ffe900c1000 -> 0x7ffe900e2000, 0x3 0x132 -1)
+(00.284559) pie: 18: 	mmap(0x7ffe901e1000 -> 0x7ffe901e5000, 0x1 0x32 -1)
+(00.284569) pie: 18: 	mmap(0x7ffe901e5000 -> 0x7ffe901e7000, 0x7 0x32 -1)
+(00.284585) pie: 18: Preadv 0x400000:4096... (25 iovs)
+(00.285181) pie: 18: `- returned 299008
+(00.285193) pie: 18:    `- skip pagemap
+(00.285192) pie: 28: Mapping native vDSO at 0x2e000
+(00.285198) pie: 18:    `- skip pagemap
+(00.285209) pie: 18:    `- skip pagemap
+(00.285214) pie: 18:    `- skip pagemap
+(00.285219) pie: 18:    `- skip pagemap
+(00.285221) pie: 28: vdso: Using gettimeofday() on vdso at 0x32e00
+(00.285223) pie: 18:    `- skip pagemap
+(00.285230) pie: 18:    `- skip pagemap
+(00.285235) pie: 18:    `- skip pagemap
+(00.285240) pie: 18:    `- skip pagemap
+(00.285244) pie: 18:    `- skip pagemap
+(00.285249) pie: 18:    `- skip pagemap
+(00.285251) pie: 28: 	mmap(0x59f43e000000 -> 0x59f43e018000, 0x7 0x12 13)
+(00.285253) pie: 18:    `- skip pagemap
+(00.285260) pie: 18:    `- skip pagemap
+(00.285264) pie: 18:    `- skip pagemap
+(00.285269) pie: 18:    `- skip pagemap
+(00.285269) pie: 28: 	mmap(0x59f43e218000 -> 0x59f43e219000, 0x3 0x12 13)
+(00.285274) pie: 18:    `- skip pagemap
+(00.285279) pie: 18:    `- skip pagemap
+(00.285282) pie: 28: 	mmap(0x59f43e219000 -> 0x59f43e21a000, 0x3 0x12 13)
+(00.285283) pie: 18:    `- skip pagemap
+(00.285304) pie: 18:    `- skip pagemap
+(00.285309) pie: 18:    `- skip pagemap
+(00.285311) pie: 28: 	mmap(0x59f43f794000 -> 0x59f43f7b5000, 0x3 0x32 -1)
+(00.285314) pie: 18:    `- skip pagemap
+(00.285319) pie: 18:    `- skip pagemap
+(00.285323) pie: 28: 	mmap(0x59f43f7b5000 -> 0x59f43f7db000, 0x3 0x32 -1)
+(00.285324) pie: 18:    `- skip pagemap
+(00.285331) pie: 18:    `- skip pagemap
+(00.285332) pie: 28: 	mmap(0x709b1f400000 -> 0x709b1f6cb000, 0x1 0x12 14)
+(00.285335) pie: 18:    `- skip pagemap
+(00.285349) pie: 18: vdso: Parsing at 0x7ffe901e5000 0x7ffe901e7000
+(00.285355) pie: 18: vdso: PT_LOAD p_vaddr: 0x0
+(00.285360) pie: 18: vdso: DT_HASH: 0x120
+(00.285365) pie: 18: vdso: DT_STRTAB: 0x300
+(00.285369) pie: 28: 	mmap(0x709b1f800000 -> 0x709b1f803000, 0x5 0x12 15)
+(00.285370) pie: 18: vdso: DT_SYMTAB: 0x1c8
+(00.285377) pie: 18: vdso: DT_STRSZ: 0x8b
+(00.285382) pie: 18: vdso: DT_SYMENT: 0x18
+(00.285383) pie: 28: 	mmap(0x709b1f803000 -> 0x709b1fa02000, 0x0 0x12 15)
+(00.285387) pie: 18: vdso: nbucket 0x3 nchain 0xd bucket 0x7ffe901e5128 chain 0x7ffe901e5134
+(00.285397) pie: 28: 	mmap(0x709b1fa02000 -> 0x709b1fa03000, 0x3 0x12 15)
+(00.285398) pie: 18: vdso: image [vdso] 0x7ffe901e5000-0x7ffe901e7000 [vvar] 0x7ffe901e1000-0x7ffe901e5000
+(00.285405) pie: 18: vdso: Runtime vdso/vvar matches dumpee, remap inplace
+(00.285409) pie: 28: 	mmap(0x709b1fa03000 -> 0x709b1fa04000, 0x3 0x12 15)
+(00.285421) pie: 28: 	mmap(0x709b1fc00000 -> 0x709b1fc19000, 0x5 0x12 16)
+(00.285433) pie: 28: 	mmap(0x709b1fc19000 -> 0x709b1fe18000, 0x0 0x12 16)
+(00.285445) pie: 28: 	mmap(0x709b1fe18000 -> 0x709b1fe1a000, 0x3 0x12 16)
+(00.285457) pie: 28: 	mmap(0x709b1fe1a000 -> 0x709b1fe1b000, 0x3 0x12 16)
+(00.285455) pie: 18: vdso: Remap rt-vdso 0x34000 -> 0x7ffe901e5000
+(00.285468) pie: 28: 	mmap(0x709b20000000 -> 0x709b20019000, 0x5 0x12 17)
+(00.285488) pie: 28: 	mmap(0x709b20019000 -> 0x709b20218000, 0x0 0x12 17)
+(00.285493) pie: 18: vdso: Remap rt-vvar 0x30000 -> 0x7ffe901e1000
+(00.285500) pie: 28: 	mmap(0x709b20218000 -> 0x709b20219000, 0x3 0x12 17)
+(00.285513) pie: 28: 	mmap(0x709b20219000 -> 0x709b2021a000, 0x3 0x12 17)
+(00.285524) pie: 28: 	mmap(0x709b2021a000 -> 0x709b2021e000, 0x3 0x32 -1)
+(00.285535) pie: 28: 	mmap(0x709b20400000 -> 0x709b20407000, 0x5 0x12 18)
+(00.285533) pie: 18: vdso: Using gettimeofday() on vdso at 0x7ffe901e5e00
+(00.285547) pie: 28: 	mmap(0x709b20407000 -> 0x709b20606000, 0x0 0x12 18)
+(00.285564) pie: 28: 	mmap(0x709b20606000 -> 0x709b20607000, 0x3 0x12 18)
+(00.285580) pie: 28: 	mmap(0x709b20607000 -> 0x709b20608000, 0x3 0x12 18)
+(00.285591) pie: 28: 	mmap(0x709b20800000 -> 0x709b209be000, 0x5 0x12 19)
+(00.285602) pie: 28: 	mmap(0x709b209be000 -> 0x709b20bbe000, 0x0 0x12 19)
+(00.285763) pie: 28: 	mmap(0x709b20bbe000 -> 0x709b20bc2000, 0x3 0x12 19)
+(00.285786) pie: 28: 	mmap(0x709b20bc2000 -> 0x709b20bc4000, 0x3 0x12 19)
+(00.285798) pie: 28: 	mmap(0x709b20bc4000 -> 0x709b20bc9000, 0x3 0x32 -1)
+(00.285810) pie: 28: 	mmap(0x709b20c00000 -> 0x709b20c16000, 0x5 0x12 20)
+(00.285823) pie: 28: 	mmap(0x709b20c16000 -> 0x709b20e15000, 0x0 0x12 20)
+(00.285836) pie: 28: 	mmap(0x709b20e15000 -> 0x709b20e16000, 0x3 0x12 20)
+(00.285876) pie: 28: 	mmap(0x709b20e16000 -> 0x709b20e17000, 0x3 0x12 20)
+(00.285889) pie: 28: 	mmap(0x709b21000000 -> 0x709b21005000, 0x5 0x12 21)
+(00.285901) pie: 28: 	mmap(0x709b21005000 -> 0x709b21204000, 0x0 0x12 21)
+(00.285911) pie: 28: 	mmap(0x709b21204000 -> 0x709b21205000, 0x3 0x12 21)
+(00.285923) pie: 28: 	mmap(0x709b21205000 -> 0x709b21206000, 0x3 0x12 21)
+(00.285934) pie: 28: 	mmap(0x709b21400000 -> 0x709b21410000, 0x5 0x12 22)
+(00.285951) pie: 28: 	mmap(0x709b21410000 -> 0x709b2160f000, 0x0 0x12 22)
+(00.285954) pie: 18: Restoring scheduler params 0.0.0
+(00.285963) pie: 28: 	mmap(0x709b2160f000 -> 0x709b21610000, 0x3 0x12 22)
+(00.285974) pie: 28: 	mmap(0x709b21610000 -> 0x709b21611000, 0x3 0x12 22)
+(00.285977) pie: 18: rseq: nothing to restore
+(00.285986) pie: 28: 	mmap(0x709b21800000 -> 0x709b21844000, 0x5 0x12 23)
+(00.285998) pie: 28: 	mmap(0x709b21844000 -> 0x709b21a43000, 0x0 0x12 23)
+(00.286011) pie: 18: 18: Restored
+(00.286025) pie: 28: 	mmap(0x709b21a43000 -> 0x709b21a44000, 0x3 0x12 23)
+(00.286225) pie: 314: Restoring scheduler params 0.0.0
+(00.286248) pie: 314: rseq: nothing to restore
+(00.286282) pie: 314: 314: Restored
+(00.286359) pie: 28: 	mmap(0x709b21a44000 -> 0x709b21a45000, 0x3 0x12 23)
+(00.286383) pie: 28: 	mmap(0x709b21c00000 -> 0x709b21c08000, 0x5 0x12 24)
+(00.286410) pie: 28: 	mmap(0x709b21c08000 -> 0x709b21e08000, 0x0 0x12 24)
+(00.286424) pie: 28: 	mmap(0x709b21e08000 -> 0x709b21e09000, 0x3 0x12 24)
+(00.286435) pie: 28: 	mmap(0x709b21e09000 -> 0x709b21e0a000, 0x3 0x12 24)
+(00.286446) pie: 28: 	mmap(0x709b22000000 -> 0x709b22017000, 0x5 0x12 25)
+(00.286458) pie: 28: 	mmap(0x709b22017000 -> 0x709b22216000, 0x0 0x12 25)
+(00.286469) pie: 28: 	mmap(0x709b22216000 -> 0x709b22217000, 0x3 0x12 25)
+(00.286486) pie: 28: 	mmap(0x709b22217000 -> 0x709b22218000, 0x3 0x12 25)
+(00.286497) pie: 28: 	mmap(0x709b22400000 -> 0x709b22423000, 0x5 0x12 26)
+(00.286509) pie: 28: 	mmap(0x709b22622000 -> 0x709b22623000, 0x3 0x12 26)
+(00.286520) pie: 28: 	mmap(0x709b22623000 -> 0x709b22624000, 0x3 0x12 26)
+(00.286531) pie: 28: 	mmap(0x709b22624000 -> 0x709b22625000, 0x3 0x32 -1)
+(00.286541) pie: 28: 	mmap(0x709b226b4000 -> 0x709b226bb000, 0x1 0x11 27)
+(00.286570) pie: 28: 	mmap(0x709b226bb000 -> 0x709b226c3000, 0x3 0x32 -1)
+(00.286581) pie: 28: 	mmap(0x709b226c3000 -> 0x709b226c5000, 0x1 0x12 28)
+(00.286601) pie: 28: 	mmap(0x7ffe2c03f000 -> 0x7ffe2c060000, 0x3 0x132 -1)
+(00.286618) pie: 28: 	mmap(0x7ffe2c0c9000 -> 0x7ffe2c0cd000, 0x1 0x32 -1)
+(00.286628) pie: 28: 	mmap(0x7ffe2c0cd000 -> 0x7ffe2c0cf000, 0x7 0x32 -1)
+(00.286785) pie: 28: Preadv 0x59f43e000000:4096... (22 iovs)
+(00.287465) pie: 28: `- returned 425984
+(00.287474) pie: 28:    `- skip pagemap
+(00.287479) pie: 28:    `- skip pagemap
+(00.287484) pie: 28:    `- skip pagemap
+(00.287489) pie: 28:    `- skip pagemap
+(00.287493) pie: 28:    `- skip pagemap
+(00.287498) pie: 28:    `- skip pagemap
+(00.287503) pie: 28:    `- skip pagemap
+(00.287507) pie: 28:    `- skip pagemap
+(00.287512) pie: 28:    `- skip pagemap
+(00.287517) pie: 28:    `- skip pagemap
+(00.287521) pie: 28:    `- skip pagemap
+(00.287526) pie: 28:    `- skip pagemap
+(00.287531) pie: 28:    `- skip pagemap
+(00.287535) pie: 28:    `- skip pagemap
+(00.287540) pie: 28:    `- skip pagemap
+(00.287545) pie: 28:    `- skip pagemap
+(00.287549) pie: 28:    `- skip pagemap
+(00.287554) pie: 28:    `- skip pagemap
+(00.287559) pie: 28:    `- skip pagemap
+(00.287563) pie: 28:    `- skip pagemap
+(00.287568) pie: 28:    `- skip pagemap
+(00.287573) pie: 28:    `- skip pagemap
+(00.287586) pie: 28: vdso: Parsing at 0x7ffe2c0cd000 0x7ffe2c0cf000
+(00.287592) pie: 28: vdso: PT_LOAD p_vaddr: 0x0
+(00.287597) pie: 28: vdso: DT_HASH: 0x120
+(00.287602) pie: 28: vdso: DT_STRTAB: 0x300
+(00.287736) pie: 28: vdso: DT_SYMTAB: 0x1c8
+(00.287752) pie: 28: vdso: DT_STRSZ: 0x8b
+(00.287757) pie: 28: vdso: DT_SYMENT: 0x18
+(00.287762) pie: 28: vdso: nbucket 0x3 nchain 0xd bucket 0x7ffe2c0cd128 chain 0x7ffe2c0cd134
+(00.287772) pie: 28: vdso: image [vdso] 0x7ffe2c0cd000-0x7ffe2c0cf000 [vvar] 0x7ffe2c0c9000-0x7ffe2c0cd000
+(00.287778) pie: 28: vdso: Runtime vdso/vvar matches dumpee, remap inplace
+(00.287820) pie: 28: vdso: Remap rt-vdso 0x32000 -> 0x7ffe2c0cd000
+(00.287878) pie: 28: vdso: Remap rt-vvar 0x2e000 -> 0x7ffe2c0c9000
+(00.287913) pie: 28: vdso: Using gettimeofday() on vdso at 0x7ffe2c0cde00
+(00.288164) pie: 28: Restoring scheduler params 0.0.0
+(00.288185) pie: 28: rseq: nothing to restore
+(00.288218) pie: 28: 28: Restored
+(00.289242)      1: Parsed 5e34a371b000-5e34a375b000 vma
+(00.289270)      1: Parsed 5e34a371b000-5e34a3810000 vma
+(00.289275)      1: Parsed 5e34a371b000-5e34a3885000 vma
+(00.289281)      1: Parsed 5e34a3886000-5e34a38a6000 vma
+(00.289286)      1: Parsed 5e34a3886000-5e34a38ae000 vma
+(00.289291)      1: Parsed 5e34a3886000-5e34a38e0000 vma
+(00.289296)      1: Parsed 5e34a5257000-5e34a5278000 vma
+(00.289301)      1: Parsed 5e34a5257000-5e34a5299000 vma
+(00.289321)      1: Parsed 7b409cd0d000-7b409cd19000 vma
+(00.289326)      1: Parsed 7b409cd0d000-7b409cd29000 vma
+(00.289331)      1: Parsed 7b409cd0d000-7b409cd33000 vma
+(00.289335)      1: Parsed 7b409cd0d000-7b409cd92000 vma
+(00.289340)      1: Parsed 7b409cd0d000-7b409cda9000 vma
+(00.289345)      1: Parsed 7b409cd0d000-7b409cdaa000 vma
+(00.289350)      1: Parsed 7b409cd0d000-7b409cdab000 vma
+(00.289355)      1: Parsed 7b409cd0d000-7b409cdad000 vma
+(00.289359)      1: Parsed 7b409cd0d000-7b409cdb6000 vma
+(00.289364)      1: Parsed 7b409cd0d000-7b409cdb9000 vma
+(00.289369)      1: Parsed 7b409cd0d000-7b409cdba000 vma
+(00.289373)      1: Parsed 7b409cd0d000-7b409cdbb000 vma
+(00.289378)      1: Parsed 7b409cd0d000-7b409cdbe000 vma
+(00.289383)      1: Parsed 7b409cd0d000-7b409cdc6000 vma
+(00.289388)      1: Parsed 7b409cd0d000-7b409cdc9000 vma
+(00.289392)      1: Parsed 7b409cd0d000-7b409cdca000 vma
+(00.289397)      1: Parsed 7b409cd0d000-7b409cdcb000 vma
+(00.289402)      1: Parsed 7b409cd0d000-7b409cdcc000 vma
+(00.289406)      1: Parsed 7b409cd0d000-7b409cdce000 vma
+(00.289411)      1: Parsed 7b409cd0d000-7b409cdd7000 vma
+(00.289416)      1: Parsed 7b409cd0d000-7b409cdf1000 vma
+(00.289420)      1: Parsed 7b409cd0d000-7b409cdfb000 vma
+(00.289425)      1: Parsed 7b409cd0d000-7b409cdfe000 vma
+(00.289430)      1: Parsed 7b409cd0d000-7b409ce00000 vma
+(00.289435)      1: Parsed 7b409cd0d000-7b409ce28000 vma
+(00.289439)      1: Parsed 7b409cd0d000-7b409cfbd000 vma
+(00.289444)      1: Parsed 7b409cd0d000-7b409d015000 vma
+(00.289449)      1: Parsed 7b409cd0d000-7b409d016000 vma
+(00.289453)      1: Parsed 7b409cd0d000-7b409d01a000 vma
+(00.289458)      1: Parsed 7b409cd0d000-7b409d01c000 vma
+(00.289463)      1: Parsed 7b409cd0d000-7b409d029000 vma
+(00.289468)      1: Parsed 7b409d02a000-7b409d02f000 vma
+(00.289545)      1: Parsed 7b409d02a000-7b409d031000 vma
+(00.289551)      1: Parsed 7b409d02a000-7b409d033000 vma
+(00.289555)      1: Parsed 7b409d02a000-7b409d034000 vma
+(00.289560)      1: Parsed 7b409d02a000-7b409d035000 vma
+(00.289565)      1: Parsed 7b409d02a000-7b409d036000 vma
+(00.289570)      1: Parsed 7b409d02a000-7b409d037000 vma
+(00.289574)      1: Parsed 7b409d02a000-7b409d039000 vma
+(00.289579)      1: Parsed 7b409d02a000-7b409d040000 vma
+(00.289584)      1: Parsed 7b409d02a000-7b409d042000 vma
+(00.289588)      1: Parsed 7b409d02a000-7b409d043000 vma
+(00.289593)      1: Parsed 7b409d02a000-7b409d044000 vma
+(00.289597)      1: Parsed 7b409d02a000-7b409d046000 vma
+(00.289602)      1: Parsed 7b409d02a000-7b409d04a000 vma
+(00.289607)      1: Parsed 7b409d02a000-7b409d058000 vma
+(00.289731)      1: Parsed 7b409d02a000-7b409d05e000 vma
+(00.289748)      1: Parsed 7b409d02a000-7b409d05f000 vma
+(00.289753)      1: Parsed 7b409d02a000-7b409d060000 vma
+(00.289757)      1: Parsed 7b409d02a000-7b409d062000 vma
+(00.289762)      1: Parsed 7b409d02a000-7b409d06a000 vma
+(00.289767)      1: Parsed 7b409d02a000-7b409d079000 vma
+(00.289771)      1: Parsed 7b409d02a000-7b409d082000 vma
+(00.289776)      1: Parsed 7b409d02a000-7b409d084000 vma
+(00.289780)      1: Parsed 7b409d02a000-7b409d085000 vma
+(00.289785)      1: Parsed 7b409d02a000-7b409d086000 vma
+(00.289790)      1: Parsed 7b409d02a000-7b409d08c000 vma
+(00.289795)      1: Parsed 7b409d02a000-7b409d08d000 vma
+(00.289799)      1: Parsed 7b409d02a000-7b409d08e000 vma
+(00.289804)      1: Parsed 7b409d02a000-7b409d08f000 vma
+(00.289808)      1: Parsed 7b409d02a000-7b409d090000 vma
+(00.289813)      1: Parsed 7b409d02a000-7b409d0a8000 vma
+(00.289818)      1: Parsed 7b409d02a000-7b409d11a000 vma
+(00.289823)      1: Parsed 7b409d02a000-7b409d152000 vma
+(00.289828)      1: Parsed 7b409d02a000-7b409d153000 vma
+(00.289832)      1: Parsed 7b409d02a000-7b409d165000 vma
+(00.289837)      1: Parsed 7b409d02a000-7b409d166000 vma
+(00.289841)      1: Parsed 7b409d02a000-7b409d167000 vma
+(00.289913)      1: Parsed 7b409d02a000-7b409d16b000 vma
+(00.289919)      1: Parsed 7b409d02a000-7b409d178000 vma
+(00.289924)      1: Parsed 7b409d02a000-7b409d17b000 vma
+(00.289929)      1: Parsed 7b409d02a000-7b409d17c000 vma
+(00.289952)      1: Parsed 7b409d02a000-7b409d17d000 vma
+(00.289957)      1: Parsed 7b409d02a000-7b409d17e000 vma
+(00.289962)      1: Parsed 7b409d02a000-7b409d17f000 vma
+(00.289967)      1: Parsed 7b409d180000-7b409d184000 vma
+(00.289972)      1: Parsed 7b409d186000-7b409d188000 vma
+(00.289977)      1: Parsed 7b409d186000-7b409d18a000 vma
+(00.289982)      1: Parsed 7b409d186000-7b409d18c000 vma
+(00.289986)      1: Parsed 7b409d186000-7b409d18e000 vma
+(00.289991)      1: Parsed 7b409d186000-7b409d190000 vma
+(00.289996)      1: Parsed 7b409d186000-7b409d192000 vma
+(00.290000)      1: Parsed 7b409d186000-7b409d1bc000 vma
+(00.290005)      1: Parsed 7b409d186000-7b409d1c7000 vma
+(00.290010)      1: Parsed 7b409d186000-7b409d1c8000 vma
+(00.290015)      1: Parsed 7b409d186000-7b409d1ca000 vma
+(00.290020)      1: Parsed 7b409d186000-7b409d1cc000 vma
+(00.290025)      1: Parsed 7ffed8b7f000-7ffed8ba0000 vma
+(00.290030)      1: Parsed 7ffed8bdf000-7ffed8be3000 vma
+(00.290035)      1: Parsed 7ffed8bdf000-7ffed8be5000 vma
+(00.290058)      1: Parsed ffffffffff600000-ffffffffff601000 vma
+(00.290085)      1: 1 threads require 128K of memory
+(00.290092)      1: Found bootstrap VMA hint at: 0x10000 (needs ~152K)
+(00.290315)      1: 	call mremap(0x7b409d180000, 16384, 16384, MAYMOVE | FIXED, 0x2a000)
+(00.290353)      1: 	call mremap(0x7b409d18a000, 8192, 8192, MAYMOVE | FIXED, 0x2e000)
+(00.290392)      1: x86: xsave runtime structure
+(00.290400)      1: x86: -----------------------
+(00.290404)      1: x86: cwd:0x37f swd:0 twd:0 fop:0 mxcsr:0x1f80 mxcsr_mask:0xffff
+(00.290409)      1: x86: magic1:0x46505853 extended_size:580 xstate_bv:0x3 xstate_size:576
+(00.290415)      1: x86: xstate_bv: 0x3
+(00.290419)      1: x86: -----------------------
+(00.290423)      1: Thread    0 stack  0x1c080 rt_sigframe  0x24080
+(00.290524)      1: Going to chroot into /proc/self/fd/33
+(00.290542)      1: Restoring umask to 117
+(00.290594)      1: task_args: 0x29000
+task_args->pid: 1
+task_args->nr_threads: 1
+task_args->clone_restore_fn: 0x120a0
+task_args->thread_args: 0x295c0
+(00.290772) pie: 1: Switched to the restorer 1
+(00.291605) pie: 1: Mapping native vDSO at 0x30000
+(00.291752) pie: 1: vdso: Using gettimeofday() on vdso at 0x34e00
+(00.291795) pie: 1: 	mmap(0x590f9ce00000 -> 0x590f9ce3e000, 0x7 0x12 13)
+(00.291816) pie: 1: 	mmap(0x590f9d03e000 -> 0x590f9d040000, 0x3 0x12 13)
+(00.291828) pie: 1: 	mmap(0x590f9d040000 -> 0x590f9d041000, 0x3 0x12 13)
+(00.291841) pie: 1: 	mmap(0x590f9e575000 -> 0x590f9e619000, 0x3 0x32 -1)
+(00.291872) pie: 1: 	mmap(0x71124e800000 -> 0x71124e80a000, 0x5 0x12 14)
+(00.291895) pie: 1: 	mmap(0x71124e80a000 -> 0x71124ea09000, 0x0 0x12 14)
+(00.291907) pie: 1: 	mmap(0x71124ea09000 -> 0x71124ea0a000, 0x3 0x12 14)
+(00.291920) pie: 1: 	mmap(0x71124ea0a000 -> 0x71124ea0b000, 0x3 0x12 14)
+(00.291931) pie: 1: 	mmap(0x71124ec00000 -> 0x71124ec0b000, 0x5 0x12 15)
+(00.291943) pie: 1: 	mmap(0x71124ec0b000 -> 0x71124ee0a000, 0x0 0x12 15)
+(00.291954) pie: 1: 	mmap(0x71124ee0a000 -> 0x71124ee0b000, 0x3 0x12 15)
+(00.291965) pie: 1: 	mmap(0x71124ee0b000 -> 0x71124ee0c000, 0x3 0x12 15)
+(00.291976) pie: 1: 	mmap(0x71124f000000 -> 0x71124f017000, 0x5 0x12 17)
+(00.291988) pie: 1: 	mmap(0x71124f017000 -> 0x71124f216000, 0x0 0x12 17)
+(00.291998) pie: 1: 	mmap(0x71124f216000 -> 0x71124f217000, 0x3 0x12 17)
+(00.292016) pie: 1: 	mmap(0x71124f217000 -> 0x71124f218000, 0x3 0x12 17)
+(00.292027) pie: 1: 	mmap(0x71124f218000 -> 0x71124f21a000, 0x3 0x32 -1)
+(00.292038) pie: 1: 	mmap(0x71124f400000 -> 0x71124f409000, 0x5 0x12 18)
+(00.292050) pie: 1: 	mmap(0x71124f409000 -> 0x71124f608000, 0x0 0x12 18)
+(00.292060) pie: 1: 	mmap(0x71124f608000 -> 0x71124f609000, 0x3 0x12 18)
+(00.292072) pie: 1: 	mmap(0x71124f609000 -> 0x71124f60a000, 0x3 0x12 18)
+(00.292083) pie: 1: 	mmap(0x71124f800000 -> 0x71124f803000, 0x5 0x12 19)
+(00.292102) pie: 1: 	mmap(0x71124f803000 -> 0x71124fa02000, 0x0 0x12 19)
+(00.292113) pie: 1: 	mmap(0x71124fa02000 -> 0x71124fa03000, 0x3 0x12 19)
+(00.292124) pie: 1: 	mmap(0x71124fa03000 -> 0x71124fa04000, 0x3 0x12 19)
+(00.292135) pie: 1: 	mmap(0x71124fc00000 -> 0x71124fc3d000, 0x5 0x12 20)
+(00.292162) pie: 1: 	mmap(0x71124fc3d000 -> 0x71124fe3c000, 0x0 0x12 20)
+(00.292173) pie: 1: 	mmap(0x71124fe3c000 -> 0x71124fe3d000, 0x3 0x12 20)
+(00.292185) pie: 1: 	mmap(0x71124fe3d000 -> 0x71124fe3e000, 0x3 0x12 20)
+(00.292197) pie: 1: 	mmap(0x711250000000 -> 0x711250019000, 0x5 0x12 21)
+(00.292214) pie: 1: 	mmap(0x711250019000 -> 0x711250218000, 0x0 0x12 21)
+(00.292227) pie: 1: 	mmap(0x711250218000 -> 0x711250219000, 0x3 0x12 21)
+(00.292238) pie: 1: 	mmap(0x711250219000 -> 0x71125021a000, 0x3 0x12 21)
+(00.292249) pie: 1: 	mmap(0x71125021a000 -> 0x71125021e000, 0x3 0x32 -1)
+(00.292260) pie: 1: 	mmap(0x711250400000 -> 0x7112505be000, 0x5 0x12 22)
+(00.292272) pie: 1: 	mmap(0x7112505be000 -> 0x7112507be000, 0x0 0x12 22)
+(00.292289) pie: 1: 	mmap(0x7112507be000 -> 0x7112507c2000, 0x3 0x12 22)
+(00.292301) pie: 1: 	mmap(0x7112507c2000 -> 0x7112507c4000, 0x3 0x12 22)
+(00.292312) pie: 1: 	mmap(0x7112507c4000 -> 0x7112507c9000, 0x3 0x32 -1)
+(00.292322) pie: 1: 	mmap(0x711250800000 -> 0x711250807000, 0x5 0x12 23)
+(00.292334) pie: 1: 	mmap(0x711250807000 -> 0x711250a06000, 0x0 0x12 23)
+(00.292345) pie: 1: 	mmap(0x711250a06000 -> 0x711250a07000, 0x3 0x12 23)
+(00.292356) pie: 1: 	mmap(0x711250a07000 -> 0x711250a08000, 0x3 0x12 23)
+(00.292366) pie: 1: 	mmap(0x711250c00000 -> 0x711250c0a000, 0x5 0x12 24)
+(00.292378) pie: 1: 	mmap(0x711250c0a000 -> 0x711250e09000, 0x0 0x12 24)
+(00.292388) pie: 1: 	mmap(0x711250e09000 -> 0x711250e0a000, 0x3 0x12 24)
+(00.292404) pie: 1: 	mmap(0x711250e0a000 -> 0x711250e0b000, 0x3 0x12 24)
+(00.292416) pie: 1: 	mmap(0x711251000000 -> 0x711251020000, 0x5 0x12 25)
+(00.292426) pie: 1: 	mmap(0x711251020000 -> 0x71125121f000, 0x0 0x12 25)
+(00.292437) pie: 1: 	mmap(0x71125121f000 -> 0x711251220000, 0x3 0x12 25)
+(00.292450) pie: 1: 	mmap(0x711251220000 -> 0x711251221000, 0x3 0x12 25)
+(00.292462) pie: 1: 	mmap(0x711251221000 -> 0x711251223000, 0x3 0x32 -1)
+(00.292477) pie: 1: 	mmap(0x711251400000 -> 0x711251444000, 0x5 0x12 26)
+(00.292489) pie: 1: 	mmap(0x711251444000 -> 0x711251643000, 0x0 0x12 26)
+(00.292500) pie: 1: 	mmap(0x711251643000 -> 0x711251644000, 0x3 0x12 26)
+(00.292511) pie: 1: 	mmap(0x711251644000 -> 0x711251645000, 0x3 0x12 26)
+(00.292522) pie: 1: 	mmap(0x711251800000 -> 0x711251808000, 0x5 0x12 27)
+(00.292533) pie: 1: 	mmap(0x711251808000 -> 0x711251a08000, 0x0 0x12 27)
+(00.292545) pie: 1: 	mmap(0x711251a08000 -> 0x711251a09000, 0x3 0x12 27)
+(00.292555) pie: 1: 	mmap(0x711251a09000 -> 0x711251a0a000, 0x3 0x12 27)
+(00.292566) pie: 1: 	mmap(0x711251c00000 -> 0x711251c17000, 0x5 0x12 28)
+(00.292583) pie: 1: 	mmap(0x711251c17000 -> 0x711251e16000, 0x0 0x12 28)
+(00.292593) pie: 1: 	mmap(0x711251e16000 -> 0x711251e17000, 0x3 0x12 28)
+(00.292604) pie: 1: 	mmap(0x711251e17000 -> 0x711251e18000, 0x3 0x12 28)
+(00.292814) pie: 1: 	mmap(0x711252000000 -> 0x711252023000, 0x5 0x12 29)
+(00.292833) pie: 1: 	mmap(0x711252222000 -> 0x711252223000, 0x3 0x12 29)
+(00.292877) pie: 1: 	mmap(0x711252223000 -> 0x711252224000, 0x3 0x12 29)
+(00.292891) pie: 1: 	mmap(0x711252224000 -> 0x711252225000, 0x3 0x32 -1)
+(00.292903) pie: 1: 	mmap(0x7112522ab000 -> 0x7112522b2000, 0x3 0x32 -1)
+(00.292914) pie: 1: 	mmap(0x7ffe554e4000 -> 0x7ffe55505000, 0x3 0x132 -1)
+(00.292925) pie: 1: 	mmap(0x7ffe55518000 -> 0x7ffe5551c000, 0x1 0x32 -1)
+(00.292935) pie: 1: 	mmap(0x7ffe5551c000 -> 0x7ffe5551e000, 0x7 0x32 -1)
+(00.292951) pie: 1: Preadv 0x590f9ce00000:4096... (23 iovs)
+(00.294407) pie: 1: `- returned 913408
+(00.294422) pie: 1:    `- skip pagemap
+(00.294428) pie: 1:    `- skip pagemap
+(00.294432) pie: 1:    `- skip pagemap
+(00.294437) pie: 1:    `- skip pagemap
+(00.294442) pie: 1:    `- skip pagemap
+(00.294447) pie: 1:    `- skip pagemap
+(00.294451) pie: 1:    `- skip pagemap
+(00.294456) pie: 1:    `- skip pagemap
+(00.294461) pie: 1:    `- skip pagemap
+(00.294466) pie: 1:    `- skip pagemap
+(00.294470) pie: 1:    `- skip pagemap
+(00.294475) pie: 1:    `- skip pagemap
+(00.294480) pie: 1:    `- skip pagemap
+(00.294485) pie: 1:    `- skip pagemap
+(00.294489) pie: 1:    `- skip pagemap
+(00.294512) pie: 1:    `- skip pagemap
+(00.294517) pie: 1:    `- skip pagemap
+(00.294522) pie: 1:    `- skip pagemap
+(00.294527) pie: 1:    `- skip pagemap
+(00.294532) pie: 1:    `- skip pagemap
+(00.294536) pie: 1:    `- skip pagemap
+(00.294541) pie: 1:    `- skip pagemap
+(00.294546) pie: 1:    `- skip pagemap
+(00.294558) pie: 1: vdso: Parsing at 0x7ffe5551c000 0x7ffe5551e000
+(00.294565) pie: 1: vdso: PT_LOAD p_vaddr: 0x0
+(00.294570) pie: 1: vdso: DT_HASH: 0x120
+(00.294575) pie: 1: vdso: DT_STRTAB: 0x300
+(00.294580) pie: 1: vdso: DT_SYMTAB: 0x1c8
+(00.294585) pie: 1: vdso: DT_STRSZ: 0x8b
+(00.294590) pie: 1: vdso: DT_SYMENT: 0x18
+(00.294595) pie: 1: vdso: nbucket 0x3 nchain 0xd bucket 0x7ffe5551c128 chain 0x7ffe5551c134
+(00.294605) pie: 1: vdso: image [vdso] 0x7ffe5551c000-0x7ffe5551e000 [vvar] 0x7ffe55518000-0x7ffe5551c000
+(00.294739) pie: 1: vdso: Runtime vdso/vvar matches dumpee, remap inplace
+(00.294778) pie: 1: vdso: Remap rt-vdso 0x34000 -> 0x7ffe5551c000
+(00.294814) pie: 1: vdso: Remap rt-vvar 0x30000 -> 0x7ffe55518000
+(00.294845) pie: 1: vdso: Using gettimeofday() on vdso at 0x7ffe5551ce00
+(00.295173) pie: 1: Restoring scheduler params 0.0.0
+(00.295195) pie: 1: rseq: nothing to restore
+(00.295227) pie: 1: 1: Restored
+(00.298485) pie: 1: Cleaning inotify events from 6
+(00.298516) pie: 1: Cleaning inotify events from 5
+(00.299265) net: 	Moving dev veth02xFYj to bridge lxcbr0
+(00.302010) cg: Restoring cgroup property value [] to [unified/lxc.payload.app-container/cgroup.subtree_control]
+(00.302114) cg: Restoring cgroup property value [max] to [unified/lxc.payload.app-container/cgroup.max.descendants]
+(00.302151) cg: Restoring cgroup property value [max] to [unified/lxc.payload.app-container/cgroup.max.depth]
+(00.302180) cg: Restoring cgroup property value [0] to [unified/lxc.payload.app-container/cgroup.freeze]
+(00.302210) Running post-restore scripts
+(00.302216) mnt: Switching to new ns to clean ghosts
+(00.302299) Unlink remap /tmp/.criu.mntns.1DVeJr/mnt-0000000615/null.cr.1.ghost
+(00.304877) net: Unlock network
+(00.304909) Running network-unlock scripts
+(00.367063) pie: 1: seccomp: Restoring mode 1 flags 0x1 on tid 1 filter 0
+(00.367075) pie: 24: seccomp: Restoring mode 1 flags 0x1 on tid 24 filter 0
+(00.367354) pie: 1: seccomp: Restored mode 2 on tid 1
+(00.367357) pie: 24: seccomp: Restored mode 2 on tid 24
+(00.367399) pie: 1: restoring lsm profile (current) changeprofile lxc-container-default-cgns
+(00.367402) pie: 24: restoring lsm profile (current) changeprofile lxc-container-default-cgns
+(00.367531) pie: 18: seccomp: Restoring mode 1 flags 0x1 on tid 18 filter 0
+(00.367717) pie: 314: seccomp: Restoring mode 1 flags 0x1 on tid 314 filter 0
+(00.367881) pie: 18: seccomp: Restored mode 2 on tid 18
+(00.367922) pie: 18: restoring lsm profile (current) changeprofile lxc-container-default-cgns
+(00.367994) pie: 314: seccomp: Restored mode 2 on tid 314
+(00.368085) pie: 28: seccomp: Restoring mode 1 flags 0x1 on tid 28 filter 0
+(00.368098) pie: 314: restoring lsm profile (current) changeprofile lxc-container-default-cgns
+(00.368346) pie: 28: seccomp: Restored mode 2 on tid 28
+(00.368390) pie: 28: restoring lsm profile (current) changeprofile lxc-container-default-cgns
+(00.375801) 30825 was trapped
+(00.375946) 30826 was trapped
+(00.375991) 30781 was trapped
+(00.376053) 30827 was trapped
+(00.376131) 30826 was trapped
+(00.376144) 30826 (native) is going to execute the syscall 15, required is 15
+(00.377018) 30826 was stopped
+(00.377057) 30825 was trapped
+(00.377074) 30825 (native) is going to execute the syscall 15, required is 15
+(00.377125) 30825 was stopped
+(00.377134) 30827 was trapped
+(00.377143) 30827 (native) is going to execute the syscall 15, required is 15
+(00.377177) 30827 was stopped
+(00.377185) 30781 was trapped
+(00.377193) 30781 (native) is going to execute the syscall 15, required is 15
+(00.377227) 30781 was stopped
+(00.377613) 30828 was trapped
+(00.377849) 30828 was trapped
+(00.377898) 30828 (native) is going to execute the syscall 15, required is 15
+(00.378002) 30828 was stopped
+(00.378169) 30781 was trapped
+(00.378202) 30781 (native) is going to execute the syscall 11, required is 11
+(00.378306) 30781 was stopped
+(00.378373) 30827 was trapped
+(00.378383) 30827 (native) is going to execute the syscall 11, required is 11
+(00.378458) 30827 was stopped
+(00.378519) 30825 was trapped
+(00.378529) 30825 (native) is going to execute the syscall 11, required is 11
+(00.378610) 30825 was stopped
+(00.378766) 30826 was trapped
+(00.378790) 30826 (native) is going to execute the syscall 11, required is 11
+(00.378898) 30826 was stopped
+(00.379025) 30828 was trapped
+(00.379038) 30828 (native) is going to execute the syscall 11, required is 11
+(00.379273) 30828 was stopped
+(00.379308) Run late stage hook from criu master for external devices
+(00.379314) restore late stage hook for external plugin failed
+(00.379318) restore late stage hook for external plugin failed
+(00.379321) restore late stage hook for external plugin failed
+(00.379325) restore late stage hook for external plugin failed
+(00.379328) restore late stage hook for external plugin failed
+(00.379333) Running pre-resume scripts
+(00.379387) Restore finished successfully. Tasks resumed.
+(00.379393) Writing stats
+(00.379586) Running post-resume scripts
