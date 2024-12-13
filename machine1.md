@@ -54,28 +54,24 @@ sudo apt install linux-image-generic
 # Redes
 
 ```
-sudo ovs-vsctl add-br br0
-sudo ovs-vsctl set-controller br0 tcp:192.168.0.143:6653
-sudo ovs-vsctl set Bridge br0 protocols=OpenFlow13
+sudo ovs-vsctl add-br s1
+sudo ovs-vsctl add-br s2
+
+sudo ovs-vsctl set-controller s1 tcp:192.168.0.226:6653
+sudo ovs-vsctl set-controller s2 tcp:192.168.0.226:6653
+
+sudo ovs-vsctl set Bridge s1 protocols=OpenFlow13
+sudo ovs-vsctl set Bridge s2 protocols=OpenFlow13
+
 sudo systemctl restart openvswitch-switch
 
-sudo ovs-vsctl add-port br0 vxlan2 -- set interface vxlan2 type=vxlan options:remote_ip=192.168.0.144 options:key=2
+sudo ovs-vsctl add-port s1 gre0 -- set interface gre0 type=gre options:remote_ip=192.168.0.127 options:key=1
+sudo ovs-vsctl add-port s2 gre1 -- set interface gre1 type=gre options:remote_ip=192.168.0.127 options:key=2
 
 sudo ovs-vsctl show
 
 machine1@machine1-VirtualBox:~$ sudo ovs-vsctl show
-8842506c-2946-44b0-85a4-ab55471ff10f
-    Bridge br0
-        Controller "tcp:192.168.0.143:6653"
-            is_connected: true
-        Port br0
-            Interface br0
-                type: internal
-        Port vxlan2
-            Interface vxlan2
-                type: vxlan
-                options: {key="2", remote_ip="192.168.0.144"}
-    ovs_version: "2.17.9"
+
 ```
 
 # Criu
@@ -97,16 +93,17 @@ Looks good.
 # LXC
 
 ```
-sudo lxc-create -t ubuntu -n app-container -- -r trusty -a amd64
+sudo lxc-create -t ubuntu -n server-container -- -r trusty -a amd64
+sudo lxc-create -t ubuntu -n client-container -- -r trusty -a amd64
 
 sudo su
-cd /var/lib/lxc/app-container
+cd /var/lib/lxc/server-container
 mv config config.tmp
 cp /usr/share/lxc/config/common.conf config
 exit
 
 sudo gedit
-# Procure o arquivo: /var/lib/lxc/app-container/config
+# Procure o arquivo: /var/lib/lxc/server-container/config
 ```
 ```
 lxc.tty.max = 0
@@ -146,22 +143,24 @@ lxc.cgroup.devices.allow = c 10:228 rwm
 lxc.cgroup.devices.allow = c 10:232 rwm
 lxc.arch=x86_64
 
-lxc.rootfs.path = /var/lib/lxc/app-container/rootfs
-lxc.uts.name = app-container
+lxc.rootfs.path = /var/lib/lxc/server-container/rootfs
+lxc.uts.name = server-container
 
 lxc.net.0.type = veth
-lxc.net.0.link = lxcbr0
+lxc.net.0.link = s1
+lxc.net.0.veth.pair = c1eth1
 lxc.net.0.flags = up
 ```
 ```
-sudo rm /var/lib/lxc/app-container/rootfs/etc/init/udev.conf
+sudo rm /var/lib/lxc/server-container/rootfs/etc/init/udev.conf
 
 sudo lxc-ls -f
 
-sudo lxc-start -n app-container
-sudo lxc-attach -n app-container
+sudo lxc-start -n server-container
+sudo lxc-attach -n server-container
 
 sudo apt update
+sudo apt install net-tools
 ```
 
 # App
@@ -216,15 +215,15 @@ Através de comandos no terminal:
 ```
 sudo rm -rf /tmp/checkpoint
 
-sudo lxc-checkpoint -v -n app-container -s -D /tmp/checkpoint -o /tmp/checkpoint/dump.log
+sudo lxc-checkpoint -v -n server-container -s -D /tmp/checkpoint -o /tmp/checkpoint/dump.log
 
-sudo rsync -aAXHltzh --progress --numeric-ids --devices --rsync-path="sudo rsync" /var/lib/lxc/app-container/ machine2@192.168.0.160:/var/lib/lxc/app-container/
+sudo rsync -aAXHltzh --progress --numeric-ids --devices --rsync-path="sudo rsync" /var/lib/lxc/server-container/ machine2@192.168.0.160:/var/lib/lxc/server-container/
 
 sudo rsync -aAXHltzh --progress --numeric-ids --devices --rsync-path="sudo rsync" /tmp/checkpoint/ machine2@192.168.0.160:/tmp/checkpoint/
 
 ssh machine2@192.168.0.160
 
-sudo lxc-checkpoint -v -n app-container -r -d -D /tmp/checkpoint -o /tmp/checkpoint/restore.log
+sudo lxc-checkpoint -v -n server-container -r -d -D /tmp/checkpoint -o /tmp/checkpoint/restore.log
 ```
 
 Através do script de migração:
@@ -234,5 +233,5 @@ sudo chmod +x migrate.sh
 
 sudo rm -rf /tmp/checkpoint
 
-sudo ./migrate.sh app-container machine2@192.168.0.160
+sudo ./migrate.sh server-container machine2@192.168.0.160
 ```

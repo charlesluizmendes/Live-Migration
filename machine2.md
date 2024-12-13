@@ -54,27 +54,32 @@ sudo apt install linux-image-generic
 # Redes
 
 ```
-sudo ovs-vsctl add-br br0
-sudo ovs-vsctl set-controller br0 tcp:192.168.0.143:6653
-sudo ovs-vsctl set Bridge br0 protocols=OpenFlow13
+sudo ovs-vsctl add-br s3
+
+sudo ovs-vsctl set-controller s3 tcp:192.168.0.226:6653
+
+sudo ovs-vsctl set Bridge s3 protocols=OpenFlow13
+
 sudo systemctl restart openvswitch-switch
 
-sudo ovs-vsctl add-port br0 vxlan1 -- set interface vxlan1 type=vxlan options:remote_ip=192.168.0.145 options:key=2
+sudo ovs-vsctl add-port s3 gre0 -- set interface gre0 type=gre options:remote_ip=192.168.0.160 options:key=1
 
 sudo ovs-vsctl show
 
 machine2@machine2-VirtualBox:~$ sudo ovs-vsctl show
-6b5020ad-aeab-432d-b96e-0490c9c44213
-    Bridge br0
-        Controller "tcp:192.168.0.143:6653"
+3ef5d5f2-2174-478b-b2c7-d484fb968241
+    Bridge s3
+        Controller "tcp:192.168.0.226:6653"
             is_connected: true
-        Port vxlan1
-            Interface vxlan1
-                type: vxlan
-                options: {key="2", remote_ip="192.168.0.145"}
-        Port br0
-            Interface br0
+        Port c1eth1
+            Interface c1eth1
+        Port s3
+            Interface s3
                 type: internal
+        Port gre0
+            Interface gre0
+                type: gre
+                options: {key="1", remote_ip="192.168.0.160"}
     ovs_version: "2.17.9"
 ```
 
