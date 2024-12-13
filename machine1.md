@@ -163,11 +163,8 @@ lxc.rootfs.path = /var/lib/lxc/server-container/rootfs
 lxc.uts.name = server-container
 
 lxc.net.0.type = veth
-lxc.net.0.link = s1
-lxc.net.0.veth.pair = c1eth1
+lxc.net.0.link = lxcbr0
 lxc.net.0.flags = up
-lxc.net.0.ipv4.address = 192.168.0.161/24
-lxc.net.0.hwaddr = 00:16:3e:15:b3:62
 ```
 ```
 sudo rm /var/lib/lxc/server-container/rootfs/etc/init/udev.conf
