@@ -87,7 +87,48 @@ sudo ovs-vsctl add-port s2 gre-s2-s3 -- set interface gre-s2-s3 type=gre options
 sudo ovs-vsctl show
 
 machine1@machine1-VirtualBox:~$ sudo ovs-vsctl show
-
+c477fce3-0164-4943-944c-42acbeb4bc85
+    Bridge s1
+        Controller "tcp:192.168.0.226:6653"
+            is_connected: true
+        Port s1-eth2
+            Interface s1-eth2
+                type: internal
+        Port s1-eth1
+            Interface s1-eth1
+                type: internal
+        Port patch-s1-s2
+            Interface patch-s1-s2
+                type: patch
+                options: {peer=patch-s2-s1}
+        Port gre-s1-s3
+            Interface gre-s1-s3
+                type: gre
+                options: {key="1", remote_ip="192.168.0.160"}
+        Port s1
+            Interface s1
+                type: internal
+    Bridge s2
+        Controller "tcp:192.168.0.226:6653"
+            is_connected: true
+        Port s2-eth2
+            Interface s2-eth2
+                type: internal
+        Port s2-eth1
+            Interface s2-eth1
+                type: internal
+        Port patch-s2-s1
+            Interface patch-s2-s1
+                type: patch
+                options: {peer=patch-s1-s2}
+        Port s2
+            Interface s2
+                type: internal
+        Port gre-s2-s3
+            Interface gre-s2-s3
+                type: gre
+                options: {key="2", remote_ip="192.168.0.160"}
+    ovs_version: "2.17.9"
 ```
 
 # Criu
@@ -122,14 +163,24 @@ sudo gedit
 # Procure o arquivo: /var/lib/lxc/server-container/config
 ```
 ```
-lxc.tty.max = 0
-lxc.console.path = none
-lxc.cgroup.devices.deny = c 5:1 rwm
+lxc.include = /usr/share/lxc/config/nesting.conf
+lxc.include = /usr/share/lxc/config/ubuntu.common.conf
 
+lxc.rootfs.path = /var/lib/lxc/server-container/rootfs
+lxc.uts.name = server-container
+lxc.arch=x86_64
+
+lxc.net.0.type = veth
+lxc.net.0.flags = up
+lxc.net.0.link = lxcbr0
+
+lxc.console.path = none
+lxc.tty.max = 0
 lxc.pty.max = 1024
+lxc.cgroup.devices.deny = c 5:1 rwm
+lxc.seccomp.profile = /usr/share/lxc/config/common.seccomp
 
 lxc.cap.drop = mac_admin mac_override sys_time sys_module
-
 lxc.hook.clone = /usr/share/lxc/hooks/clonehostname
 
 lxc.cgroup.devices.deny = a
@@ -144,8 +195,6 @@ lxc.cgroup.devices.allow = c 1:8 rwm
 lxc.cgroup.devices.allow = c 1:9 rwm
 lxc.cgroup.devices.allow = c 136:* rwm
 
-lxc.seccomp.profile = /usr/share/lxc/config/common.seccomp
-
 lxc.mount.entry = /sys/devices/system/cpu sys/devices/system/cpu none bind,optional 0 0
 lxc.mount.entry = /proc proc none bind,optional 0 0
 lxc.mount.entry = /sys/fs/pstore sys/fs/pstore none bind,optional 0 0
@@ -157,14 +206,6 @@ lxc.cgroup.devices.allow = c 10:229 rwm
 lxc.cgroup.devices.allow = c 10:200 rwm
 lxc.cgroup.devices.allow = c 10:228 rwm
 lxc.cgroup.devices.allow = c 10:232 rwm
-lxc.arch=x86_64
-
-lxc.rootfs.path = /var/lib/lxc/server-container/rootfs
-lxc.uts.name = server-container
-
-lxc.net.0.type = veth
-lxc.net.0.link = lxcbr0
-lxc.net.0.flags = up
 ```
 ```
 sudo rm /var/lib/lxc/server-container/rootfs/etc/init/udev.conf
@@ -172,7 +213,10 @@ sudo rm /var/lib/lxc/server-container/rootfs/etc/init/udev.conf
 sudo lxc-ls -f
 
 sudo lxc-start -n server-container
+sudo lxc-start -n client-container
+
 sudo lxc-attach -n server-container
+sudo lxc-attach -n client-container
 
 sudo apt update
 sudo apt install net-tools
@@ -181,35 +225,11 @@ sudo apt install net-tools
 # App
 
 ```
-sudo apt-get update && sudo apt-get install -y \
-    nano \
-    net-tools \
-    python3 \
-    python3-pip -y
 
-nano simple_http_server.py
 ```
 
 ```
-from http.server import SimpleHTTPRequestHandler, HTTPServer
 
-host = "0.0.0.0"
-port = 8080
-
-class RequestHandler(SimpleHTTPRequestHandler):
-    def log_message(self, format, *args):
-        pass  # Remove logging for simplicity
-
-print(f"Starting server on {host}:{port}...")
-httpd = HTTPServer((host, port), RequestHandler)
-httpd.serve_forever()
-```
-
-```
-python3 simple_http_server.py
-
-# Abra um novo terminal e execute o cURL para testar o app dentro do container
-curl http://10.0.3.172:8080
 ```
 
 # SSH

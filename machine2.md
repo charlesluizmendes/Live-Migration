@@ -77,7 +77,28 @@ sudo ovs-vsctl add-port s3 gre1 -- set interface gre1 type=gre options:remote_ip
 sudo ovs-vsctl show
 
 machine2@machine2-VirtualBox:~$ sudo ovs-vsctl show
-
+3ef5d5f2-2174-478b-b2c7-d484fb968241
+    Bridge s3
+        Controller "tcp:192.168.0.226:6653"
+            is_connected: true
+        Port s3-eth2
+            Interface s3-eth2
+                type: internal
+        Port gre0
+            Interface gre0
+                type: gre
+                options: {key="1", remote_ip="192.168.0.127"}
+        Port s3
+            Interface s3
+                type: internal
+        Port gre1
+            Interface gre1
+                type: gre
+                options: {key="2", remote_ip="192.168.0.127"}
+        Port s3-eth1
+            Interface s3-eth1
+                type: internal
+    ovs_version: "2.17.9"
 ```
 
 # Criu 
