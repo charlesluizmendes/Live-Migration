@@ -54,33 +54,30 @@ sudo apt install linux-image-generic
 # Redes
 
 ```
+# Adicionar o switch s3
 sudo ovs-vsctl add-br s3
 
+# Configurar controlador para o switch
 sudo ovs-vsctl set-controller s3 tcp:192.168.0.226:6653
 
+# Configurar protocolo OpenFlow13 para o switch
 sudo ovs-vsctl set Bridge s3 protocols=OpenFlow13
 
+# Reiniciar o Open vSwitch
 sudo systemctl restart openvswitch-switch
 
-sudo ovs-vsctl add-port s3 gre0 -- set interface gre0 type=gre options:remote_ip=192.168.0.160 options:key=1
+# Adicionar portas ao switch
+sudo ovs-vsctl add-port s3 s3-eth1 -- set Interface s3-eth1 type=internal
+sudo ovs-vsctl add-port s3 s3-eth2 -- set Interface s3-eth2 type=internal
+
+# Configurar túneis GRE para comunicação com s1 e s2 (machine1)
+sudo ovs-vsctl add-port s3 gre0 -- set interface gre0 type=gre options:remote_ip=192.168.0.127 options:key=1
+sudo ovs-vsctl add-port s3 gre1 -- set interface gre1 type=gre options:remote_ip=192.168.0.127 options:key=2
 
 sudo ovs-vsctl show
 
 machine2@machine2-VirtualBox:~$ sudo ovs-vsctl show
-3ef5d5f2-2174-478b-b2c7-d484fb968241
-    Bridge s3
-        Controller "tcp:192.168.0.226:6653"
-            is_connected: true
-        Port c1eth1
-            Interface c1eth1
-        Port s3
-            Interface s3
-                type: internal
-        Port gre0
-            Interface gre0
-                type: gre
-                options: {key="1", remote_ip="192.168.0.160"}
-    ovs_version: "2.17.9"
+
 ```
 
 # Criu 
