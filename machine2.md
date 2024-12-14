@@ -58,7 +58,10 @@ sudo apt install linux-image-generic
 sudo ovs-vsctl add-br s3
 
 # Adicionando IP ao Switch
-sudo ip add add 192.168.0.53/24 dev s3
+sudo ip addr add 192.168.0.53/24 dev s3
+
+# Subir os Ips
+sudo ip link set s3 ip
 
 # Configurar controlador para o switch
 sudo ovs-vsctl set-controller s3 tcp:192.168.0.226:6653
@@ -128,6 +131,18 @@ sudo chmod +x /etc/lxc/ifdown
 
 ovsBr=s3
 ovs-vsctl --if-exists del-port ${ovsBr} $5
+```
+```
+sudo sysctl -w net.ipv4.ip_forward=1
+
+permamently enable ip forwarding
+echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
+ 
+sudo iptables -t nat -A POSTROUTING -o ensX0 -j MASQUERADE
+sudo iptables -A FORWARD -i cdac -o enX0 -j ACCEPT
+sudo iptables -A FORWARD -i enX0 -o cdac -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+sudo netfilter-persistent save
 ```
 
 # Criu 

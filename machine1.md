@@ -59,8 +59,12 @@ sudo ovs-vsctl add-br s1
 sudo ovs-vsctl add-br s2
 
 # Adicionando IP's aos Switchs
-sudo ip add add 192.168.0.51/24 dev s1
-sudo ip add add 192.168.0.52/24 dev s2
+sudo ip addr add 192.168.0.51/24 dev s1
+sudo ip addr add 192.168.0.52/24 dev s2
+
+# Subir os Ips
+sudo ip link set s1 ip
+sudo ip link set s2 ip
 
 # Configurar controladores para os switches
 sudo ovs-vsctl set-controller s1 tcp:192.168.0.226:6653
@@ -160,21 +164,17 @@ sudo chmod +x /etc/lxc/ifdown
 ovsBr=s1
 ovs-vsctl --if-exists del-port ${ovsBr} $5
 ```
-
-# Criu
-
 ```
-git clone https://github.com/checkpoint-restore/criu.git
-cd criu/
-git checkout master
-make clean
-sudo make
-sudo make install
+sudo sysctl -w net.ipv4.ip_forward=1
 
-sudo criu check --all
+permamently enable ip forwarding
+echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
+ 
+sudo iptables -t nat -A POSTROUTING -o ensX0 -j MASQUERADE
+sudo iptables -A FORWARD -i cdac -o enX0 -j ACCEPT
+sudo iptables -A FORWARD -i enX0 -o cdac -m state --state RELATED,ESTABLISHED -j ACCEPT
 
-machine1@machine1-VirtualBox:~/criu$ sudo criu check --all
-Looks good.
+sudo netfilter-persistent save
 ```
 
 # LXC
@@ -235,10 +235,9 @@ lxc.uts.name = server-container
 
 lxc.net.0.type = veth
 lxc.net.0.flags = up
+lxc.net.0.name = eth0
 lxc.net.0.script.up = /etc/lxc/ifup
 lxc.net.0.script.down = /etc/lxc/ifdown
-lxc.net.0.veth.pair = vethdYTnja
-lxc.net.0.ipv4.address = 192.168.0.54/24
 ```
 ```
 sudo gedit
@@ -247,9 +246,8 @@ sudo gedit
 ```
 lxc.net.0.type = veth
 lxc.net.0.flags = up
+lxc.net.0.name = eth0
 lxc.net.0.link = s2
-lxc.net.0.veth.pair = vethaCSkDm
-lxc.net.0.ipv4.address = 192.168.0.55/24
 ```
 ```
 sudo rm /var/lib/lxc/server-container/rootfs/etc/init/udev.conf
@@ -258,12 +256,74 @@ sudo lxc-ls -f
 
 sudo lxc-start -n server-container
 sudo lxc-start -n client-container
-
+```
+```
 sudo lxc-attach -n server-container
+
+sudo apt update
+sudo apt install net-tools
+
+ip addr add 192.168.0.54/24 dev eth0
+ip link set eth0 up
+
+sudo nano /etc/network/interfaces
+
+auto eth0
+iface eth0 inet static
+    address 192.168.0.54
+    netmask 255.255.255.0
+    gateway 192.168.0.1
+ 
+# salve e feche
+
+ifdown eth0 || true
+ifup eth0
+
+ip route add default via 192.168.0.1
+
+exit
+```
+```
 sudo lxc-attach -n client-container
 
 sudo apt update
 sudo apt install net-tools
+
+ip addr add 192.168.0.55/24 dev eth0
+ip link set eth0 up
+
+sudo nano /etc/network/interfaces
+
+auto eth0
+iface eth0 inet static
+    address 192.168.0.55
+    netmask 255.255.255.0
+    gateway 192.168.0.1
+
+# salve e feche
+
+ifdown eth0 || true
+ifup eth0
+
+ip route add default via 192.168.0.1
+
+exit
+```
+
+# Criu
+
+```
+git clone https://github.com/checkpoint-restore/criu.git
+cd criu/
+git checkout master
+make clean
+sudo make
+sudo make install
+
+sudo criu check --all
+
+machine1@machine1-VirtualBox:~/criu$ sudo criu check --all
+Looks good.
 ```
 
 # SSH
