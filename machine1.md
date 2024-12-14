@@ -167,27 +167,14 @@ sudo gedit
 # Procure o arquivo: /var/lib/lxc/server-container/config
 ```
 ```
-lxc.include = /usr/share/lxc/config/nesting.conf
-lxc.include = /usr/share/lxc/config/ubuntu.common.conf
-
-lxc.rootfs.path = /var/lib/lxc/server-container/rootfs
-lxc.uts.name = server-container
-lxc.arch=x86_64
-
-lxc.net.0.type = veth
-lxc.net.0.flags = up
-lxc.net.0.script.up = /etc/lxc/ifup
-lxc.net.0.script.down = /etc/lxc/ifdown
-lxc.net.0.veth.pair = vethdYTnja
-lxc.net.0.ipv4.address = 192.168.0.54/24
-
-lxc.console.path = none
 lxc.tty.max = 0
-lxc.pty.max = 1024
+lxc.console.path = none
 lxc.cgroup.devices.deny = c 5:1 rwm
-lxc.seccomp.profile = /usr/share/lxc/config/common.seccomp
+
+lxc.pty.max = 1024
 
 lxc.cap.drop = mac_admin mac_override sys_time sys_module
+
 lxc.hook.clone = /usr/share/lxc/hooks/clonehostname
 
 lxc.cgroup.devices.deny = a
@@ -202,6 +189,8 @@ lxc.cgroup.devices.allow = c 1:8 rwm
 lxc.cgroup.devices.allow = c 1:9 rwm
 lxc.cgroup.devices.allow = c 136:* rwm
 
+lxc.seccomp.profile = /usr/share/lxc/config/common.seccomp
+
 lxc.mount.entry = /sys/devices/system/cpu sys/devices/system/cpu none bind,optional 0 0
 lxc.mount.entry = /proc proc none bind,optional 0 0
 lxc.mount.entry = /sys/fs/pstore sys/fs/pstore none bind,optional 0 0
@@ -213,6 +202,17 @@ lxc.cgroup.devices.allow = c 10:229 rwm
 lxc.cgroup.devices.allow = c 10:200 rwm
 lxc.cgroup.devices.allow = c 10:228 rwm
 lxc.cgroup.devices.allow = c 10:232 rwm
+lxc.arch=x86_64
+
+lxc.rootfs.path = /var/lib/lxc/server-container/rootfs
+lxc.uts.name = server-container
+
+lxc.net.0.type = veth
+lxc.net.0.flags = up
+lxc.net.0.script.up = /etc/lxc/ifup
+lxc.net.0.script.down = /etc/lxc/ifdown
+lxc.net.0.veth.pair = vethdYTnja
+lxc.net.0.ipv4.address = 192.168.0.54/24
 ```
 ```
 sudo gedit
