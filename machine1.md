@@ -51,12 +51,16 @@ sudo apt-get install lxc-templates debootstrap
 sudo apt install linux-image-generic
 ```
 
-# Redes
+# SDN
 
 ```
 # Adicionar switches
 sudo ovs-vsctl add-br s1
 sudo ovs-vsctl add-br s2
+
+# Adicionando IP's aos Switchs
+sudo ip add add 192.168.0.51/24 dev s1
+sudo ip add add 192.168.0.52/24 dev s2
 
 # Configurar controladores para os switches
 sudo ovs-vsctl set-controller s1 tcp:192.168.0.226:6653
@@ -88,15 +92,29 @@ sudo ovs-vsctl show
 
 machine1@machine1-VirtualBox:~$ sudo ovs-vsctl show
 c477fce3-0164-4943-944c-42acbeb4bc85
+    Bridge s2
+        Controller "tcp:192.168.0.226:6653"
+            is_connected: true
+        Port patch-s2-s1
+            Interface patch-s2-s1
+                type: patch
+                options: {peer=patch-s1-s2}
+        Port s2
+            Interface s2
+                type: internal
+        Port s2-eth1
+            Interface s2-eth1
+                type: internal
+        Port gre-s2-s3
+            Interface gre-s2-s3
+                type: gre
+                options: {key="2", remote_ip="192.168.0.160"}
+        Port s2-eth2
+            Interface s2-eth2
+                type: internal
     Bridge s1
         Controller "tcp:192.168.0.226:6653"
             is_connected: true
-        Port s1-eth2
-            Interface s1-eth2
-                type: internal
-        Port s1-eth1
-            Interface s1-eth1
-                type: internal
         Port patch-s1-s2
             Interface patch-s1-s2
                 type: patch
@@ -105,29 +123,15 @@ c477fce3-0164-4943-944c-42acbeb4bc85
             Interface gre-s1-s3
                 type: gre
                 options: {key="1", remote_ip="192.168.0.160"}
+        Port s1-eth1
+            Interface s1-eth1
+                type: internal
+        Port s1-eth2
+            Interface s1-eth2
+                type: internal
         Port s1
             Interface s1
                 type: internal
-    Bridge s2
-        Controller "tcp:192.168.0.226:6653"
-            is_connected: true
-        Port s2-eth2
-            Interface s2-eth2
-                type: internal
-        Port s2-eth1
-            Interface s2-eth1
-                type: internal
-        Port patch-s2-s1
-            Interface patch-s2-s1
-                type: patch
-                options: {peer=patch-s1-s2}
-        Port s2
-            Interface s2
-                type: internal
-        Port gre-s2-s3
-            Interface gre-s2-s3
-                type: gre
-                options: {key="2", remote_ip="192.168.0.160"}
     ovs_version: "2.17.9"
 ```
 
@@ -172,7 +176,10 @@ lxc.arch=x86_64
 
 lxc.net.0.type = veth
 lxc.net.0.flags = up
-lxc.net.0.link = lxcbr0
+lxc.net.0.script.up = /etc/lxc/ifup
+lxc.net.0.script.down = /etc/lxc/ifdown
+lxc.net.0.veth.pair = vethdYTnja
+lxc.net.0.ipv4.address = 192.168.0.54/24
 
 lxc.console.path = none
 lxc.tty.max = 0
@@ -208,6 +215,17 @@ lxc.cgroup.devices.allow = c 10:228 rwm
 lxc.cgroup.devices.allow = c 10:232 rwm
 ```
 ```
+sudo gedit
+# Procure o arquivo: /var/lib/lxc/client-container/config
+```
+```
+lxc.net.0.type = veth
+lxc.net.0.flags = up
+lxc.net.0.link = s2
+lxc.net.0.veth.pair = vethaCSkDm
+lxc.net.0.ipv4.address = 192.168.0.55/24
+```
+```
 sudo rm /var/lib/lxc/server-container/rootfs/etc/init/udev.conf
 
 sudo lxc-ls -f
@@ -220,16 +238,6 @@ sudo lxc-attach -n client-container
 
 sudo apt update
 sudo apt install net-tools
-```
-
-# App
-
-```
-
-```
-
-```
-
 ```
 
 # SSH

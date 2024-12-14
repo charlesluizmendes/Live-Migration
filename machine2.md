@@ -51,11 +51,14 @@ sudo apt-get install lxc-templates debootstrap
 sudo apt install linux-image-generic
 ```
 
-# Redes
+# SDN
 
 ```
 # Adicionar o switch s3
 sudo ovs-vsctl add-br s3
+
+# Adicionando IP ao Switch
+sudo ip add add 192.168.0.53/24 dev s3
 
 # Configurar controlador para o switch
 sudo ovs-vsctl set-controller s3 tcp:192.168.0.226:6653
@@ -81,13 +84,9 @@ machine2@machine2-VirtualBox:~$ sudo ovs-vsctl show
     Bridge s3
         Controller "tcp:192.168.0.226:6653"
             is_connected: true
-        Port s3-eth2
-            Interface s3-eth2
+        Port s3-eth1
+            Interface s3-eth1
                 type: internal
-        Port gre0
-            Interface gre0
-                type: gre
-                options: {key="1", remote_ip="192.168.0.127"}
         Port s3
             Interface s3
                 type: internal
@@ -95,8 +94,12 @@ machine2@machine2-VirtualBox:~$ sudo ovs-vsctl show
             Interface gre1
                 type: gre
                 options: {key="2", remote_ip="192.168.0.127"}
-        Port s3-eth1
-            Interface s3-eth1
+        Port gre0
+            Interface gre0
+                type: gre
+                options: {key="1", remote_ip="192.168.0.127"}
+        Port s3-eth2
+            Interface s3-eth2
                 type: internal
     ovs_version: "2.17.9"
 ```

@@ -8,7 +8,7 @@ sudo apt-get install net-tools
 sudo apt install openjdk-8-jdk
 ```
 
-# Redes
+# SDN
 
 ```
 sudo systemctl restart openvswitch-switch
