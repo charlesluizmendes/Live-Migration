@@ -73,9 +73,9 @@ sudo systemctl restart openvswitch-switch
 sudo ovs-vsctl add-port s3 s3-eth1 -- set Interface s3-eth1 type=internal
 sudo ovs-vsctl add-port s3 s3-eth2 -- set Interface s3-eth2 type=internal
 
-# Configurar túneis GRE para comunicação com s1 e s2 (machine1)
-sudo ovs-vsctl add-port s3 gre0 -- set interface gre0 type=gre options:remote_ip=192.168.0.127 options:key=1
-sudo ovs-vsctl add-port s3 gre1 -- set interface gre1 type=gre options:remote_ip=192.168.0.127 options:key=2
+# Configurar túneis VXLAN para comunicação com s1 e s2 (machine1)
+sudo ovs-vsctl add-port s3 vxlan0 -- set interface vxlan0 type=vxlan options:remote_ip=192.168.0.127 options:key=1
+sudo ovs-vsctl add-port s3 vxlan1 -- set interface vxlan1 type=vxlan options:remote_ip=192.168.0.127 options:key=2
 
 sudo ovs-vsctl show
 

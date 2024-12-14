@@ -84,9 +84,9 @@ sudo ovs-vsctl add-port s2 s2-eth2 -- set Interface s2-eth2 type=internal
 sudo ovs-vsctl add-port s1 patch-s1-s2 -- set Interface patch-s1-s2 type=patch options:peer=patch-s2-s1
 sudo ovs-vsctl add-port s2 patch-s2-s1 -- set Interface patch-s2-s1 type=patch options:peer=patch-s1-s2
 
-# Configurar túneis GRE para comunicação com s3 (machine2)
-sudo ovs-vsctl add-port s1 gre-s1-s3 -- set interface gre-s1-s3 type=gre options:remote_ip=192.168.0.160 options:key=1
-sudo ovs-vsctl add-port s2 gre-s2-s3 -- set interface gre-s2-s3 type=gre options:remote_ip=192.168.0.160 options:key=2
+# Configurar túneis VXLAN para comunicação com s3 (machine2)
+sudo ovs-vsctl add-port s1 vxlan0 -- set interface vxlan0 type=vxlan options:remote_ip=192.168.0.160 options:key=1
+sudo ovs-vsctl add-port s2 vxlan1 -- set interface vxlan0 type=vxlan options:remote_ip=192.168.0.160 options:key=2
 
 sudo ovs-vsctl show
 
