@@ -236,6 +236,7 @@ lxc.net.0.flags = up
 lxc.net.0.name = eth0
 lxc.net.0.script.up = /etc/lxc/ifup
 lxc.net.0.script.down = /etc/lxc/ifdown
+lxc.net.0.veth.pair = ser101
 ```
 ```
 sudo gedit
@@ -246,6 +247,7 @@ lxc.net.0.type = veth
 lxc.net.0.flags = up
 lxc.net.0.name = eth0
 lxc.net.0.link = s2
+lxc.net.0.veth.pair = cli101
 ```
 ```
 sudo rm /var/lib/lxc/server-container/rootfs/etc/init/udev.conf
