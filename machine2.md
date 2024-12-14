@@ -60,9 +60,6 @@ sudo ovs-vsctl add-br s3
 # Adicionando IP ao Switch
 sudo ip addr add 192.168.0.53/24 dev s3
 
-# Subir os Ips
-sudo ip link set s3 ip
-
 # Configurar controlador para o switch
 sudo ovs-vsctl set-controller s3 tcp:192.168.0.226:6653
 

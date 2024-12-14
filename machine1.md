@@ -62,10 +62,6 @@ sudo ovs-vsctl add-br s2
 sudo ip addr add 192.168.0.51/24 dev s1
 sudo ip addr add 192.168.0.52/24 dev s2
 
-# Subir os Ips
-sudo ip link set s1 ip
-sudo ip link set s2 ip
-
 # Configurar controladores para os switches
 sudo ovs-vsctl set-controller s1 tcp:192.168.0.226:6653
 sudo ovs-vsctl set-controller s2 tcp:192.168.0.226:6653
