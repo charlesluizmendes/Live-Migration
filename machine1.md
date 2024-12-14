@@ -258,13 +258,10 @@ sudo lxc-start -n client-container
 ```
 sudo lxc-attach -n server-container
 
-sudo apt update
-sudo apt install net-tools
-
 ip addr add 192.168.0.54/24 dev eth0
 ip link set eth0 up
 
-sudo nano /etc/network/interfaces
+sudo vi /etc/network/interfaces
 
 auto eth0
 iface eth0 inet static
@@ -272,7 +269,7 @@ iface eth0 inet static
     netmask 255.255.255.0
     gateway 192.168.0.51
  
-# salve e feche
+# salve e feche (ESC, :w, :q)
 
 ifdown eth0 || true
 ifup eth0
@@ -284,13 +281,10 @@ exit
 ```
 sudo lxc-attach -n client-container
 
-sudo apt update
-sudo apt install net-tools
-
 ip addr add 192.168.0.55/24 dev eth0
 ip link set eth0 up
 
-sudo nano /etc/network/interfaces
+sudo vi /etc/network/interfaces
 
 auto eth0
 iface eth0 inet static
@@ -298,7 +292,7 @@ iface eth0 inet static
     netmask 255.255.255.0
     gateway 192.168.0.52
 
-# salve e feche
+# salve e feche (ESC, :w, :q)
 
 ifdown eth0 || true
 ifup eth0
