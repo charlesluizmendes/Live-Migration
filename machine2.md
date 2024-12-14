@@ -104,6 +104,32 @@ machine2@machine2-VirtualBox:~$ sudo ovs-vsctl show
     ovs_version: "2.17.9"
 ```
 
+Criar Script para a conexão do Container com o OVS:
+
+```
+sudo nano /etc/lxc/ifup
+sudo chmod +x /etc/lxc/ifup
+```
+```
+#!/bin/bash
+
+BRIDGE=s3
+
+ovs-vsctl --may-exist add-br $BRIDGE
+ovs-vsctl --if-exists del-port $BRIDGE $5
+ovs-vsctl --may-exist add-port $BRIDGE $5
+```
+```
+sudo nano /etc/lxc/ifdown
+sudo chmod +x /etc/lxc/ifdown
+```
+```
+#!/bin/bash
+
+ovsBr=s3
+ovs-vsctl --if-exists del-port ${ovsBr} $5
+```
+
 # Criu 
 
 ```

@@ -86,7 +86,7 @@ sudo ovs-vsctl add-port s2 patch-s2-s1 -- set Interface patch-s2-s1 type=patch o
 
 # Configurar túneis VXLAN para comunicação com s3 (machine2)
 sudo ovs-vsctl add-port s1 vxlan0 -- set interface vxlan0 type=vxlan options:remote_ip=192.168.0.160 options:key=1
-sudo ovs-vsctl add-port s2 vxlan1 -- set interface vxlan0 type=vxlan options:remote_ip=192.168.0.160 options:key=2
+sudo ovs-vsctl add-port s2 vxlan1 -- set interface vxlan1 type=vxlan options:remote_ip=192.168.0.160 options:key=2
 
 sudo ovs-vsctl show
 
@@ -133,6 +133,32 @@ c477fce3-0164-4943-944c-42acbeb4bc85
             Interface s1
                 type: internal
     ovs_version: "2.17.9"
+```
+
+Criar Script para a conexão do Container com o OVS:
+
+```
+sudo nano /etc/lxc/ifup
+sudo chmod +x /etc/lxc/ifup
+```
+```
+#!/bin/bash
+
+BRIDGE=s1
+
+ovs-vsctl --may-exist add-br $BRIDGE
+ovs-vsctl --if-exists del-port $BRIDGE $5
+ovs-vsctl --may-exist add-port $BRIDGE $5
+```
+```
+sudo nano /etc/lxc/ifdown
+sudo chmod +x /etc/lxc/ifdown
+```
+```
+#!/bin/bash
+
+ovsBr=s1
+ovs-vsctl --if-exists del-port ${ovsBr} $5
 ```
 
 # Criu
