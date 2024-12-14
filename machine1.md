@@ -162,13 +162,15 @@ ovs-vsctl --if-exists del-port ${ovsBr} $5
 ```
 ```
 sudo sysctl -w net.ipv4.ip_forward=1
-
-permamently enable ip forwarding
 echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
  
-sudo iptables -t nat -A POSTROUTING -o ensX0 -j MASQUERADE
-sudo iptables -A FORWARD -i cdac -o enX0 -j ACCEPT
-sudo iptables -A FORWARD -i enX0 -o cdac -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -t nat -A POSTROUTING -o s1 -j MASQUERADE
+sudo iptables -A FORWARD -i s1 -o s1 -j ACCEPT
+sudo iptables -A FORWARD -i s1 -o s1 -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+sudo iptables -t nat -A POSTROUTING -o s2 -j MASQUERADE
+sudo iptables -A FORWARD -i s2 -o s2 -j ACCEPT
+sudo iptables -A FORWARD -i s2 -o s2 -m state --state RELATED,ESTABLISHED -j ACCEPT
 
 sudo netfilter-persistent save
 ```
@@ -268,14 +270,14 @@ auto eth0
 iface eth0 inet static
     address 192.168.0.54
     netmask 255.255.255.0
-    gateway 192.168.0.1
+    gateway 192.168.0.51
  
 # salve e feche
 
 ifdown eth0 || true
 ifup eth0
 
-ip route add default via 192.168.0.1
+ip route add default via 192.168.0.51
 
 exit
 ```
@@ -294,14 +296,14 @@ auto eth0
 iface eth0 inet static
     address 192.168.0.55
     netmask 255.255.255.0
-    gateway 192.168.0.1
+    gateway 192.168.0.52
 
 # salve e feche
 
 ifdown eth0 || true
 ifup eth0
 
-ip route add default via 192.168.0.1
+ip route add default via 192.168.0.52
 
 exit
 ```
