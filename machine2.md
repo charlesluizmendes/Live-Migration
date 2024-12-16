@@ -152,9 +152,6 @@ ip addr add 192.168.0.54/24 dev eth0
 ip route add default via 192.168.0.1 dev eth0
 
 ip link set eth0 up
-
-ip addr show eth0
-
 exit
 ```
 
@@ -164,7 +161,7 @@ exit
 git clone https://github.com/checkpoint-restore/criu.git
 cd criu/
 git checkout master
-make clean
+sudo make clean
 sudo make
 sudo make install
 

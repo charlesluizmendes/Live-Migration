@@ -249,9 +249,6 @@ ip addr add 192.168.0.54/24 dev eth0
 ip route add default via 192.168.0.1 dev eth0
 
 ip link set eth0 up
-
-ip addr show eth0
-
 exit
 ```
 
@@ -264,9 +261,6 @@ ip addr add 192.168.0.55/24 dev eth1
 ip route add default via 192.168.0.1 dev eth1
 
 ip link set eth1 up
-
-ip addr show eth1
-
 exit
 ```
 
@@ -276,7 +270,7 @@ exit
 git clone https://github.com/checkpoint-restore/criu.git
 cd criu/
 git checkout master
-make clean
+sudo make clean
 sudo make
 sudo make install
 
@@ -292,9 +286,6 @@ Looks good.
 sudo -i
 ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
 ssh-copy-id -i ~/.ssh/id_rsa.pub machine2@192.168.0.30
-
-sudo chmod 700 ~/.ssh
-sudo chmod 600 ~/.ssh/id_rsa
 ```
 
 # Migration
