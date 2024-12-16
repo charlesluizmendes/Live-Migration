@@ -57,9 +57,6 @@ sudo apt install linux-image-generic
 # Adicionar o switch s3
 sudo ovs-vsctl add-br s3
 
-# Adicionando IP ao Switch
-sudo ip addr add 192.168.0.53/24 dev s3
-
 # Configurar controlador para o switch
 sudo ovs-vsctl set-controller s3 tcp:192.168.0.204:6653
 
@@ -104,7 +101,8 @@ ff478e61-e27f-4c34-a7cb-7ea30177ad55
 ```
 ```
 sudo sysctl -w net.ipv4.ip_forward=1
-echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
+
+sudo iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o eth0 -j MASQUERADE
 
 sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 sudo iptables -A FORWARD -i s3 -o eth0 -j ACCEPT
@@ -147,8 +145,11 @@ Atribuir IP ao Container Server:
 sudo lxc-attach -n server-container
 
 ip addr add 192.168.0.54/24 dev eth0
-ip route add default via 192.168.0.51
+ip route add default via 192.168.0.1 dev eth0
+
 ip link set eth0 up
+
+ip addr show eth0
 
 exit
 ```
