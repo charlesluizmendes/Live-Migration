@@ -106,9 +106,9 @@ ff478e61-e27f-4c34-a7cb-7ea30177ad55
 sudo sysctl -w net.ipv4.ip_forward=1
 echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
 
-sudo iptables -t nat -A POSTROUTING -o s3 -j MASQUERADE
-sudo iptables -A FORWARD -i eth0 -o s3 -j ACCEPT
-sudo iptables -A FORWARD -i s3 -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+sudo iptables -A FORWARD -i s3 -o eth0 -j ACCEPT
+sudo iptables -A FORWARD -i eth0 -o s3 -m state --state RELATED,ESTABLISHED -j ACCEPT
 
 sudo netfilter-persistent save
 ```
