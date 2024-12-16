@@ -159,7 +159,8 @@ cd /var/lib/lxc/server-container
 mv config config.tmp
 cp /usr/share/lxc/config/common.conf config
 exit
-
+```
+```
 sudo gedit
 # Procure o arquivo: /var/lib/lxc/server-container/config
 ```
@@ -244,9 +245,6 @@ ovs-vsctl --may-exist add-br $BRIDGE
 ovs-vsctl --if-exists del-port $BRIDGE $5
 ovs-vsctl --may-exist add-port $BRIDGE $5
 ```
-
-Criar Script para a conexão do Container com o OVS:
-
 ```
 sudo nano /etc/lxc/ifdown
 sudo chmod +x /etc/lxc/ifdown

@@ -141,7 +141,7 @@ ovsBr=s3
 ovs-vsctl --if-exists del-port ${ovsBr} $5
 ```
 
-Atribuir IP ao Container:
+Atribuir IP ao Container Server:
 
 ```
 sudo lxc-attach -n server-container
