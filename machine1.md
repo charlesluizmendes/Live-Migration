@@ -63,8 +63,8 @@ sudo ip addr add 192.168.0.51/24 dev s1
 sudo ip addr add 192.168.0.52/24 dev s2
 
 # Configurar controladores para os switches
-sudo ovs-vsctl set-controller s1 tcp:192.168.0.226:6653
-sudo ovs-vsctl set-controller s2 tcp:192.168.0.226:6653
+sudo ovs-vsctl set-controller s1 tcp:192.168.0.204:6653
+sudo ovs-vsctl set-controller s2 tcp:192.168.0.204:6653
 
 # Configurar protocolo OpenFlow13 para os switches
 sudo ovs-vsctl set Bridge s1 protocols=OpenFlow13
@@ -78,100 +78,72 @@ sudo ovs-vsctl add-port s1 s1-eth1 -- set Interface s1-eth1 type=internal
 sudo ovs-vsctl add-port s1 s1-eth2 -- set Interface s1-eth2 type=internal
 sudo ovs-vsctl add-port s2 s2-eth1 -- set Interface s2-eth1 type=internal
 sudo ovs-vsctl add-port s2 s2-eth2 -- set Interface s2-eth2 type=internal
-sudo ovs-vsctl add-port s1 server1 -- set Interface server1 type=internal
-sudo ovs-vsctl add-port s2 client1 -- set Interface client1 type=internal
 
 # Criar links entre os switches locais usando as portas configuradas
 sudo ovs-vsctl add-port s1 patch-s1-s2 -- set Interface patch-s1-s2 type=patch options:peer=patch-s2-s1
 sudo ovs-vsctl add-port s2 patch-s2-s1 -- set Interface patch-s2-s1 type=patch options:peer=patch-s1-s2
 
 # Configurar túneis VXLAN para comunicação com s3 (machine2)
-sudo ovs-vsctl add-port s1 vxlan0 -- set interface vxlan0 type=vxlan options:remote_ip=192.168.0.160 options:key=1
-sudo ovs-vsctl add-port s2 vxlan1 -- set interface vxlan1 type=vxlan options:remote_ip=192.168.0.160 options:key=2
+sudo ovs-vsctl add-port s1 vxlan0 -- set interface vxlan0 type=vxlan options:remote_ip=192.168.0.30 options:key=1
+sudo ovs-vsctl add-port s2 vxlan1 -- set interface vxlan1 type=vxlan options:remote_ip=192.168.0.30 options:key=2
 
 sudo ovs-vsctl show
 
 machine1@machine1-VirtualBox:~$ sudo ovs-vsctl show
-c477fce3-0164-4943-944c-42acbeb4bc85
-    Bridge s2
-        Controller "tcp:192.168.0.226:6653"
-            is_connected: true
-        Port patch-s2-s1
-            Interface patch-s2-s1
-                type: patch
-                options: {peer=patch-s1-s2}
-        Port s2
-            Interface s2
-                type: internal
-        Port s2-eth1
-            Interface s2-eth1
-                type: internal
-        Port gre-s2-s3
-            Interface gre-s2-s3
-                type: gre
-                options: {key="2", remote_ip="192.168.0.160"}
-        Port s2-eth2
-            Interface s2-eth2
-                type: internal
+faa7434e-4eae-4b0a-a606-f054d6e7c29e
     Bridge s1
-        Controller "tcp:192.168.0.226:6653"
-            is_connected: true
+        Controller "tcp:192.168.0.204:6653"
         Port patch-s1-s2
             Interface patch-s1-s2
                 type: patch
                 options: {peer=patch-s2-s1}
-        Port gre-s1-s3
-            Interface gre-s1-s3
-                type: gre
-                options: {key="1", remote_ip="192.168.0.160"}
         Port s1-eth1
             Interface s1-eth1
-                type: internal
-        Port s1-eth2
-            Interface s1-eth2
                 type: internal
         Port s1
             Interface s1
                 type: internal
+        Port s1-eth2
+            Interface s1-eth2
+                type: internal
+        Port vxlan0
+            Interface vxlan0
+                type: vxlan
+                options: {key="1", remote_ip="192.168.0.30"}
+    Bridge s2
+        Controller "tcp:192.168.0.204:6653"
+        Port s2
+            Interface s2
+                type: internal
+        Port s2-eth2
+            Interface s2-eth2
+                type: internal
+        Port cli1
+            Interface cli1
+        Port patch-s2-s1
+            Interface patch-s2-s1
+                type: patch
+                options: {peer=patch-s1-s2}
+        Port s2-eth1
+            Interface s2-eth1
+                type: internal
+        Port vxlan1
+            Interface vxlan1
+                type: vxlan
+                options: {key="2", remote_ip="192.168.0.30"}
     ovs_version: "2.17.9"
-```
-
-Criar Script para a conexão do Container com o OVS:
-
-```
-sudo nano /etc/lxc/ifup
-sudo chmod +x /etc/lxc/ifup
-```
-```
-#!/bin/bash
-
-BRIDGE=s1
-
-ovs-vsctl --may-exist add-br $BRIDGE
-ovs-vsctl --if-exists del-port $BRIDGE $5
-ovs-vsctl --may-exist add-port $BRIDGE $5
-```
-```
-sudo nano /etc/lxc/ifdown
-sudo chmod +x /etc/lxc/ifdown
-```
-```
-#!/bin/bash
-
-ovsBr=s1
-ovs-vsctl --if-exists del-port ${ovsBr} $5
 ```
 ```
 sudo sysctl -w net.ipv4.ip_forward=1
 echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
  
 sudo iptables -t nat -A POSTROUTING -o s1 -j MASQUERADE
-sudo iptables -A FORWARD -i s1 -o s1 -j ACCEPT
-sudo iptables -A FORWARD -i s1 -o s1 -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i eth0 -o s1 -j ACCEPT
+sudo iptables -A FORWARD -i s1 -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 
 sudo iptables -t nat -A POSTROUTING -o s2 -j MASQUERADE
-sudo iptables -A FORWARD -i s2 -o s2 -j ACCEPT
-sudo iptables -A FORWARD -i s2 -o s2 -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i eth0 -o s2 -j ACCEPT
+sudo iptables -A FORWARD -i s2 -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 
 sudo netfilter-persistent save
 ```
@@ -234,10 +206,9 @@ lxc.uts.name = server-container
 
 lxc.net.0.type = veth
 lxc.net.0.flags = up
-lxc.net.0.name = eth0
 lxc.net.0.script.up = /etc/lxc/ifup
 lxc.net.0.script.down = /etc/lxc/ifdown
-lxc.net.0.veth.pair = server1
+lxc.net.0.veth.pair = ser1
 ```
 ```
 sudo gedit
@@ -246,9 +217,8 @@ sudo gedit
 ```
 lxc.net.0.type = veth
 lxc.net.0.flags = up
-lxc.net.0.name = eth0
 lxc.net.0.link = s2
-lxc.net.0.veth.pair = client1
+lxc.net.0.veth.pair = cli1
 ```
 ```
 sudo rm /var/lib/lxc/server-container/rootfs/etc/init/udev.conf
@@ -258,49 +228,56 @@ sudo lxc-ls -f
 sudo lxc-start -n server-container
 sudo lxc-start -n client-container
 ```
+
+Criar Script para a conexão do Container com o OVS:
+
+```
+sudo nano /etc/lxc/ifup
+sudo chmod +x /etc/lxc/ifup
+```
+```
+#!/bin/bash
+
+BRIDGE=s1
+
+ovs-vsctl --may-exist add-br $BRIDGE
+ovs-vsctl --if-exists del-port $BRIDGE $5
+ovs-vsctl --may-exist add-port $BRIDGE $5
+```
+
+Criar Script para a conexão do Container com o OVS:
+
+```
+sudo nano /etc/lxc/ifdown
+sudo chmod +x /etc/lxc/ifdown
+```
+```
+#!/bin/bash
+
+ovsBr=s1
+ovs-vsctl --if-exists del-port ${ovsBr} $5
+```
+
+Atribuir IP ao Container Server:
+
 ```
 sudo lxc-attach -n server-container
 
 ip addr add 192.168.0.54/24 dev eth0
-ip link set eth0 up
-
-sudo vi /etc/network/interfaces
-
-auto eth0
-iface eth0 inet static
-    address 192.168.0.54
-    netmask 255.255.255.0
-    gateway 192.168.0.51
- 
-# salve e feche (ESC, :w, :q)
-
-ifdown eth0 || true
-ifup eth0
-
 ip route add default via 192.168.0.51
+ip link set eth0 up
 
 exit
 ```
+
+Atribuir IP ao Container Client:
+
 ```
 sudo lxc-attach -n client-container
 
 ip addr add 192.168.0.55/24 dev eth0
-ip link set eth0 up
-
-sudo vi /etc/network/interfaces
-
-auto eth0
-iface eth0 inet static
-    address 192.168.0.55
-    netmask 255.255.255.0
-    gateway 192.168.0.52
-
-# salve e feche (ESC, :w, :q)
-
-ifdown eth0 || true
-ifup eth0
-
 ip route add default via 192.168.0.52
+ip link set eth0 up
 
 exit
 ```
@@ -326,7 +303,7 @@ Looks good.
 ```
 sudo -i
 ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
-ssh-copy-id -i ~/.ssh/id_rsa.pub machine2@192.168.0.144
+ssh-copy-id -i ~/.ssh/id_rsa.pub machine2@192.168.0.30
 
 sudo chmod 700 ~/.ssh
 sudo chmod 600 ~/.ssh/id_rsa
@@ -341,11 +318,11 @@ sudo rm -rf /tmp/checkpoint
 
 sudo lxc-checkpoint -v -n server-container -s -D /tmp/checkpoint -o /tmp/checkpoint/dump.log
 
-sudo rsync -aAXHltzh --progress --numeric-ids --devices --rsync-path="sudo rsync" /var/lib/lxc/server-container/ machine2@192.168.0.160:/var/lib/lxc/server-container/
+sudo rsync -aAXHltzh --progress --numeric-ids --devices --rsync-path="sudo rsync" /var/lib/lxc/server-container/ machine2@192.168.0.30:/var/lib/lxc/server-container/
 
-sudo rsync -aAXHltzh --progress --numeric-ids --devices --rsync-path="sudo rsync" /tmp/checkpoint/ machine2@192.168.0.160:/tmp/checkpoint/
+sudo rsync -aAXHltzh --progress --numeric-ids --devices --rsync-path="sudo rsync" /tmp/checkpoint/ machine2@192.168.0.30:/tmp/checkpoint/
 
-ssh machine2@192.168.0.160
+ssh machine2@192.168.0.30
 
 sudo lxc-checkpoint -v -n server-container -r -d -D /tmp/checkpoint -o /tmp/checkpoint/restore.log
 ```
@@ -357,5 +334,5 @@ sudo chmod +x migrate.sh
 
 sudo rm -rf /tmp/checkpoint
 
-sudo ./migrate.sh server-container machine2@192.168.0.160
+sudo ./migrate.sh server-container machine2@192.168.0.30
 ```

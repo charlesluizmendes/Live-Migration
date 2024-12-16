@@ -61,7 +61,7 @@ sudo ovs-vsctl add-br s3
 sudo ip addr add 192.168.0.53/24 dev s3
 
 # Configurar controlador para o switch
-sudo ovs-vsctl set-controller s3 tcp:192.168.0.226:6653
+sudo ovs-vsctl set-controller s3 tcp:192.168.0.204:6653
 
 # Configurar protocolo OpenFlow13 para o switch
 sudo ovs-vsctl set Bridge s3 protocols=OpenFlow13
@@ -72,38 +72,48 @@ sudo systemctl restart openvswitch-switch
 # Adicionar portas ao switch
 sudo ovs-vsctl add-port s3 s3-eth1 -- set Interface s3-eth1 type=internal
 sudo ovs-vsctl add-port s3 s3-eth2 -- set Interface s3-eth2 type=internal
-sudo ovs-vsctl add-port s3 server1 -- set Interface server1 type=internal
 
 # Configurar túneis VXLAN para comunicação com s1 e s2 (machine1)
-sudo ovs-vsctl add-port s3 vxlan0 -- set interface vxlan0 type=vxlan options:remote_ip=192.168.0.127 options:key=1
-sudo ovs-vsctl add-port s3 vxlan1 -- set interface vxlan1 type=vxlan options:remote_ip=192.168.0.127 options:key=2
+sudo ovs-vsctl add-port s3 vxlan0 -- set interface vxlan0 type=vxlan options:remote_ip=192.168.0.36 options:key=1
+sudo ovs-vsctl add-port s3 vxlan1 -- set interface vxlan1 type=vxlan options:remote_ip=192.168.0.36 options:key=2
 
 sudo ovs-vsctl show
 
 machine2@machine2-VirtualBox:~$ sudo ovs-vsctl show
-3ef5d5f2-2174-478b-b2c7-d484fb968241
+ff478e61-e27f-4c34-a7cb-7ea30177ad55
     Bridge s3
-        Controller "tcp:192.168.0.226:6653"
-            is_connected: true
-        Port s3-eth1
-            Interface s3-eth1
-                type: internal
-        Port s3
-            Interface s3
-                type: internal
-        Port gre1
-            Interface gre1
-                type: gre
-                options: {key="2", remote_ip="192.168.0.127"}
-        Port gre0
-            Interface gre0
-                type: gre
-                options: {key="1", remote_ip="192.168.0.127"}
+        Controller "tcp:192.168.0.204:6653"
         Port s3-eth2
             Interface s3-eth2
                 type: internal
+        Port vxlan1
+            Interface vxlan1
+                type: vxlan
+                options: {key="2", remote_ip="192.168.0.36"}
+        Port vxlan0
+            Interface vxlan0
+                type: vxlan
+                options: {key="1", remote_ip="192.168.0.36"}
+        Port s3
+            Interface s3
+                type: internal
+        Port s3-eth1
+            Interface s3-eth1
+                type: internal
     ovs_version: "2.17.9"
 ```
+```
+sudo sysctl -w net.ipv4.ip_forward=1
+echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
+
+sudo iptables -t nat -A POSTROUTING -o s3 -j MASQUERADE
+sudo iptables -A FORWARD -i eth0 -o s3 -j ACCEPT
+sudo iptables -A FORWARD -i s3 -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+sudo netfilter-persistent save
+```
+
+# LXC
 
 Criar Script para a conexão do Container com o OVS:
 
@@ -130,17 +140,17 @@ sudo chmod +x /etc/lxc/ifdown
 ovsBr=s3
 ovs-vsctl --if-exists del-port ${ovsBr} $5
 ```
+
+Atribuir IP ao Container:
+
 ```
-sudo sysctl -w net.ipv4.ip_forward=1
+sudo lxc-attach -n server-container
 
-permamently enable ip forwarding
-echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
- 
-sudo iptables -t nat -A POSTROUTING -o ensX0 -j MASQUERADE
-sudo iptables -A FORWARD -i cdac -o enX0 -j ACCEPT
-sudo iptables -A FORWARD -i enX0 -o cdac -m state --state RELATED,ESTABLISHED -j ACCEPT
+ip addr add 192.168.0.54/24 dev eth0
+ip route add default via 192.168.0.51
+ip link set eth0 up
 
-sudo netfilter-persistent save
+exit
 ```
 
 # Criu 
