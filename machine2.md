@@ -80,9 +80,7 @@ machine2@machine2-VirtualBox:~$ sudo ovs-vsctl show
 ff478e61-e27f-4c34-a7cb-7ea30177ad55
     Bridge s3
         Controller "tcp:192.168.0.204:6653"
-        Port s3-eth2
-            Interface s3-eth2
-                type: internal
+            is_connected: true
         Port vxlan1
             Interface vxlan1
                 type: vxlan
@@ -91,6 +89,9 @@ ff478e61-e27f-4c34-a7cb-7ea30177ad55
             Interface vxlan0
                 type: vxlan
                 options: {key="1", remote_ip="192.168.0.36"}
+        Port s3-eth2
+            Interface s3-eth2
+                type: internal
         Port s3
             Interface s3
                 type: internal
@@ -99,6 +100,9 @@ ff478e61-e27f-4c34-a7cb-7ea30177ad55
                 type: internal
     ovs_version: "2.17.9"
 ```
+
+Configurar tabelas de IP:
+
 ```
 sudo sysctl -w net.ipv4.ip_forward=1
 
@@ -110,8 +114,6 @@ sudo iptables -A FORWARD -i eth0 -o s3 -m state --state RELATED,ESTABLISHED -j A
 
 sudo netfilter-persistent save
 ```
-
-# LXC
 
 Criar Script para a conexão do Container com o OVS:
 
@@ -138,6 +140,8 @@ sudo chmod +x /etc/lxc/ifdown
 ovsBr=s3
 ovs-vsctl --if-exists del-port ${ovsBr} $5
 ```
+
+# LXC
 
 Atribuir IP ao Container Server:
 

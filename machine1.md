@@ -81,48 +81,39 @@ sudo ovs-vsctl show
 
 machine1@machine1-VirtualBox:~$ sudo ovs-vsctl show
 faa7434e-4eae-4b0a-a606-f054d6e7c29e
+    Bridge s2
+        Controller "tcp:192.168.0.204:6653"
+            is_connected: true
+        Port vxlan1
+            Interface vxlan1
+                type: vxlan
+                options: {key="2", remote_ip="192.168.0.30"}
+        Port s2
+            Interface s2
+                type: internal
+        Port patch-s2-s1
+            Interface patch-s2-s1
+                type: patch
+                options: {peer=patch-s1-s2}
     Bridge s1
         Controller "tcp:192.168.0.204:6653"
-        Port patch-s1-s2
-            Interface patch-s1-s2
-                type: patch
-                options: {peer=patch-s2-s1}
-        Port s1-eth1
-            Interface s1-eth1
-                type: internal
+            is_connected: true
         Port s1
             Interface s1
-                type: internal
-        Port s1-eth2
-            Interface s1-eth2
                 type: internal
         Port vxlan0
             Interface vxlan0
                 type: vxlan
                 options: {key="1", remote_ip="192.168.0.30"}
-    Bridge s2
-        Controller "tcp:192.168.0.204:6653"
-        Port s2
-            Interface s2
-                type: internal
-        Port s2-eth2
-            Interface s2-eth2
-                type: internal
-        Port cli1
-            Interface cli1
-        Port patch-s2-s1
-            Interface patch-s2-s1
+        Port patch-s1-s2
+            Interface patch-s1-s2
                 type: patch
-                options: {peer=patch-s1-s2}
-        Port s2-eth1
-            Interface s2-eth1
-                type: internal
-        Port vxlan1
-            Interface vxlan1
-                type: vxlan
-                options: {key="2", remote_ip="192.168.0.30"}
+                options: {peer=patch-s2-s1}
     ovs_version: "2.17.9"
 ```
+
+Configurar tabelas de IP:
+
 ```
 sudo sysctl -w net.ipv4.ip_forward=1
  
@@ -137,6 +128,32 @@ sudo iptables -A FORWARD -i s2 -o eth1 -j ACCEPT
 sudo iptables -A FORWARD -i eth1 -o s2 -m state --state RELATED,ESTABLISHED -j ACCEPT
 
 sudo netfilter-persistent save
+```
+
+Criar Script para a conexão do Container com o OVS:
+
+```
+sudo nano /etc/lxc/ifup
+sudo chmod +x /etc/lxc/ifup
+```
+```
+#!/bin/bash
+
+BRIDGE=s1
+
+ovs-vsctl --may-exist add-br $BRIDGE
+ovs-vsctl --if-exists del-port $BRIDGE $5
+ovs-vsctl --may-exist add-port $BRIDGE $5
+```
+```
+sudo nano /etc/lxc/ifdown
+sudo chmod +x /etc/lxc/ifdown
+```
+```
+#!/bin/bash
+
+ovsBr=s1
+ovs-vsctl --if-exists del-port ${ovsBr} $5
 ```
 
 # LXC
@@ -221,32 +238,6 @@ sudo lxc-start -n server-container
 sudo lxc-start -n client-container
 
 sudo lxc-ls -f
-```
-
-Criar Script para a conexão do Container com o OVS:
-
-```
-sudo nano /etc/lxc/ifup
-sudo chmod +x /etc/lxc/ifup
-```
-```
-#!/bin/bash
-
-BRIDGE=s1
-
-ovs-vsctl --may-exist add-br $BRIDGE
-ovs-vsctl --if-exists del-port $BRIDGE $5
-ovs-vsctl --may-exist add-port $BRIDGE $5
-```
-```
-sudo nano /etc/lxc/ifdown
-sudo chmod +x /etc/lxc/ifdown
-```
-```
-#!/bin/bash
-
-ovsBr=s1
-ovs-vsctl --if-exists del-port ${ovsBr} $5
 ```
 
 Atribuir IP ao Container Server:
