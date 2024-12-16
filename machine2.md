@@ -72,6 +72,7 @@ sudo systemctl restart openvswitch-switch
 # Adicionar portas ao switch
 sudo ovs-vsctl add-port s3 s3-eth1 -- set Interface s3-eth1 type=internal
 sudo ovs-vsctl add-port s3 s3-eth2 -- set Interface s3-eth2 type=internal
+sudo ovs-vsctl add-port s3 server1 -- set Interface server1 type=internal
 
 # Configurar túneis VXLAN para comunicação com s1 e s2 (machine1)
 sudo ovs-vsctl add-port s3 vxlan0 -- set interface vxlan0 type=vxlan options:remote_ip=192.168.0.127 options:key=1

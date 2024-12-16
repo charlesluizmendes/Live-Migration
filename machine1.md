@@ -76,9 +76,10 @@ sudo systemctl restart openvswitch-switch
 # Adicionar portas aos switches
 sudo ovs-vsctl add-port s1 s1-eth1 -- set Interface s1-eth1 type=internal
 sudo ovs-vsctl add-port s1 s1-eth2 -- set Interface s1-eth2 type=internal
-
 sudo ovs-vsctl add-port s2 s2-eth1 -- set Interface s2-eth1 type=internal
 sudo ovs-vsctl add-port s2 s2-eth2 -- set Interface s2-eth2 type=internal
+sudo ovs-vsctl add-port s1 server1 -- set Interface server1 type=internal
+sudo ovs-vsctl add-port s2 client1 -- set Interface client1 type=internal
 
 # Criar links entre os switches locais usando as portas configuradas
 sudo ovs-vsctl add-port s1 patch-s1-s2 -- set Interface patch-s1-s2 type=patch options:peer=patch-s2-s1
@@ -236,7 +237,7 @@ lxc.net.0.flags = up
 lxc.net.0.name = eth0
 lxc.net.0.script.up = /etc/lxc/ifup
 lxc.net.0.script.down = /etc/lxc/ifdown
-lxc.net.0.veth.pair = ser101
+lxc.net.0.veth.pair = server1
 ```
 ```
 sudo gedit
@@ -247,7 +248,7 @@ lxc.net.0.type = veth
 lxc.net.0.flags = up
 lxc.net.0.name = eth0
 lxc.net.0.link = s2
-lxc.net.0.veth.pair = cli101
+lxc.net.0.veth.pair = client1
 ```
 ```
 sudo rm /var/lib/lxc/server-container/rootfs/etc/init/udev.conf
