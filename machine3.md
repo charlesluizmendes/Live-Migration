@@ -63,8 +63,12 @@ app activate org.onosproject.openflow
 app activate org.onosproject.roadm
 app activate org.onosproject.proxyarp 
 app activate org.onosproject.fwd
-    
-machine3@machine3-VirtualBox:/opt/onos/bin$ /opt/onos/bin/onos -l onos
+```
+
+Antes da migração:
+
+```
+machine3@machine3-VirtualBox:~$ /opt/onos/bin/onos -l onos
 Password authentication
 (onos@localhost) Password: 
 Welcome to Open Network Operating System (ONOS)!
@@ -83,28 +87,74 @@ Hit '<tab>' for a list of available commands
 and '[cmd] --help' for help on a specific command.
 Hit '<ctrl-d>' or type 'logout' to exit ONOS session.
 
-onos@root > devices                                                     16:41:13
-id=of:0000162a93cd3f42, available=true, local-status=connected 12m18s ago, role=MASTER, type=SWITCH, mfr=Nicira, Inc., hw=Open vSwitch, sw=2.17.9, serial=None, chassis=162a93cd3f42, driver=ovs, channelId=192.168.0.36:59398, managementAddress=192.168.0.36, protocol=OF_13
-id=of:00005abf70ad3a41, available=true, local-status=connected 12m18s ago, role=MASTER, type=SWITCH, mfr=Nicira, Inc., hw=Open vSwitch, sw=2.17.9, serial=None, chassis=5abf70ad3a41, driver=ovs, channelId=192.168.0.36:59412, managementAddress=192.168.0.36, protocol=OF_13
-id=of:0000c68ba4250b42, available=true, local-status=connected 13m1s ago, role=MASTER, type=SWITCH, mfr=Nicira, Inc., hw=Open vSwitch, sw=2.17.9, serial=None, chassis=c68ba4250b42, driver=ovs, channelId=192.168.0.30:34890, managementAddress=192.168.0.30, protocol=OF_13
-onos@root > hosts                                                       16:41:15
-id=A2:B6:7B:C4:D0:37/None, mac=A2:B6:7B:C4:D0:37, locations=[of:00005abf70ad3a41/3], vlan=None, ip(s)=[192.168.0.55], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
-id=DA:80:B6:6A:3B:55/None, mac=DA:80:B6:6A:3B:55, locations=[of:0000162a93cd3f42/3], vlan=None, ip(s)=[192.168.0.54], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
-onos@root > flows                                                       16:41:19
-deviceId=of:0000162a93cd3f42, flowRuleCount=4
-    id=100004bf8907a, state=ADDED, bytes=65764, packets=468, duration=740, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:bddp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
-    id=100004fb1c10e, state=ADDED, bytes=126, packets=3, duration=740, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:arp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
-    id=100007a899afa, state=ADDED, bytes=65764, packets=468, duration=740, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:lldp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
-    id=10000e11231fd, state=ADDED, bytes=0, packets=0, duration=740, liveType=UNKNOWN, priority=5, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:ipv4], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
-deviceId=of:00005abf70ad3a41, flowRuleCount=4
-    id=100000ded59c8, state=ADDED, bytes=65345, packets=465, duration=740, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:bddp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
-    id=1000068028010, state=ADDED, bytes=65345, packets=465, duration=740, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:lldp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
-    id=10000c29d90e1, state=ADDED, bytes=252, packets=6, duration=740, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:arp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
-    id=10000b79bd68a, state=ADDED, bytes=0, packets=0, duration=740, liveType=UNKNOWN, priority=5, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:ipv4], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+onos@root > devices                                                                             14:03:24
+id=of:000036a82a811042, available=true, local-status=connected 11m33s ago, role=MASTER, type=SWITCH, mfr=Nicira, Inc., hw=Open vSwitch, sw=2.17.9, serial=None, chassis=36a82a811042, driver=ovs, channelId=192.168.0.36:47142, managementAddress=192.168.0.36, protocol=OF_13
+id=of:000076f1b6076846, available=true, local-status=connected 11m33s ago, role=MASTER, type=SWITCH, mfr=Nicira, Inc., hw=Open vSwitch, sw=2.17.9, serial=None, chassis=76f1b6076846, driver=ovs, channelId=192.168.0.36:47130, managementAddress=192.168.0.36, protocol=OF_13
+id=of:0000c68ba4250b42, available=true, local-status=connected 11m36s ago, role=MASTER, type=SWITCH, mfr=Nicira, Inc., hw=Open vSwitch, sw=2.17.9, serial=None, chassis=c68ba4250b42, driver=ovs, channelId=192.168.0.30:60886, managementAddress=192.168.0.30, protocol=OF_13
+onos@root > hosts                                                                               14:03:32
+id=00:16:3E:3F:AB:45/None, mac=00:16:3E:3F:AB:45, locations=[of:000076f1b6076846/4], vlan=None, ip(s)=[192.168.0.54], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=AA:3A:0B:9E:EF:52/None, mac=AA:3A:0B:9E:EF:52, locations=[of:000036a82a811042/3], vlan=None, ip(s)=[192.168.0.55], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+onos@root > flows                                                                               14:03:36
+deviceId=of:000036a82a811042, flowRuleCount=4
+    id=1000062363cec, state=ADDED, bytes=252, packets=6, duration=695, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:arp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+    id=10000831955b4, state=ADDED, bytes=63082, packets=449, duration=695, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:bddp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+    id=1000084a79cf0, state=ADDED, bytes=63082, packets=449, duration=695, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:lldp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+    id=1000091c77415, state=ADDED, bytes=0, packets=0, duration=695, liveType=UNKNOWN, priority=5, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:ipv4], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+deviceId=of:000076f1b6076846, flowRuleCount=4
+    id=1000069ce3572, state=ADDED, bytes=378, packets=9, duration=695, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:arp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+    id=10000f6c7b0a1, state=ADDED, bytes=63225, packets=450, duration=695, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:bddp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+    id=10000f8852b24, state=ADDED, bytes=62944, packets=448, duration=690, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:lldp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+    id=10000d661a8d5, state=ADDED, bytes=0, packets=0, duration=695, liveType=UNKNOWN, priority=5, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:ipv4], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
 deviceId=of:0000c68ba4250b42, flowRuleCount=4
-    id=1000057db2b7b, state=ADDED, bytes=64308, packets=466, duration=785, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:bddp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
-    id=10000d844df1d, state=ADDED, bytes=64308, packets=466, duration=785, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:lldp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
-    id=10000f8701695, state=ADDED, bytes=0, packets=0, duration=785, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:arp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
-    id=1000026e8471f, state=ADDED, bytes=0, packets=0, duration=785, liveType=UNKNOWN, priority=5, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:ipv4], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
-onos@root > intents                                                     16:41:23
+    id=1000057db2b7b, state=ADDED, bytes=62514, packets=453, duration=700, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:bddp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+    id=10000d844df1d, state=ADDED, bytes=62514, packets=453, duration=700, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:lldp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+    id=10000f8701695, state=ADDED, bytes=0, packets=0, duration=700, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:arp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+    id=1000026e8471f, state=ADDED, bytes=0, packets=0, duration=700, liveType=UNKNOWN, priority=5, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:ipv4], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+```
+
+Depois da migração:
+
+```
+achine3@machine3-VirtualBox:~$ /opt/onos/bin/onos -l onos
+Password authentication
+(onos@localhost) Password: 
+Welcome to Open Network Operating System (ONOS)!
+     ____  _  ______  ____     
+    / __ \/ |/ / __ \/ __/   
+   / /_/ /    / /_/ /\ \     
+   \____/_/|_/\____/___/     
+                               
+Documentation: wiki.onosproject.org      
+Tutorials:     tutorials.onosproject.org 
+Mailing lists: lists.onosproject.org     
+
+Come help out! Find out how at: contribute.onosproject.org 
+
+Hit '<tab>' for a list of available commands
+and '[cmd] --help' for help on a specific command.
+Hit '<ctrl-d>' or type 'logout' to exit ONOS session.
+
+onos@root > devices                                                                             14:05:38
+id=of:000036a82a811042, available=true, local-status=connected 19m47s ago, role=MASTER, type=SWITCH, mfr=Nicira, Inc., hw=Open vSwitch, sw=2.17.9, serial=None, chassis=36a82a811042, driver=ovs, channelId=192.168.0.36:47142, managementAddress=192.168.0.36, protocol=OF_13
+id=of:000076f1b6076846, available=true, local-status=connected 19m47s ago, role=MASTER, type=SWITCH, mfr=Nicira, Inc., hw=Open vSwitch, sw=2.17.9, serial=None, chassis=76f1b6076846, driver=ovs, channelId=192.168.0.36:47130, managementAddress=192.168.0.36, protocol=OF_13
+id=of:0000c68ba4250b42, available=true, local-status=connected 19m50s ago, role=MASTER, type=SWITCH, mfr=Nicira, Inc., hw=Open vSwitch, sw=2.17.9, serial=None, chassis=c68ba4250b42, driver=ovs, channelId=192.168.0.30:60886, managementAddress=192.168.0.30, protocol=OF_13
+onos@root > hosts                                                                               14:11:46
+id=00:16:3E:3F:AB:45/None, mac=00:16:3E:3F:AB:45, locations=[of:0000c68ba4250b42/5], vlan=None, ip(s)=[192.168.0.54], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=AA:3A:0B:9E:EF:52/None, mac=AA:3A:0B:9E:EF:52, locations=[of:000036a82a811042/3], vlan=None, ip(s)=[192.168.0.55], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+onos@root > flows                                                                               14:11:48
+deviceId=of:000036a82a811042, flowRuleCount=4
+    id=1000062363cec, state=ADDED, bytes=252, packets=6, duration=1190, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:arp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+    id=10000831955b4, state=ADDED, bytes=107904, packets=768, duration=1190, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:bddp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+    id=1000084a79cf0, state=ADDED, bytes=107904, packets=768, duration=1190, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:lldp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+    id=1000091c77415, state=ADDED, bytes=0, packets=0, duration=1190, liveType=UNKNOWN, priority=5, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:ipv4], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+deviceId=of:000076f1b6076846, flowRuleCount=4
+    id=1000069ce3572, state=ADDED, bytes=378, packets=9, duration=1190, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:arp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+    id=10000f6c7b0a1, state=ADDED, bytes=108047, packets=769, duration=1190, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:bddp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+    id=10000f8852b24, state=ADDED, bytes=107766, packets=767, duration=1185, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:lldp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+    id=10000d661a8d5, state=ADDED, bytes=0, packets=0, duration=1190, liveType=UNKNOWN, priority=5, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:ipv4], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+deviceId=of:0000c68ba4250b42, flowRuleCount=4
+    id=1000057db2b7b, state=ADDED, bytes=106122, packets=769, duration=1190, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:bddp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+    id=10000d844df1d, state=ADDED, bytes=106122, packets=769, duration=1190, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:lldp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+    id=10000f8701695, state=ADDED, bytes=126, packets=3, duration=1190, liveType=UNKNOWN, priority=40000, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:arp], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
+    id=1000026e8471f, state=ADDED, bytes=0, packets=0, duration=1190, liveType=UNKNOWN, priority=5, tableId=0, appId=org.onosproject.core, payLoad=null, selector=[ETH_TYPE:ipv4], treatment=DefaultTrafficTreatment{immediate=[OUTPUT:CONTROLLER], deferred=[], transition=None, meter=[], cleared=true, StatTrigger=null, metadata=null}
 ```
