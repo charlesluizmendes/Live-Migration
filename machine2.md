@@ -128,19 +128,6 @@ ovs-vsctl --if-exists del-port ${ovsBr} $5
 ```
 sudo chmod +x /etc/lxc/ifdown
 ```
-# LXC
-
-Atribuir IP ao Container Server:
-
-```
-sudo lxc-attach -n server-container
-
-ip addr add 192.168.0.54/24 dev eth0
-ip route add default via 192.168.0.1 dev eth0
-
-ip link set eth0 up
-exit
-```
 
 # Criu 
 
@@ -177,4 +164,18 @@ sudo chmod 700 ~/.ssh
 sudo chmod 600 ~/.ssh/authorized_keys
 
 sudo systemctl restart sshd
+```
+
+# LXC
+
+Atribuir IP ao Container Server:
+
+```
+sudo lxc-attach -n server-container
+
+ip addr add 192.168.0.54/24 dev eth0
+ip route add default via 192.168.0.1 dev eth0
+
+ip link set eth0 up
+exit
 ```
