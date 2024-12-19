@@ -29,8 +29,6 @@ sudo apt-get update && sudo apt-get install -y \
     libaio-dev \
     apparmor
 
-sudo apt --fix-broken install
-
 sudo apt-get update && sudo apt-get install -y \
     python3-setuptools \
     python3-pip
@@ -101,20 +99,6 @@ ff478e61-e27f-4c34-a7cb-7ea30177ad55
     ovs_version: "2.17.9"
 ```
 
-Configurar tabelas de IP:
-
-```
-sudo sysctl -w net.ipv4.ip_forward=1
-
-sudo iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o eth0 -j MASQUERADE
-
-sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-sudo iptables -A FORWARD -i s3 -o eth0 -j ACCEPT
-sudo iptables -A FORWARD -i eth0 -o s3 -m state --state RELATED,ESTABLISHED -j ACCEPT
-
-sudo netfilter-persistent save
-```
-
 Criar Script para a conexão do Container com o OVS:
 
 ```
@@ -164,11 +148,6 @@ git checkout master
 sudo make clean
 sudo make
 sudo make install
-
-sudo criu check --all
-
-machine1@machine1-VirtualBox:~/criu$ sudo criu check --all
-Looks good.
 ```
 
 # SSH
