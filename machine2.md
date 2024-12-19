@@ -103,7 +103,6 @@ Criar Script para a conexão do Container com o OVS:
 
 ```
 sudo nano /etc/lxc/ifup
-sudo chmod +x /etc/lxc/ifup
 ```
 ```
 #!/bin/bash
@@ -115,8 +114,10 @@ ovs-vsctl --if-exists del-port $BRIDGE $5
 ovs-vsctl --may-exist add-port $BRIDGE $5
 ```
 ```
+sudo chmod +x /etc/lxc/ifup
+```
+```
 sudo nano /etc/lxc/ifdown
-sudo chmod +x /etc/lxc/ifdown
 ```
 ```
 #!/bin/bash
@@ -124,7 +125,9 @@ sudo chmod +x /etc/lxc/ifdown
 ovsBr=s3
 ovs-vsctl --if-exists del-port ${ovsBr} $5
 ```
-
+```
+sudo chmod +x /etc/lxc/ifdown
+```
 # LXC
 
 Atribuir IP ao Container Server:
