@@ -58,7 +58,7 @@ sudo apt install linux-image-generic
 sudo ovs-vsctl add-br s3
 
 # Configurar controlador para o switch
-sudo ovs-vsctl set-controller s3 tcp:192.168.0.204:6653
+sudo ovs-vsctl set-controller s3 tcp:192.168.0.173:6653
 
 # Configurar protocolo OpenFlow13 para o switch
 sudo ovs-vsctl set Bridge s3 protocols=OpenFlow13
@@ -79,7 +79,7 @@ sudo ovs-vsctl show
 machine2@machine2-VirtualBox:~$ sudo ovs-vsctl show
 ff478e61-e27f-4c34-a7cb-7ea30177ad55
     Bridge s3
-        Controller "tcp:192.168.0.204:6653"
+        Controller "tcp:192.168.0.173:6653"
             is_connected: true
         Port vxlan1
             Interface vxlan1

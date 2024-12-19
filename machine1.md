@@ -59,8 +59,8 @@ sudo ovs-vsctl add-br s1
 sudo ovs-vsctl add-br s2
 
 # Configurar controladores para os switches
-sudo ovs-vsctl set-controller s1 tcp:192.168.0.204:6653
-sudo ovs-vsctl set-controller s2 tcp:192.168.0.204:6653
+sudo ovs-vsctl set-controller s1 tcp:192.168.0.173:6653
+sudo ovs-vsctl set-controller s2 tcp:192.168.0.173:6653
 
 # Configurar protocolo OpenFlow13 para os switches
 sudo ovs-vsctl set Bridge s1 protocols=OpenFlow13
@@ -82,7 +82,7 @@ sudo ovs-vsctl show
 machine1@machine1-VirtualBox:~$ sudo ovs-vsctl show
 faa7434e-4eae-4b0a-a606-f054d6e7c29e
     Bridge s2
-        Controller "tcp:192.168.0.204:6653"
+        Controller "tcp:192.168.0.173:6653"
             is_connected: true
         Port vxlan1
             Interface vxlan1
@@ -218,6 +218,7 @@ lxc.net.0.name = eth0
 lxc.net.0.flags = up
 lxc.net.0.script.up = /etc/lxc/ifup
 lxc.net.0.script.down = /etc/lxc/ifdown
+lxc.net.0.hwaddr = 00:16:3e:01:c3:1b
 ```
 ```
 sudo gedit
