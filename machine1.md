@@ -36,6 +36,7 @@ sudo apt-get update && sudo apt-get install -y \
 sudo apt-get update && sudo apt-get install -y \
     openvswitch-switch \
     iptables-persistent \
+    isc-dhcp-client \ 
     net-tools
 
 sudo apt-get install openssh-server -y
@@ -55,10 +56,6 @@ sudo apt install linux-image-generic
 # Adicionar switches
 sudo ovs-vsctl add-br s1
 sudo ovs-vsctl add-br s2
-
-# Configurar controladores para os switches
-sudo ovs-vsctl set-controller s1 tcp:192.168.0.173:6653
-sudo ovs-vsctl set-controller s2 tcp:192.168.0.173:6653
 
 # Configurar protocolo OpenFlow13 para os switches
 sudo ovs-vsctl set Bridge s1 protocols=OpenFlow13
@@ -108,36 +105,6 @@ faa7434e-4eae-4b0a-a606-f054d6e7c29e
                 type: patch
                 options: {peer=patch-s2-s1}
     ovs_version: "2.17.9"
-```
-
-Criar Script para a conexão do Container com o OVS:
-
-```
-sudo nano /etc/lxc/ifup
-```
-```
-#!/bin/bash
-
-BRIDGE=s1
-
-ovs-vsctl --may-exist add-br $BRIDGE
-ovs-vsctl --if-exists del-port $BRIDGE $5
-ovs-vsctl --may-exist add-port $BRIDGE $5
-```
-```
-sudo chmod +x /etc/lxc/ifup
-```
-```
-sudo nano /etc/lxc/ifdown
-```
-```
-#!/bin/bash
-
-ovsBr=s1
-ovs-vsctl --if-exists del-port ${ovsBr} $5
-```
-```
-sudo chmod +x /etc/lxc/ifdown
 ```
 
 # LXC
@@ -198,10 +165,8 @@ lxc.rootfs.path = /var/lib/lxc/server-container/rootfs
 lxc.uts.name = server-container
 
 lxc.net.0.type = veth
-lxc.net.0.name = eth0
 lxc.net.0.flags = up
-lxc.net.0.script.up = /etc/lxc/ifup
-lxc.net.0.script.down = /etc/lxc/ifdown
+lxc.net.0.link = s1
 lxc.net.0.hwaddr = 00:16:3e:01:c3:1b
 ```
 ```
@@ -210,9 +175,9 @@ sudo gedit
 ```
 ```
 lxc.net.0.type = veth
-lxc.net.0.name = eth1
 lxc.net.0.flags = up
 lxc.net.0.link = s2
+lxc.net.0.hwaddr = 00:16:3e:af:f3:fd
 ```
 ```
 sudo rm /var/lib/lxc/server-container/rootfs/etc/init/udev.conf
@@ -225,28 +190,17 @@ sudo lxc-start -n client-container
 sudo lxc-ls -f
 ```
 
-Atribuir IP ao Container Server:
+Atribuir acesso a rede externa ao switch s2:
 
 ```
-sudo lxc-attach -n server-container
+sudo ip addr flush dev enp0s1
+sudo ovs-vsctl add-port s2 enp0s1
 
-ip addr add 192.168.0.54/24 dev eth0
-ip route add default via 192.168.0.1 dev eth0
+sudo dhclient s2
 
-ip link set eth0 up
-exit
-```
+sudo sysctl -p
 
-Atribuir IP ao Container Client:
-
-```
-sudo lxc-attach -n client-container
-
-ip addr add 192.168.0.55/24 dev eth1
-ip route add default via 192.168.0.1 dev eth1
-
-ip link set eth1 up
-exit
+sudo iptables -t nat -A POSTROUTING -o enp0s1 -j MASQUERADE
 ```
 
 # Criu

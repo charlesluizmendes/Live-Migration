@@ -36,6 +36,7 @@ sudo apt-get update && sudo apt-get install -y \
 sudo apt-get update && sudo apt-get install -y \
     openvswitch-switch \
     iptables-persistent \
+    isc-dhcp-client \ 
     net-tools
 
 sudo apt-get install openssh-server -y
@@ -54,9 +55,6 @@ sudo apt install linux-image-generic
 ```
 # Adicionar o switch s3
 sudo ovs-vsctl add-br s3
-
-# Configurar controlador para o switch
-sudo ovs-vsctl set-controller s3 tcp:192.168.0.173:6653
 
 # Configurar protocolo OpenFlow13 para o switch
 sudo ovs-vsctl set Bridge s3 protocols=OpenFlow13
@@ -99,36 +97,6 @@ ff478e61-e27f-4c34-a7cb-7ea30177ad55
     ovs_version: "2.17.9"
 ```
 
-Criar Script para a conexão do Container com o OVS:
-
-```
-sudo nano /etc/lxc/ifup
-```
-```
-#!/bin/bash
-
-BRIDGE=s3
-
-ovs-vsctl --may-exist add-br $BRIDGE
-ovs-vsctl --if-exists del-port $BRIDGE $5
-ovs-vsctl --may-exist add-port $BRIDGE $5
-```
-```
-sudo chmod +x /etc/lxc/ifup
-```
-```
-sudo nano /etc/lxc/ifdown
-```
-```
-#!/bin/bash
-
-ovsBr=s3
-ovs-vsctl --if-exists del-port ${ovsBr} $5
-```
-```
-sudo chmod +x /etc/lxc/ifdown
-```
-
 # Criu 
 
 ```
@@ -164,18 +132,4 @@ sudo chmod 700 ~/.ssh
 sudo chmod 600 ~/.ssh/authorized_keys
 
 sudo systemctl restart sshd
-```
-
-# LXC
-
-Atribuir IP ao Container Server:
-
-```
-sudo lxc-attach -n server-container
-
-ip addr add 192.168.0.54/24 dev eth0
-ip route add default via 192.168.0.1 dev eth0
-
-ip link set eth0 up
-exit
 ```
