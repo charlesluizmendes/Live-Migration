@@ -57,6 +57,10 @@ sudo apt install linux-image-generic
 sudo ovs-vsctl add-br s1
 sudo ovs-vsctl add-br s2
 
+# Configurar controladores para os switches
+sudo ovs-vsctl set-controller s1 tcp:192.168.0.173:6653
+sudo ovs-vsctl set-controller s2 tcp:192.168.0.173:6653
+
 # Configurar protocolo OpenFlow13 para os switches
 sudo ovs-vsctl set Bridge s1 protocols=OpenFlow13
 sudo ovs-vsctl set Bridge s2 protocols=OpenFlow13
@@ -190,17 +194,10 @@ sudo lxc-start -n client-container
 sudo lxc-ls -f
 ```
 
-Atribuir acesso a rede externa ao switch s2:
+Atribuir acesso a rede externa:
 
 ```
-sudo ip addr flush dev enp0s1
-sudo ovs-vsctl add-port s2 enp0s1
 
-sudo dhclient s2
-
-sudo sysctl -p
-
-sudo iptables -t nat -A POSTROUTING -o enp0s1 -j MASQUERADE
 ```
 
 # Criu

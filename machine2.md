@@ -56,6 +56,9 @@ sudo apt install linux-image-generic
 # Adicionar o switch s3
 sudo ovs-vsctl add-br s3
 
+# Configurar controlador para o switch
+sudo ovs-vsctl set-controller s3 tcp:192.168.0.173:6653
+
 # Configurar protocolo OpenFlow13 para o switch
 sudo ovs-vsctl set Bridge s3 protocols=OpenFlow13
 
@@ -95,6 +98,14 @@ ff478e61-e27f-4c34-a7cb-7ea30177ad55
             Interface s3-eth1
                 type: internal
     ovs_version: "2.17.9"
+```
+
+# LXC
+
+Atribuir acesso a rede externa:
+
+```
+
 ```
 
 # Criu 
