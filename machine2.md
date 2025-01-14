@@ -102,10 +102,16 @@ ff478e61-e27f-4c34-a7cb-7ea30177ad55
 
 # LXC
 
-Atribuir acesso a rede externa:
+Atribuir IP ao Container Server:
 
 ```
+sudo lxc-attach -n server-container
 
+ip addr add 192.168.0.54/24 dev eth0
+ip route add default via 192.168.0.1 dev eth0
+
+ip link set eth0 up
+exit
 ```
 
 # Criu 

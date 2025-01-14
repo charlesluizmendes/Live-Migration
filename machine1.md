@@ -194,10 +194,28 @@ sudo lxc-start -n client-container
 sudo lxc-ls -f
 ```
 
-Atribuir acesso a rede externa:
+Atribuir IP ao Container Server:
 
 ```
+sudo lxc-attach -n server-container
 
+ip addr add 192.168.0.54/24 dev eth0
+ip route add default via 192.168.0.1 dev eth0
+
+ip link set eth0 up
+exit
+```
+
+Atribuir IP ao Container Client:
+
+```
+sudo lxc-attach -n client-container
+
+ip addr add 192.168.0.55/24 dev eth1
+ip route add default via 192.168.0.1 dev eth1
+
+ip link set eth1 up
+exit
 ```
 
 # Criu
